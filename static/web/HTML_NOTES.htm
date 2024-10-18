@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML_NOTES</title>
+    <link rel="stylesheet" href="ExternalFiles/HTMLstyles.css">
+</head>
+
+<body>
+    <nav>
+        <a href="HTML_NOTES.htm" target="_blank">HTML Note</a>
+        <a href="CSS_NOTES.htm" target="_blank">CSS Note</a>
+        <a href="JSCRIPT_NOTES.htm" target="_blank">JavaScript Note</a>
+        <a href="JQUERY_NOTES.htm" target="_blank">JQuery Note</a>
+    </nav>
+    <h1>HTML BASICS</h1>
+    <p>HTML use .htm or .html
+        for file extension, press Ctrl + U to find source code of the page and Ctrl + Shift + I to inspect element</p>
+    <p>Shortcuts: Type <code> tag1 * m > tag2 * n </code> to create m * n tags</p>
+
+    <h1>HTML SELECTOR</h1>
+    <table>
+        <tr>
+            <th>Selector</th>
+            <th>Access</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>#idname</td>
+            <td>id = "idname". ID is unique</td>
+        </tr>
+        <tr>
+            <td>class</td>
+            <td>.classname</td>
+            <td>class = "class". Object oriented</td>
+        </tr>
+        <tr>
+            <td>Select All</td>
+            <td>*</td>
+            <td>* {CSS}</td>
+        </tr>
+        <tr>
+            <td>Multiple Selection</td>
+            <td>,</td>
+            <td>h1, h2, h3 {CSS}</td>
+        </tr>
+        <tr>
+            <td>Inherited / Descendant</td>
+            <td>' ' (space)</td>
+            <td>div a {CSS}</td>
+        </tr>
+        <tr>
+            <td>Child</td>
+            <td>></td>
+            <td>Select all the child of a element, but not grandchild</td>
+        </tr>
+        <tr>
+            <td>Next Siblings</td>
+            <td>+</td>
+            <td>Selects the first a element that are placed immediately after b</td>
+        </tr>
+        <tr>
+            <td>Adjacent Siblings</td>
+            <td>~</td>
+            <td>Selects all elements that are next siblings of</td>
+        </tr>
+    </table>
+
+    <h1>HTML ELEMENTS</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Tags</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="table_category" colspan="2">Table</td>
+            </tr>
+            <tr>
+                <td>table</td>
+                <td>Define a table</td>
+            </tr>
+            <tr>
+                <td>thead, tbody, tfoot</td>
+                <td>Groups the header, body, foot content in a table</td>
+            </tr>
+            <tr>
+                <td>caption</td>
+                <td>Adds caption to the top of the table</td>
+            </tr>
+            <tr>
+                <td>th</td>
+                <td>Header cell of the table</td>
+            </tr>
+            <tr>
+                <td>tr</td>
+                <td>Table row</td>
+            </tr>
+            <tr>
+                <td>td</td>
+                <td>Table cell</td>
+            </tr>
+            <tr>
+                <td>colgroup</td>
+                <td>Specifies a group of one or more columns in a table for formatting</td>
+            </tr>
+            <tr>
+                <td>col</td>
+                <td>Specifies column properties for each column within a colgroup element</td>
+            </tr>
+            <tr>
+                <td>col</td>
+                <td>Specifies column properties for each column within a colgroup element</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td class="table_category" colspan="2">Basic HTML Structure</td>
+            </tr>
+            <tr>
+                <td>!DOCTYPE html</td>
+                <td>Define as HTML document</td>
+            </tr>
+            <tr>
+                <td>head</td>
+                <td>Header of file</td>
+            </tr>
+            <tr>
+                <td>body</td>
+                <td>Body of file</td>
+            </tr>
+            <tr>
+                <td>h1 ~ h6</td>
+                <td>Headings</td>
+            </tr>
+            <tr>
+                <td>p</td>
+                <td>Paragraph</td>
+            </tr>
+            <tr>
+                <td>a</td>
+                <td>Hyperlink: <a href="https://www.w3schools.com/" title="W3SChool">Click to W3School</a></td>
+            </tr>
+            <tr>
+                <td>img</td>
+                <td>Image</td>
+            </tr>
+            <tr>
+                <td>br</td>
+                <td>Break Line</td>
+            </tr>
+            <tr>
+                <td>hr</td>
+                <td>Horizontal Line</td>
+            </tr>
+            <tr>
+                <td>pre</td>
+                <td>
+                    <pre>Preserve line break and     spaces in fixed size</pre>
+                </td>
+            </tr>
+            <td class="table_category" colspan="2">Formatting</td>
+            <tr>
+                <td>b</td>
+                <td><b>Bold text</b></td>
+            </tr>
+            <tr>
+                <td>strong</td>
+                <td><strong>Important text</strong></td>
+            </tr>
+            <tr>
+                <td>i</td>
+                <td><i>Italic text</i></td>
+            </tr>
+            <tr>
+                <td>em</td>
+                <td><em>Emphasized text</em></td>
+            </tr>
+            <tr>
+                <td>mark</td>
+                <td><mark>Marked text</mark></td>
+            </tr>
+            <tr>
+                <td>small</td>
+                <td><small>Smaller text</small></td>
+            </tr>
+            <tr>
+                <td>del</td>
+                <td><del>Deleted text</del></td>
+            </tr>
+            <tr>
+                <td>ins</td>
+                <td><ins>Inserted text</ins></td>
+            </tr>
+            <tr>
+                <td>sub</td>
+                <td><sub>Subscript text</sub></td>
+            </tr>
+            <tr>
+                <td>sup</td>
+                <td><sup>Superscript text</sup></td>
+            </tr>
+            <td class="table_category" colspan="2">Quotation</td>
+            <tr>
+                <td>abbr</td>
+                <td>Defines an abbreviation: <abbr title="Hyper Text Markup Language">HTML</abbr></td>
+            </tr>
+            <tr>
+                <td>address</td>
+                <td>Contact information for the author/owner of a document</td>
+            </tr>
+            <tr>
+                <td>bdo</td>
+                <td>Defines text direction: <bdo dir="rtl">right to left</bdo></td>
+            </tr>
+            <tr>
+                <td>blockquote</td>
+                <td>Defines a section that is quoted from another source</td>
+            </tr>
+            <tr>
+                <td>cite</td>
+                <td>Defines the title of a work</td>
+            </tr>
+            <tr>
+                <td>q</td>
+                <td>Defines a short inline quotation</td>
+            </tr>
+            <td class="table_category" colspan="2">List</td>
+            <tr>
+                <td>ol</td>
+                <td>Ordered List, type="1", "a", "A", "i", "I"</td>
+            </tr>
+            <tr>
+                <td>ul</td>
+                <td>Unordered List, type="disc", "circle", "square"</td>
+            </tr>
+            <tr>
+                <td>li</td>
+                <td>List elements</td>
+            </tr>
+            <td class="table_category" colspan="2">Reserved Symbols</td>
+            <tr>
+                <td>comments</td>
+                <td>&lt !--message--&gt</td>
+            </tr>
+            <tr>
+                <td>&lt, &gt, '&nbsp', &amp, &quot</td>
+                <td>&amplt, &ampgt, &ampnbsp, &ampamp, &ampquot</td>
+            </tr>
+            <td class="table_category" colspan="2">Sematic</td>
+            <tr>
+                <td>div</td>
+                <td>An area</td>
+            </tr>
+            <tr>
+                <td>span</td>
+                <td>Span of a text</td>
+            </tr>
+            <tr>
+                <td>meta</td>
+                <td>To define thing that are not available in HTML tags</td>
+            </tr>
+            <tr>
+                <td>header</td>
+                <td>Container for introductory content or a set of navigational links</td>
+            </tr>
+            <tr>
+                <td>nav</td>
+                <td>Defines a set of navigation links</td>
+            </tr>
+            <tr>
+                <td>section</td>
+                <td>Thematic grouping of content, typically used on intro, content and contact</td>
+            </tr>
+            <tr>
+                <td>aside</td>
+                <td>Defines some content aside from the content it is placed in (like a sidebar)</td>
+            </tr>
+            <tr>
+                <td>article</td>
+                <td>Specifies independent, self-contained content</td>
+            </tr>
+            <tr>
+                <td>footer</td>
+                <td>Defines a footer for a document or section</td>
+            </tr>
+            <tr>
+                <td>details</td>
+                <td>Defines additional details that the user can view or hide</td>
+            </tr>
+
+            <tr>
+                <td>summary </td>
+                <td>Defines a visible heading for a &ltdetails&gt element</td>
+            </tr>
+
+            <tr>
+                <td>figure</td>
+                <td>Specifies self-contained content, like diagrams, photos, code listings, etc</td>
+            </tr>
+            <tr>
+                <td>figcaption</td>
+                <td>Defines a caption for a &ltfigure&gt element</td>
+            </tr>
+            <tr>
+                <td>time</td>
+                <td>Defines a date/time</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h1>HTML COLOURS</h1>
+    <ol>
+        <li> RGB(Red Green Blue): rgb(red, green, blue); [0 ~ 255] </li>
+        <li> RGBA(RGB with Alpha channel): rgba(red, green, blue, opacity); [0 ~ 255], [0 ~ 1]</li>
+        <li> HEX(Hexadecimal Colors): #rrggbb; [00 ~ FF] </li>
+        <li> HSL(Hue Saturation Lightness): hsl(hue[0/360:red, 120:green, 240:blue], saturation[0~100%],
+            brightness[0~100%]);</li>
+        <li> HSLA(HSL with Alpha): hsl(hue, saturation, brightness, opacity[0~100%]);</li>
+    </ol>
+
+    <h1>HTML FORMS</h1>
+    <form name="MyForm" action="a.php" method="POST" target="_blank" enctype="text/plain">
+        <code>&ltform name="MyForm" action="a.php" method="POST" target="_blank" enctype="text/plain"&gt... &lt/form&gt<br></code>
+        Method:<br>
+        - POST Send the data to the header and more secure<br>
+        - GET Put the data into URL and can be cache<br>
+        Enctype:<br>
+        - application/x-www-form-urlencoded (Default) All characters are encoded before sent (spaces are converted to
+        "+" symbols, and special characters are converted to ASCII HEX values)<br>
+        - multipart/form-data This value is necessary if the user will upload a file through the form<br>
+        - text/plain Sends data without any encoding at all. Not recommended<br>
+        </p>
+        <table>
+            <tr>
+                <th>Input Type</th>
+                <th>Syntax</th>
+                <th>Sample</th>
+            </tr>
+            <tr>
+                <td>Text</td>
+                <td><code> &ltinput type="text" name="" size="" maxlength="" placeholder=""> </code></td>
+                <td><input type="text" name="user" size="20" maxlength="10" placeholder="Anjing"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><code>&ltinput type="password" name="" size="" value=""></td>code></td>
+                <td><input type="password" name="pwd" size="20" value="abc"></td>
+            </tr>
+            <tr>
+                <td>Hidden</td>
+                <td><code>&ltinput type="hidden" name="" value=""></code></td>
+                <td><input type="hidden" name="constant" value="123"></td>
+            </tr>
+            <tr>
+                <td>Text Area</td>
+                <td><code>&lttextarea name="textarea" rows="" cols="">Message:&lt/textarea></code></td>
+                <td><textarea name="textarea" rows="3" cols="20">Message:</textarea></td>
+            </tr>
+            <tr>
+                <td>Button</td>
+                <td><code>&ltinput type="" size="" value="" onclick=""></code></td>
+                <td><input type="button" size="20" value="button" onclick="javascript:alert('Triggered by button');">
+                    <input type="submit" size="20" value="submit">
+                    <input type="reset" size="20" value="reset">
+                </td>
+            </tr>
+            <tr>
+                <td>Radio Button</td>
+                <td><code>&ltinput type="radio" name="" value=""></code></td>
+                <td><input type="radio" name="sex" value="1" checked>M
+                    <input type="radio" name="sex" value="2">F
+                    <input type="radio" name="sex" value="4"> name is the group
+                </td>
+            </tr>
+            <tr>
+                <td>Checkbox</td>
+                <td><code>&ltinput type="checkbox" name="name[]" value=""></code></td>
+                <td><input type="checkbox" name="name[]" value="1" checked>A
+                    <input type="checkbox" name="name[]" value="2">B
+                    <input type="checkbox" name="name[]" value="3">C
+                </td>
+            </tr>
+            <tr>
+                <td>Select</td>
+                <td><code>
+                    &ltselect name="select" size="1"><br>
+                        &ltoption value="x"> x &lt/option><br>
+                    &lt/select>
+                </code></td>
+                <td><select name="select" size="1">
+                        <option value="I" selected> I </option>
+                        <option value="II"> II</option>
+                        <option value="III"> III</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Multiple Select</td>
+                <td><code>
+                    &ltselect name="select multiple" size="2" <multiple><br></multiple>
+                        &ltoption value="x" selected> x &lt/option><br>
+                        &ltoption value="y"> y &lt/option><br>
+                    &lt/select><br>
+                </code></td>
+                <td>
+                    <select name="select multiple" size="3" multiple>
+                        <option value="I" selected> I </option>
+                        <option value="II"> II</option>
+                        <option value="III"> III</option>
+                        <option value="IV"> IV</option>
+                        <option value="V"> V</option>
+                        <option value="IV"> IV</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>File Upload</td>
+                <td><code>&ltinput type="file" name=""></code></td>
+                <td><input type="file" name="file1"></td>
+            </tr>
+        </table>
+    </form>
+
+    <h1>HTML MEDIA</h1>
+    <code>&lta href="link" title="title shown when hovered" target="_xxx"&gt link name &lta&gt</code>
+    <ul>
+        <li>_self : (Default) Opens the document in the same window/tab as it was clicked</li>
+        <li>_blank: Opens the document in a new window or tab</li>
+        <li>_parent: Opens the document in the parent frame</li>
+        <li>_top: Opens the document in the full body of the window</li>
+    </ul>
+    <p><a href="mailto:howwilson11@gmail.com" target="_self"><img src="/Personal HTML Notes/ExternalFiles/doge.png"
+                alt="Doge" style="width:80px;height:80px;"></a> Image can also be a link</p>
+    <table>
+        <tr>
+            <th>Media</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td>audio</td>
+            <td><audio controls loop controls>
+                    <source
+                        src="/Personal HTML Notes/ExternalFiles/Rick Astley - Never Gonna Give You Up (Official Music Video).mp3"
+                        type="audio/mpeg">
+                </audio></td>
+        </tr>
+        <tr>
+            <td>video</td>
+            <td><video width="300" height="300" controls>
+                    <source
+                        src="/Personal HTML Notes/ExternalFiles/Rick Astley - Never Gonna Give You Up (Official Music Video).mp4"
+                        type="video/mp4">
+                </video></td>
+        </tr>
+        <tr>
+            <td>embed</td>
+            <td><embed src="test.mp3" autostart="true" loop="-1" volume="100" hidden="false" width="140"
+                    height="40"></embed>N/A, deprecated</td>
+        </tr>
+        <tr>
+            <td>iframe</td>
+            <td><iframe width="400" height="300" src="https://youtu.be/dQw4w9WgXcQ" frameborder="0" allowfullscreen>
+                </iframe></td>
+        </tr>
+    </table>
+
+    <h1>HTML LAYOUT</h1>
+    <table>
+        <tr>
+            <th>Feature</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>@media screen and (max-width: 800px){ CSS }</td>
+            <td>Change the CSS property when the screen size is lesser than 800px</td>
+        </tr>
+        <tr>
+            <td>float: left / right <br> Clear: left / right / both</td>
+            <td>Floats block element into a line</td>
+        </tr>
+        <tr>
+            <td>box-sizing: border-box</td>
+            <td>Make sure the width = padding + width + border. Recommended to add to all of the element</td>
+        </tr>
+        <tr>
+            <td>Responsive Web Design(Grid-View) <br>
+                - All box-sizing must be set to border-box <br>
+                - Total col- in a row is 12 <br>
+                - Tablet usually have identical width with pc but the name is different. Ex: .col-s-1 <br>
+                <code>&ltdiv class="row"> ... &lt/div></code> <br>
+                - Device typical width <br>
+                Extra small devices (phones, 600px and down) <br>
+                Small devices (portrait tablets and large phones, 600px and up)<br>
+                Medium devices (landscape tablets, 768px and up)<br>
+                Large devices (laptops/desktops, 992px and up)<br>
+                Extra large devices (large laptops and desktops, 1200px and up) <br>
+            </td>
+            <td>Setup CSS as follows <br>
+                .col-1 {width: 8.33%;} <br>
+                .col-2 {width: 16.66%;} <br>
+                .col-3 {width: 25%;} <br>
+                .col-4 {width: 33.33%;} <br>
+                .col-5 {width: 41.66%;} <br>
+                .col-6 {width: 50%;} <br>
+                .col-7 {width: 58.33%;} <br>
+                .col-8 {width: 66.66%;} <br>
+                .col-9 {width: 75%;} <br>
+                .col-10 {width: 83.33%;} <br>
+                .col-11 {width: 91.66%;} <br>
+                .col-12 {width: 100%;} <br>
+                // Select all col- class <br>
+                [class*="col-"] { float: left; padding: 15px; border: 1px solid black; } <br>
+                // Avoid eveything float to left <br>
+                .row::after { content: ""; clear: both; display: table; }
+            </td>
+        </tr>
+        <tr>
+            <td>Bootstrap 5 <br>
+                // Latest compiled and minified CSS <br>
+                <code>&ltlink href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"></code>
+                // Latest compiled JavaScript <br>
+                <code>&ltscript src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js">&lt/script></code>
+
+            </td>
+            <td>Bootstrap is a free front-end framework for faster and easier web development <br>
+                <a href="https://www.w3schools.com/bootstrap5/bootstrap_get_started.php"
+                    alt="W3School Bootstrap 5 Tutorial" target="_blank">W3School Bootstrap 5 Tutorial</a>
+            </td>
+        </tr>
+        <tr>
+            <td>W3.CSS</td>
+            <td>A Quality Alternative to Bootstrap. W3.CSS is Smaller, Faster and Easier to use.<br><a
+                    href="https://www.w3schools.com/w3css/default.asp" alt="W3.CSS Tutorial Link" target="_blank">W3.CSS
+                    Tutorial</a></td>
+        </tr>
+    </table>
+
+    <div>
+        <h2>Layout Example</h2>
+        <div class="layout1-container">
+            <h1>Simple Layout Using Float</h1>
+        </div>
+        <div class="layout1-overflow">
+            <div class="layout1-menu">
+                <a href="#">Menu width 20%</a>
+                <a href="#">Main width 60%</a>
+                <a href="#">Right width 20%</a>
+                <a href="#">overflow: auto ;at body</a>
+            </div>
+            <div class="layout1-main">
+                <h2>Adjust the screen size to see the change</h2>
+                <p>box-sizing: border-box; applied at menu, main, right<br>float: left; is used</p>
+            </div>
+            <div class="layout1-right">
+                <h2>Switch at 650px</h2>
+                <p>Width of menu, main and right set to 100% when screen is under 650px.</p>
+            </div>
+        </div>
+        <div class="layout1-container">© copyright w3schools.com</div>
+    </div>
+</body>
+
+</html>

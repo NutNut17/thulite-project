@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSCRIPT_NOTES</title>
+    <link rel="stylesheet" href="ExternalFiles/HTMLstyles.css">
+
+    <script>
+        function start() {
+            document.write("Hello");
+        }
+        start();
+        function change_sel() {
+            var sel_id = window.document.getElementsByName('select').selectedIndex;
+            alert(window.document.getElementsByName('select').options[sel_id].text);
+        }
+    </script>
+</head>
+
+<body>
+    <nav>
+        <a href="HTML_NOTES.htm" target="_blank">HTML Note</a>
+        <a href="CSS_NOTES.htm" target="_blank">CSS Note</a>
+        <a href="JSCRIPT_NOTES.htm" target="_blank">JavaScript Note</a>
+        <a href="JQUERY_NOTES.htm" target="_blank">JQuery Note</a>
+    </nav>
+    <h1> JAVASCRIPT INTRODUCTION</h1>
+    <p>Javascript use (.js) as file extension or javascript must be declared in <code>script</code> tag at the head tag
+        section.</p>
+    <table>
+        <tr>
+            <th>Feature</th>
+            <th>Syntax</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td class="table_category" colspan="3">General</td>
+        </tr>
+        <tr>
+            <td>Script</td>
+            <td>&ltscript src="filename.js"&gt ... &lt/script&gt</td>
+            <td>Import JS file</td>
+        </tr>
+        <tr>
+            <td>Onclick Trigger</td>
+            <td>onclick=" function "</td>
+            <td><input type="button" onclick="alert('onclick trigger')" size="100px" value="onclick"></td>
+        </tr>
+        <tr>
+            <td>Variable Integer</td>
+            <td>var i = 0</td>
+            <td>Declare an integer variable</td>
+        </tr>
+        <tr>
+            <td>Variable String</td>
+            <td>var str= new String("str") or = "str"</td>
+            <td>Declare a string variable</td>
+        </tr>
+        <tr>
+            <td>Variable Array</td>
+            <td>var arr= new Array('A','B') or = ['A','B']</td>
+            <td>Declare a string array variable</td>
+        </tr>
+        <tr>
+            <td>Function Declaration</td>
+            <td>            <code>
+                &ltscript> function fun_name(parameters){...} &lt/script>
+            </code></td>
+            <td>Javascript function declaration. The syntax in function statement is similar as to Java</td>
+        </tr>
+        <tr>
+            <td>Function Start</td>
+            <td>function start() { document.write("Hello"); }</td>
+            <td>A function that run at start. document points to the body</td>
+        </tr>
+        <tr>
+            <td>Alert, Confirm, Prompt Function</td>
+            <td>alert('message'), confirm('message'), prompt('message')</td>
+            <td>
+                <input type="button" value="alert" onclick="alert('alert');">
+                <input type="button" value="confirm" onclick="confirm('confirm');">
+                <input type="button" value="prompt" onclick="prompt('prompt');">
+            </td>
+        </tr>
+        <tr>
+            <td class="table_category" colspan="3">Event Attribute</td>
+        </tr>
+        <tr>
+            <td>Event Attribute</td>
+            <td>event="function"</td>
+            <td>events: onLoad, onClick, onDbClick, onChange, onMouseOver, onMouseOut, onFocus, onBlur,
+                onKeyDown, onKeyUP</td>
+        </tr>
+        <tr>
+            <td class="table_category" colspan="3">Selection</td>
+        </tr>
+        <tr>
+            <td>getElementsByTagName Function</td>
+            <td>getElementsByTagName('tagname').innerHTML</td>
+            <td>Access by Tag</td>
+        </tr>
+        <tr>
+            <td>getElementById Function</td>
+            <td>getElementById('id').innerHTML</td>
+            <td>Access by ID</td>
+        </tr>
+        <tr>
+            <td>getElementByName Function</td>
+            <td>getElementByName('name').innerHTML</td>
+            <td>Access by Name</td>
+        </tr>
+        <tr>
+            <td>A Simple Implementation</td>
+            <td>
+                1. <code>&ltselect name="select" onchange="change_sel()"></code><br>
+                2. <code>&ltinput type="button" value="clear" onclick="document.getElementById('textout').value=''"></code>
+            </td>
+            <td>
+                1. <select name="select" onchange="change_sel()">
+                    <option value="A">A</option>
+                    <option value="B">B </option>
+                    <option value="C">C </option>
+                </select><br>
+                2.
+                <input type="text" value="A" id="textout" size="10">
+                <input type="button" value="clear" onclick="document.getElementById('textout').value=''">
+            </td>
+        </tr>
+        <tr>
+            <td>Submit Function</td>
+            <td>submit()</td>
+            <td>Submit the form</td>
+        </tr>
+        <tr>
+            <td>CSS Style Access</td>
+            <td>.css_style_property</td>
+            <td>change the style property</td>
+        </tr>
+    </table>
+
+    <h1>FORM USING JAVASCRIPT(AJAX)</h1>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function ($) {
+            $("#form1").submit(function () {
+                var message = "";
+                var id_check = /[^a-zA-Z0-9]/g;
+                var mail_check = /.+@.+\..+/;
+                var account = $("#account").val();
+                // Check Account
+                if (account == "")
+                    message = "Account empty";
+                else if (account.indexOf(' ') >= 0)
+                    message = "Account cannot have empty space";
+                else if (account.length < 6 || account.length > 12)
+                    message = "Account length must be 6-12 characters long";
+                else if (account.match(id_check))
+                    message = "Account only can have alphabet or numbers";
+
+                if (message) {
+                    $("#message").html(message);
+                    $("#account").focus();
+                    return false;
+                }
+                // Check Password
+                if ($("#pwd").val().length < 6 || $("#pwd").val().length > 12) {
+                    $("#message").html("Password length must be 6-12 characters long");
+                    $("#pwd").focus();
+                    return false;
+                }
+                if ($("#pwd").val() != $("#pwd2").val()) {
+                    $("#message").html("Passwords are different");
+                    $("#pwd2").focus();
+                    return false;
+                }
+                // Check Email
+                if (!$("#email").val().match(mail_check)) {
+                    $("#message").html("E-mail format error");
+                    $("#email").focus();
+                    return false;
+                }
+                // Check Radio
+                if (!$("input:radio[name=gender]").is(":checked")) {
+                    $("#message").html("Choose gender");
+                    $("#gender").focus();
+                    return false;
+                }
+                // Check Checkbox
+                var cnt_type = $("input:checkbox:checked[name='type[]']").length;
+                if (cnt_type < 2 || cnt_type > 3) {
+                    $("#message").html("Pick only 2 or 3 type");
+                    return false;
+                }
+                // Check Select
+                if ($('#sel').val() == 0 || $('#sel :selected').text() == "") {
+                    $("#message").html("Choose sel");
+                    return false;
+                }
+                // Check Agree
+                if ($("input:checkbox:checked[name='agree']").length == 0) {
+                    $("#message").html("Agree?");
+                    return false;
+                }
+                alert("submitted");
+            });
+            // Clickall
+            $("#clickAll").click(function () {
+                if ($("#clickAll").prop("checked")) {
+                    $("input[name='type[]']").each(function () {
+                        $(this).prop("checked", true);
+                    });
+                } else {
+                    $("input[name='type[]']").each(function () {
+                        $(this).prop("checked", false);
+                    });
+                }
+            });
+        });
+    </script>
+    <form role="form" id="form1">
+        <table>
+            <tr>
+                <th>Example</th>
+                <th>Code</th>
+            </tr>
+            <tr>
+                <td colspan="2"><code>
+                    &ltscript src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js">&lt/script>
+                </code></td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="account">Account</label>
+                    <input type="text" id="account" name="account" placeholder="6-10 Characters">
+                </td>
+                <td>
+                    var id_check = /[^a-zA-Z0-9]/g;<br>
+                    if (account == "") message = "...";<br>
+                    else if (account.indexOf(' ') >= 0) message = "...";<br>
+                    else if (account.length < 6 || account.length> 12) message = "";<br>
+                        else if (account.match(id_check)) message = "";<br>
+                        if (message) { $("#message").html(message); $("#account").focus(); return false; }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Password</label>
+                    <input type="password" id="pwd" name="pwd" placeholder="6-12 Characters">
+                </td>
+                <td>
+                    if ($("#pwd").val().length < 6 || $("#pwd").val().length> 12) { $("#message").html("..");
+                        $("#pwd").focus(); return false; }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Confirm Password</label>
+                    <input type="password" id="pwd2" name="pwd2" placeholder="">
+                </td>
+                <td>
+                    if ($("#pwd").val() != $("#pwd2").val()) { $("#message").html("...");
+                    $("#pwd2").focus(); return false; }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>E-mail</label>
+                    <input type="text" id="email" name="email" placeholder="">
+                </td>
+                <td>
+                    if (!$("#email").val().match(mail_check)) { $("#message").html("...");
+                    $("#email").focus(); return false; }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Gender</label>
+                    <input type="radio" id="gender1" name="gender">M
+                    <input type="radio" id="gender2" name="gender">F
+                </td>
+                <td>
+                    if (!$("input:radio[name=gender]").is(":checked")) { $("#message").html("...");
+                    $("#gender").focus(); return false; }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Type</label>
+                    <input type="checkbox" class=" type_group" name="type[]">A
+                    <input type="checkbox" class=" type_group" name="type[]">B
+                    <input type="checkbox" class=" type_group" name="type[]">C
+                    <input type="checkbox" class=" type_group" name="type[]">D
+                    <label for="type_4" class="error">
+                </td>
+                <td>
+                    var cnt_type = $("input:checkbox:checked[name='type[]']").length; <br>
+                    if (cnt_type < 2 || cnt_type> 3) { $("#message").html("..."); return false; }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input name="clickAll" id="clickAll" type="checkbox">Select All Type
+                </td>
+                <td>
+                    $("#clickAll").click(function () { <br>
+                    if ($("#clickAll").prop("checked")) { $("input[name='type[]']").each(function () {
+                    $(this).prop("checked", true); }); } <br>
+                    else { $("input[name='type[]']").each(function () { $(this).prop("checked", false); }); } <br>
+                    });
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Select</label>
+                    <select name="sel" id="sel">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    <label for="sel" class="error">
+                </td>
+                <td>
+                    if ($('#sel').val() == 0 || $('#sel:selected').text() == "") { $("#message").html("..."); return
+                    false; }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" id="agree" name="agree">I Agree
+                    <label class="error" for="agree"></label>
+                </td>
+                <td>
+                    if ($("input:checkbox:checked[name='agree']").length == 0) { $("#message").html("..."); return
+                    false; }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-primary">Reset</button>
+                </td>
+                <td>
+                    $(document).ready(function ($) {
+                    $("#form1").submit(function () {
+                    ...(Code Starts Here)...;
+                    alert("submitted");
+                    });
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="warning" id="message"></div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">Note: Remove the required property on the declaration</td>
+            </tr>
+        </table>
+    </form>
+
+    <h1>JAVASCRIPT REGULAR EXPRESSION</h1>
+
+</body>
+
+</html>

@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap 5</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+  <!-- Top Navigation Bar -->
+  <nav class="navbar navbar-expand-sm bg-light fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="https://www.w3schools.com/bootstrap5/" target="_blank">Bootstrap</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav">
+          <li><a class="nav-link text-decoration-none" href="HTML_NOTES.htm">HTML</a> </li>
+          <li><a class="nav-link text-decoration-none" href="CSS_NOTES.htm" target="_self">CSS</a> </li>
+          <li><a class="nav-link text-decoration-none" href="JSCRIPT_NOTES.htm" target="_self">JavaScript</a> </li>
+          <li><a class="nav-link text-decoration-none" href="JQUERY_NOTES.htm" target="_self">JQuery</a> </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid bg-dark text-light position-relative overflow-auto">
+    <!-- container and fluid-container -->
+    <h1>.</h1>
+    <p class="m-4">Source: <a href="https://www.w3schools.com/bootstrap5/">https://www.w3schools.com/bootstrap5/</a></p>
+    <h1>Container</h1>
+    <div class="border p-2 my-4">
+      <div class="container border">
+        <h1>.container</h1>
+        <p>This .container class provides a responsive fixed width container</p>
+      </div>
+      <div class="container-fluid border">
+        <h1>.container-fluid</h1>
+        <p>This .container-fluid class provides a full width container, spanning the entire width of the viewport</p>
+      </div>
+    </div>
+    <!-- Width Breakpoints -->
+    <h1>Width Breakpoints</h1>
+    <div class="border p-2 my-4 overflow-auto">
+      <table class="table table-dark table-bordered">
+        <tr>
+          <th>Size</th>
+          <th>Extra Small</th>
+          <th>Small</th>
+          <th>Medium</th>
+          <th>Large</th>
+          <th>Extra Large</th>
+          <th>XXL</th>
+        </tr>
+        <tr>
+          <td>Width Range</td>
+          <td>&lt 576px</td>
+          <td>≥ 576</td>
+          <td>≥ 768px</td>
+          <td>≥ 992px</td>
+          <td>≥ 1200</td>
+          <td>≥ 1400px</td>
+        </tr>
+        <tr>
+          <td>Code</td>
+          <td>(none)</td>
+          <td>sm</td>
+          <td>md</td>
+          <td>lg</td>
+          <td>xl</td>
+          <td>xxl</td>
+        </tr>
+      </table>
+    </div>
+    <!-- Container Size -->
+    <h1>Container Size</h1>
+    <div class="border p-2 my-4">
+      <div class="container-sm border">.container-sm, 100% 540px 720px 960px 1140px 1320px</div>
+      <div class="container-md mt-3 border">.container-md, 100% 100% 720px 960px 1140px 1320px</div>
+      <div class="container-lg mt-3 border">.container-lg, 100% 100% 100% 960px 1140px 1320px</div>
+      <div class="container-xl mt-3 border">.container-xl, 100% 100% 100% 100% 1140px 1320px</div>
+      <div class="container-xxl mt-3 border">.container-xxl, 100% 100% 100% 100% 100% 1320px</div>
+    </div>
+    <!-- Grids -->
+    <h1>Grids</h1>
+    <div class="border p-2 my-4">
+      <div class="row container-fluid">
+        <div class="col-md-2 border my-1">col-md-2 | 6 | 4</div>
+        <div class="col-md-6 border my-1">Adjust the window to see the change</div>
+        <div class="col-md-4 border my-1">When width &lt md, width adjused to 100%</div>
+      </div>
+      <div class="row container-fluid my-1">
+        <div class="col border p-2">Automated Column (4:4:4)</div>
+        <div class="col border p-2">
+          <pre>
+&ltdiv class="row">
+  &ltdiv class="col">&lt/div>
+  &ltdiv class="col">&lt/div>
+  &ltdiv class="col">&lt/div>
+&lt/div>
+            </pre>
+        </div>
+      </div>
+    </div>
+    <!-- Flex -->
+    <h1>Flex</h1>
+    <div class="border p-2 my-4 overflow-auto">
+      <h4>d-flex</h4>
+      <p>To create a flexbox container and to transform direct children into flex items, use the .d-flex class</p>
+      <div class="d-flex p-2 border">
+        <div class="p-2 border m-1">Flex item 1</div>
+        <div class="p-2 border m-1">Flex item 2</div>
+        <div class="p-2 border m-1">Flex item 3</div>
+      </div>
+      <h4>d-inline-flex</h4>
+      <p>To create an inline flexbox container use .d-inline-flex class</p>
+      <div class="d-inline-flex p-2 border">
+        <div class="p-2 border m-1">Flex item 1</div>
+        <div class="p-2 border m-1">Flex item 2</div>
+        <div class="p-2 border m-1">Flex item 3</div>
+      </div>
+      <h4>flex-row (direction, d-flex)</h4>
+      <p>Use .flex-row or .flex-row-reverse to display the flex items horizontally</p>
+      <div class="d-flex flex-row p-2 border">
+        <div class="p-2 m-1 border">Flex item 1</div>
+        <div class="p-2 m-1 border">Flex item 2</div>
+        <div class="p-2 m-1 border">Flex item 3</div>
+      </div>
+      <h4>flex-column (direction, d-flex)</h4>
+      <p>Use .flex-column or .flex-column-reverse to display the flex items vertically</p>
+      <div class="d-flex flex-column p-2 border">
+        <div class="p-2 m-1 border">Flex item 1</div>
+        <div class="p-2 m-1 border">Flex item 2</div>
+        <div class="p-2 m-1 border">Flex item 3</div>
+      </div>
+      <h4>justify-content-* (alignment, d-flex)</h4>
+      <p>Use the .justify-content-* classes to change the alignment of flex items</p>
+      <div class="border p-2 border">
+        <p>justify-content-start</p>
+        <div class="d-flex justify-content-start border p-2">
+          <div class="p-2 m-1 border">Flex item 1</div>
+          <div class="p-2 m-1 border">Flex item 2</div>
+          <div class="p-2 m-1 border">Flex item 3</div>
+        </div>
+        <p>justify-content-end</p>
+        <div class="d-flex justify-content-end border p-2">
+          <div class="p-2 m-1 border">Flex item 1</div>
+          <div class="p-2 m-1 border">Flex item 2</div>
+          <div class="p-2 m-1 border">Flex item 3</div>
+        </div>
+        <p>justify-content-center</p>
+        <div class="d-flex justify-content-center border p-2">
+          <div class="p-2 m-1 border">Flex item 1</div>
+          <div class="p-2 m-1 border">Flex item 2</div>
+          <div class="p-2 m-1 border">Flex item 3</div>
+        </div>
+        <p>justify-content-between</p>
+        <div class="d-flex justify-content-between border p-2">
+          <div class="p-2 m-1 border">Flex item 1</div>
+          <div class="p-2 m-1 border">Flex item 2</div>
+          <div class="p-2 m-1 border">Flex item 3</div>
+        </div>
+        <p>justify-content-around</p>
+        <div class="d-flex justify-content-around border p-2">
+          <div class="p-2 m-1 border">Flex item 1</div>
+          <div class="p-2 m-1 border">Flex item 2</div>
+          <div class="p-2 m-1 border">Flex item 3</div>
+        </div>
+      </div>
+      <h4>flex-fill (filling, d-flex)</h4>
+      <p>Use .flex-fill on flex items to force them into equal widths</p>
+      <div class="d-flex border p-2">
+        <div class="p-2 m-1 border flex-fill">Flex item 1</div>
+        <div class="p-2 m-1 border flex-fill">Flex item 2</div>
+        <div class="p-2 m-1 border flex-fill">Flex item 3</div>
+      </div>
+      <h4>flex-grow, flex-shrink (filling, d-flex)</h4>
+      <p>Use .flex-grow-1 or .flex-shrink-1 on a flex item to take up / shrink the rest of the space</p>
+      <div class="d-flex border p-2">
+        <div class="p-2 m-1 border">Flex item 1</div>
+        <div class="p-2 m-1 border">Flex item 2</div>
+        <div class="p-2 m-1 border flex-grow-1">Flex item 3</div>
+      </div>
+      <h4>order-* (ordering, element)</h4>
+      <p>Change the visual order of a specific flex item(s) with the .order classes</p>
+      <div class="d-flex border p-2">
+        <div class="p-2 m-1 border order-3">Flex item 1</div>
+        <div class="p-2 m-1 border order-2">Flex item 2</div>
+        <div class="p-2 m-1 border order-1">Flex item 3</div>
+      </div>
+      <h4>ms-auto, me-auto (margin, d-flex)</h4>
+      <p>Easily add auto margins to flex items with .ms-auto (push items to the right), or by using .me-auto (push items
+        to the left)</p>
+      <div class="flex-column border p-2">
+        <p>.ms-auto</p>
+        <div class="d-flex border p-2">
+          <div class="p-2 ms-auto m-1 border">Flex item 1</div>
+          <div class="p-2 m-1 border">Flex item 2</div>
+          <div class="p-2 m-1 border">Flex item 3</div>
+        </div>
+        <p>.me-auto</p>
+        <div class="d-flex border p-2">
+          <div class="p-2 m-1 border">Flex item 1</div>
+          <div class="p-2 m-1 border">Flex item 2</div>
+          <div class="p-2 me-auto m-1 border">Flex item 3</div>
+        </div>
+      </div>
+      <h4>flex-wrap (wrapping, d-flex)</h4>
+      <p>Control how flex items wrap in a flex container with .flex-nowrap (default), .flex-wrap or .flex-wrap-reverse
+      </p>
+      <div class="d-flex flex-wrap border p-2">
+        <div class="p-2 border m-1">Flex item 1</div>
+        <div class="p-2 border m-1">Flex item 2</div>
+        <div class="p-2 border m-1">Flex item 3</div>
+        <div class="p-2 border m-1">Flex item 4</div>
+        <div class="p-2 border m-1">Flex item 5</div>
+        <div class="p-2 border m-1">Flex item 6</div>
+        <div class="p-2 border m-1">Flex item 7</div>
+        <div class="p-2 border m-1">Flex item 8</div>
+        <div class="p-2 border m-1">Flex item 9</div>
+        <div class="p-2 border m-1">Flex item 10</div>
+        <div class="p-2 border m-1">Flex item 11</div>
+        <div class="p-2 border m-1">Flex item 12</div>
+        <div class="p-2 border m-1">Flex item 13 </div>
+        <div class="p-2 border m-1">Flex item 14</div>
+        <div class="p-2 border m-1">Flex item 15</div>
+        <div class="p-2 border m-1">Flex item 16</div>
+        <div class="p-2 border m-1">Flex item 17</div>
+        <div class="p-2 border m-1">Flex item 18</div>
+        <div class="p-2 border m-1">Flex item 19</div>
+        <div class="p-2 border m-1">Flex item 20</div>
+      </div>
+      <h4>align-content-* (alignment, d-flex)</h4>
+      <p>Control the vertical alignment of gathered flex items with the .align-content-* classes. Valid classes are
+        .align-content-start (default), .align-content-end, .align-content-center, .align-content-between,
+        .align-content-around and .align-content-stretch(in this example). Only works on flex-wrap</p>
+      <div class="d-flex flex-wrap align-content-stretch border p-2" style="height:300px">
+        <div class="p-2 border m-1">Flex item 1</div>
+        <div class="p-2 border m-1">Flex item 2</div>
+        <div class="p-2 border m-1">Flex item 3</div>
+        <div class="p-2 border m-1">Flex item 4</div>
+        <div class="p-2 border m-1">Flex item 5</div>
+        <div class="p-2 border m-1">Flex item 6</div>
+        <div class="p-2 border m-1">Flex item 7</div>
+        <div class="p-2 border m-1">Flex item 8</div>
+        <div class="p-2 border m-1">Flex item 9</div>
+        <div class="p-2 border m-1">Flex item 10</div>
+        <div class="p-2 border m-1">Flex item 11</div>
+        <div class="p-2 border m-1">Flex item 12</div>
+        <div class="p-2 border m-1">Flex item 13 </div>
+        <div class="p-2 border m-1">Flex item 14</div>
+        <div class="p-2 border m-1">Flex item 15</div>
+        <div class="p-2 border m-1">Flex item 16</div>
+        <div class="p-2 border m-1">Flex item 17</div>
+        <div class="p-2 border m-1">Flex item 18</div>
+        <div class="p-2 border m-1">Flex item 19</div>
+        <div class="p-2 border m-1">Flex item 20</div>
+      </div>
+      <h4>align-items-* (alignment, d-flex), align-self-*</h4>
+      <p>Control the vertical alignment of single rows of flex items with the .align-items-* classes. Valid classes are
+        .align-items-start, .align-items-end(in this example), .align-items-center, .align-items-baseline, and
+        .align-items-stretch (default). This works only in flex-nowrap</p>
+      <div class="d-flex align-items-end border p-2" style="height:150px">
+        <div class="p-2 border m-2">Flex item 1</div>
+        <div class="p-2 border m-2 align-self-center">Flex item 2 (use align-self-center)</div>
+        <div class="p-2 border m-2">Flex item 3</div>
+      </div>
+
+    </div>
+    <!-- Typography -->
+    <h1>Typography</h1>
+    <div class="border p-2 my-4 overflow-auto">
+      <div class="row container-fluid">
+        <div class="col-3 border pd-2">Class</div>
+        <div class="col-6 border pd-2">Description</div>
+        <div class="col-3 border pd-2">Example</div>
+      </div>
+      <div class="row container-fluid">
+        <div class="col-3 border pd-2">h1 ~ h6</div>
+        <div class="col-6 border pd-2">Text for headings</div>
+        <div class="col-3 border pd-2">
+          <div class="h3">Heading 3</div>
+        </div>
+      </div>
+      <div class="row container-fluid">
+        <div class="col-3 border pd-2">display-1 ~ 6</div>
+        <div class="col-6 border pd-2">Text for display</div>
+        <div class="col-3 border pd-2">
+          <div class="display-6">Display 6</div>
+        </div>
+      </div>
+      <div class="row container-fluid">
+        <div class="col-3 border pd-2">small</div>
+        <div class="col-6 border pd-2">Text for small text</div>
+        <div class="col-3 border pd-2">
+          <div class="small h3">Heading 3 with small</div>
+        </div>
+      </div>
+      <div class="row container-fluid">
+        <div class="col-3 border pd-2">mark</div>
+        <div class="col-6 border pd-2">Used to lighlight text</div>
+        <div class="col-3 border pd-2">
+          <div class="mark text-dark">Text Highlighted</div>
+        </div>
+      </div>
+      <div class="row container-fluid">
+        <div class="col-3 border pd-2">&ltcode></div>
+        <div class="col-6 border pd-2">Style the element code</div>
+        <div class="col-3 border pd-2">The <code>code</code> is different</div>
+      </div>
+      <div class="row container-fluid">
+        <div class="col-3 border pd-2">&ltkbd></div>
+        <div class="col-6 border pd-2">Style the element kbd</div>
+        <div class="col-3 border pd-2">Use <kbd>ctrl + c</kbd> to copy</div>
+      </div>
+      <div class="row container-fluid">
+        <div class="col-3 border pd-2">text-start | end | center</div>
+        <div class="col-6 border pd-2">Aligh text left, right, center</div>
+        <div class="col-3 border pd-2"></div>
+      </div>
+      <div class="row container-fluid">
+        <div class="col-3 border pd-2">text-nowrap | break</div>
+        <div class="col-6 border pd-2">No wrap text, Prevents long text from breaking layout,</div>
+        <div class="col-3 border pd-2"></div>
+      </div>
+      <div class="row container-fluid">
+        <div class="col-3 border pd-2">text-decoration-none</div>
+        <div class="col-6 border pd-2">Removes the underline from a link</div>
+        <div class="col-3 border pd-2"></div>
+      </div>
+      <div class="row container-fluid">
+        <div class="col-3 border pd-2">text-lowercase | undercase | capitalize</div>
+        <div class="col-6 border pd-2">Indicates lowercase, undercase, capitalize text</div>
+        <div class="col-3 border pd-2"></div>
+      </div>
+      <div class="row container-fluid">
+        <div class="col-3 border pd-2">list-unstyled</div>
+        <div class="col-6 border pd-2">Removes the default list-style and left margin on list items</div>
+        <div class="col-3 border pd-2"></div>
+      </div>
+      <div class="row container-fluid">
+        <div class="col-3 border pd-2">list-inline</div>
+        <div class="col-6 border pd-2">Places all list items on a single line</div>
+        <div class="col-3 border pd-2"></div>
+      </div>
+    </div>
+    <!-- Special Colors -->
+    <h1>Special Colors and List</h1>
+    <div class="border p-2 my-4 ">
+      <ul class="list-group my-1">
+        <li class="list-group-item">.list-group for parent</li>
+        <li class="list-group-item">.list-group-item for children</li>
+        <li class="list-group-item active">.active highlight the current item</li>
+        <li class="list-group-item disabled">.disabled class adds a lighter text color to the disabled item</li>
+        <li class="list-group-item">.list-group-flush(parent) remove some borders and rounded corners</li>
+        <li class="list-group-item">.list-group-numbered(parent) create list items with numbers</li>
+        <li class="list-group-item">.list-group-horizontal(parent) .list-group(child) display horizontally</li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">.badge<span
+            class="badge bg-primary rounded-pill">!</span></li>
+        <li class="list-group-item"></li>
+      </ul>
+      <h2>Colors</h2>
+      <div class="list-group my-1 list-dar">
+        <a href="#"
+          class="list-group-item list-group-item-action list-group-item-muted text-muted">list-group-item-muted</a>
+        <a href="#" class="list-group-item list-group-item-action list-group-item-primary">list-group-item-primary</a>
+        <a href="#" class="list-group-item list-group-item-action list-group-item-success">list-group-item-success</a>
+        <a href="#" class="list-group-item list-group-item-action list-group-item-info">list-group-item-info</a>
+        <a href="#" class="list-group-item list-group-item-action list-group-item-warning">list-group-item-warning</a>
+        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">list-group-item-danger</a>
+        <a href="#"
+          class="list-group-item list-group-item-action list-group-item-secondary">list-group-item-secondary</a>
+        <a href="#" class="list-group-item list-group-item-action list-group-item-dark">list-group-item-dark</a>
+        <a href="#" class="list-group-item list-group-item-action list-group-item-body">list-group-item-body</a>
+        <a href="#" class="list-group-item list-group-item-action list-group-item-light">list-group-item-light</a>
+      </div>
+    </div>
+    <!-- Table -->
+    <h1>Table</h1>
+    <div class="border p-2 my-4">
+      <table class="table table-hover table-dark table-striped">
+        <tr>
+          <th>Class</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>table</td>
+          <td>adds basic styling to a table</td>
+        </tr>
+        <tr>
+          <td>table-striped</td>
+          <td>adds zebra-stripes to a table</td>
+        </tr>
+        <tr>
+          <td>table-bordered</td>
+          <td>adds borders on all sides of the table and cells</td>
+        </tr>
+        <tr>
+          <td>table-hover</td>
+          <td>adds a hover effect (grey background color) on table rows</td>
+        </tr>
+        <tr>
+          <td>table-dark</td>
+          <td>adds a black background to the table</td>
+        </tr>
+        <tr>
+          <td>table-borderless</td>
+          <td>removes borders from the table</td>
+        </tr>
+        <tr>
+          <td>table-responsive</td>
+          <td>class adds a scrollbar to the table when needed</td>
+        </tr>
+      </table>
+    </div>
+    <!-- Additional Feature -->
+    <h1>Additional Feature</h1>
+    <div class="border p-2 my-4 overflow-auto">
+      <table class="table table-dark table-bordered">
+        <tr>
+          <th>Feature</th>
+          <th class="col-8">Code</th>
+          <th>Sample</th>
+        </tr>
+        <tr>
+          <td>Alert</td>
+          <td class="col-8">
+            <div class="font-monospace">
+              &ltdiv class="alert alert-success alert-dismissible fade show"> <br>
+              &nbsp;&nbsp;&ltbutton type="button" class="btn-close" data-bs-dismiss="alert">&lt/button> <br>
+              &nbsp;&nbsp;Success! &lta href="#" class="alert-link"> read this message&lt/a> <br>
+              &lt/div> <br>
+            </div>
+          </td>
+          <td>
+            <div class="alert alert-success alert-dismissible fade show">
+              <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+              Success! <a href="#" class="alert-link"> read this message</a>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Button</td>
+          <td class="col-8">
+            <div class="font-monospace">
+              &ltdiv class="d-grid gap-3"> <br>
+              &nbsp;&nbsp;&ltbutton type="button" class="btn btn-lg btn-outline-danger btn-block active"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltspan class="spinner-border spinner-border-sm">&lt/span> Button <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltspan class="spinner-grow spinner-grow-sm">&lt/span> <br>
+              &nbsp;&nbsp;&lt/button> <br>
+              &lt/div> <br>
+              Note: Use .active or .disabled. btn-lg is the size. The code above belongs to red button. While the green
+              button replace .btn-outline-danger with .btn-sucess. .d-grip and .btn-block is used to fill the button to
+              the width with .gap-3.
+            </div>
+          </td>
+          <td>
+            <div class="d-grid gap-3">
+              <button type="button" class="btn btn-lg btn-outline-danger btn-block">
+                <span class="spinner-border spinner-border-sm"></span> Button
+              </button>
+              <button type="button" class="btn btn-lg btn-outline-warning btn-block disabled">
+                <span class="spinner-grow spinner-grow-sm"></span> Button
+              </button>
+              <button type="button" class="btn btn-lg btn-success btn-block">
+                Button
+              </button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Button Groups</td>
+          <td class="col-8">
+            <div class="font-monospace">
+              &ltdiv class="btn-group"> <br>
+              &nbsp;&nbsp;&ltbutton type="button" class="btn btn-primary">B1&lt/button> <br>
+              &nbsp;&nbsp;&ltbutton type="button" class="btn btn-secondary">B2&lt/button> <br>
+              &nbsp;&nbsp;&ltbutton type="button" class="btn btn-info">B3&lt/button> <br>
+              &lt/div> <br>
+              Note: use .btn-group-vertical to create a vertical button group.
+            </div>
+          </td>
+          <td>
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary">B1</button>
+              <button type="button" class="btn btn-secondary">B2</button>
+              <button type="button" class="btn btn-info">B3</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Badges</td>
+          <td class="col-8">
+            <div class="font-monospace">
+              &ltspan class="badge bg-secondary">Badge&lt/span> <br>
+              &ltspan class="badge rounded-pill bg-primary">Pill Badge&lt/span> <br>
+            </div>
+          </td>
+          <td>
+            <span class="badge bg-secondary">Badge</span>
+            <span class="badge rounded-pill bg-primary">Pill Badge</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Progress Bar</td>
+          <td class="col-8">
+            <div class="font-monospace">
+              &ltdiv class="progress"> <br>
+              &nbsp;&nbsp;&ltdiv class="progress-bar progress-bar-striped progress-bar-animated bg-success w-75">75%
+              Loading...&lt/div> <br>
+              &nbsp;&nbsp;&ltdiv class="progress-bar bg-warning" style="width:1%">&lt/div> <br>
+              &lt/div> <br>
+            </div>
+          </td>
+          <td>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-success w-75">75% Loading...</div>
+              <div class="progress-bar bg-warning" style="width:1%"></div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Pagination</td>
+          <td class="col-8">
+            <div class="font-monospace">
+              &ltul class="pagination"> <br>
+              &nbsp;&nbsp;&ltli class="page-item">&lta class="page-link" href="#">Previous&lt/a>&lt/li> <br>
+              &nbsp;&nbsp;&ltli class="page-item active">&lta class="page-link" href="#">1&lt/a>&lt/li> <br>
+              &nbsp;&nbsp;&ltli class="page-item">&lta class="page-link" href="#">Next&lt/a>&lt/li> <br>
+              &lt/ul>
+            </div>
+          </td>
+          <td>
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>Card</td>
+          <td class="col-8">
+            <div class="font-monospace">
+              &ltdiv class="card bg-dark"> <br>
+              &nbsp;&nbsp;&ltdiv class="card-header bg-light text-dark">Header&lt/div> <br>
+              &nbsp;&nbsp;&ltimg class="card-img-top" src="" alt="Card image"> <br>
+              &nbsp;&nbsp;&ltdiv class="card-body"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lth4 class="card-title">Card Title&lt/h4> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltp class="card-text">This is a card&lt/p> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lta href="#" class="btn btn-primary">Button&lt/a> <br>
+              &nbsp;&nbsp;&lt/div> <br>
+              &nbsp;&nbsp;&ltdiv class="card-footer bg-light text-dark">Footer&lt/div> <br>
+              &lt/div>
+            </div>
+          </td>
+          <td>
+            <div class="card bg-dark">
+              <div class="card-header bg-light text-dark">Header</div>
+              <img class="card-img-top" src="ExternalFiles\bootstrap_icon.jpg" alt="Card image">
+              <div class="card-body">
+                <h4 class="card-title">Card Title</h4>
+                <p class="card-text">This is a card</p>
+                <a href="#" class="btn btn-primary">Button</a>
+              </div>
+              <div class="card-footer bg-light text-dark">Footer</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Dropdown</td>
+          <td class="col-8">
+            <div class="font-monospace">
+              &ltdiv class="dropdown"> <br>
+              &nbsp;&nbsp;&ltbutton type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+              <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;Dropdown button <br>
+              &nbsp;&nbsp;&lt/button> <br>
+              &nbsp;&nbsp;&ltul class="dropdown-menu"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltli>&lth5 class="dropdown-header">Dropdown header 1&lt/h5>&lt/li> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltli>&lta class="dropdown-item" href="#">Normal Link&lt/a>&lt/li> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltli>&lta class="dropdown-item active" href="#">Active Link&lt/a>&lt/li> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltli>&lta class="dropdown-item disabled" href="#">Disabled Link&lt/a>&lt/li> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltli>&lthr class="dropdown-divider">&lt/li> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltli>&lth5 class="dropdown-header">Dropdown header 2&lt/h5>&lt/li> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltli>&ltspan class="dropdown-item-text">A text, NOT a link&lt/span>&lt/li> <br>
+              &nbsp;&nbsp;&lt/ul> <br>
+              &lt/div> <br>
+              Note: .dropend: list at right, .dropstart: list at left, .dropdown-menu-end: list at below but at right,
+              .dropup: list at above
+            </div>
+          </td>
+          <td>
+            <div class="dropdown">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                Dropdown button
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <h5 class="dropdown-header">Dropdown header 1</h5>
+                </li>
+                <li><a class="dropdown-item" href="#">Normal Link</a></li>
+                <li><a class="dropdown-item active" href="#">Active Link</a></li>
+                <li><a class="dropdown-item disabled" href="#">Disabled Link</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <h5 class="dropdown-header">Dropdown header 2</h5>
+                </li>
+                <li><span class="dropdown-item-text">A text, NOT a link</span></li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Collapse</td>
+          <td class="col-8">
+            <div class="font-monospace">
+              &ltdiv id="accordion"> <br>
+              &nbsp;&nbsp;&ltdiv class="card"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltdiv class="card-header"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lta class="btn" data-bs-toggle="collapse" href="#collapse1"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Collapsible Group Item #1 <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt/a> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt/div> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltdiv id="collapse1" class="collapse show" data-bs-parent="#accordion"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ltdiv class="card-body text-dark">Message...&lt/div> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt/div> <br>
+              &nbsp;&nbsp;&lt/div> <br>
+              &lt/div>
+            </div>
+          </td>
+          <td>
+            <div id="accordion">
+              <div class="card">
+                <div class="card-header">
+                  <a class="btn" data-bs-toggle="collapse" href="#collapse1">
+                    Collapsible Group Item #1
+                  </a>
+                </div>
+                <div id="collapse1" class="collapse show" data-bs-parent="#accordion">
+                  <div class="card-body text-dark">Message...</div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header">
+                  <a class="collapsed btn" data-bs-toggle="collapse" href="#collapse2">
+                    Collapsible Group Item #2
+                  </a>
+                </div>
+                <div id="collapse2" class="collapse" data-bs-parent="#accordion">
+                  <div class="card-body text-dark">Message...</div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="col-8">
+            <div class="font-monospace">
+              &ltul class="nav nav-tabs justify-content-center" role="tablist"> <br>
+              &nbsp;&nbsp;&ltli class="nav-link"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lta class="nav-link active " href="#tab1" data-bs-toggle="tab">Tab1&lt/a> <br>
+              &nbsp;&nbsp;&lt/li> <br>
+              &nbsp;&nbsp;&ltli class="nav-link"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lta class="nav-link" href="#tab2" data-bs-toggle="tab">Tab2&lt/a> <br>
+              &nbsp;&nbsp;&lt/li> <br>
+              &lt/ul> <br>
+              &ltdiv class="tab-content"> <br>
+              &nbsp;&nbsp;&ltdiv id="tab1" class="container tab-pane active">&ltbr>Tab1&lt/div> <br>
+              &nbsp;&nbsp;&ltdiv id="tab2" class="container tab-pane fade">&ltbr>Tab2&lt/div> <br>
+              &lt/div> <br>
+              Note: Add the .flex-column class to create a vertical nav.
+            </div>
+          </td>
+          <td>
+            <ul class="nav nav-tabs justify-content-center" role="tablist">
+              <li class="nav-link">
+                <a class="nav-link active " href="#tab1" data-bs-toggle="tab">Tab1</a>
+              </li>
+              <li class="nav-link">
+                <a class="nav-link" href="#tab2" data-bs-toggle="tab">Tab2</a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div id="tab1" class="container tab-pane active"><br>
+                Tab1
+              </div>
+              <div id="tab2" class="container tab-pane fade"><br>
+                Tab2
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Navbars</td>
+          <td class="col-8">
+            <div class="font-monospace">
+              &ltnav class="navbar navbar-expand-sm bg-light"> <br>
+              &nbsp;&nbsp;&ltdiv class="container-fluid"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lta class="navbar-brand" href="#">Logo&lt/a> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltbutton class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mynavbar"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ltspan class="navbar-toggler-icon">&lt/span> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt/button> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltdiv class="collapse navbar-collapse" id="mynavbar"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ltul class="navbar-nav me-auto"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ltli class="nav-link"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lta class="nav-link" href="#">Link&lt/a> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt/li> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ltli class="navbar-text"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lta class="nav-link" href="#">Text&lt/a> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt/li> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt/ul> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ltform class="d-flex"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ltinput class="form-control me-2" type="text"
+              placeholder="Search"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ltbutton class="btn btn-primary"
+              type="button">Search&lt/button> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt/form> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt/div> <br>
+              &nbsp;&nbsp;&lt/div> <br>
+              &lt/nav>
+            </div>
+          </td>
+          <td>
+            <nav class="navbar navbar-expand-sm bg-light">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="#">Logo</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mynavbar">
+                  <ul class="navbar-nav me-auto">
+                    <li class="nav-link">
+                      <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <span class="navbar-text">Text</span>
+                  </ul>
+                  <form class="d-flex">
+                    <input class="form-control me-2" type="text" placeholder="Search">
+                    <button class="btn btn-primary" type="button">Search</button>
+                  </form>
+                </div>
+              </div>
+            </nav>
+          </td>
+        </tr>
+        <tr>
+          <td>Carousel</td>
+          <td class="col-8">
+            <div class="font-monospace">
+              &ltdiv id="demo" class="carousel slide" data-bs-ride="carousel"> <br>
+              &nbsp;&nbsp;&ltdiv class="carousel-indicators"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltbutton type="button" data-bs-target="#demo" data-bs-slide-to="0"
+              class="active">&lt/button> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltbutton type="button" data-bs-target="#demo" data-bs-slide-to="1">&lt/button>
+              <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltbutton type="button" data-bs-target="#demo" data-bs-slide-to="2">&lt/button>
+              <br>
+              &nbsp;&nbsp;&lt/div> <br>
+              &nbsp;&nbsp;&ltdiv class="carousel-inner"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltdiv class="carousel-item active">&ltimg>&ltdiv
+              class="carousel-caption">Turtwig&lt/div>&lt/div> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltdiv class="carousel-item">&ltimg>&ltdiv
+              class="carousel-caption">Chimchar&lt/div>&lt/div> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltdiv class="carousel-item">&ltimg>&ltdiv
+              class="carousel-caption">Piplup&lt/div>&lt/div> <br>
+              &nbsp;&nbsp;&lt/div> <br>
+              &nbsp;&nbsp;&ltbutton class="carousel-control-prev" type="button" data-bs-target="#demo"
+              data-bs-slide="prev"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltspan class="carousel-control-prev-icon">&lt/span> <br>
+              &nbsp;&nbsp;&lt/button> <br>
+              &nbsp;&nbsp;&ltbutton class="carousel-control-next" type="button" data-bs-target="#demo"
+              data-bs-slide="next"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltspan class="carousel-control-next-icon">&lt/span> <br>
+              &nbsp;&nbsp;&lt/button> <br>
+              &lt/div>
+            </div>
+          </td>
+          <td>
+            <!-- Carousel -->
+            <div id="demo" class="carousel slide" data-bs-ride="carousel">
+              <!-- Indicators/dots -->
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+              </div>
+              <!-- The slideshow/carousel -->
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="ExternalFiles/pkmn001.png" alt="Turtwig" class="d-block w-100">
+                  <div class="carousel-caption">Turtwig</div>
+                </div>
+                <div class="carousel-item">
+                  <img src="ExternalFiles/pkmn004.png" alt="Chimchar" class="d-block w-100">
+                  <div class="carousel-caption">Chimchar</div>
+                </div>
+                <div class="carousel-item">
+                  <img src="ExternalFiles/pkmn007.png" alt="Piplup" class="d-block w-100">
+                  <div class="carousel-caption">Piplup</div>
+                </div>
+              </div>
+              <!-- Left and right controls/icons -->
+              <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Modal</td>
+          <td class="col-8">
+            <div class="font-monospace">
+              &ltbutton type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"> <br>
+              &nbsp;&nbsp;Open modal <br>
+              &lt/button> <br>
+              &ltdiv class="modal fade modal-lg" id="myModal"> <br>
+              &nbsp;&nbsp;&ltdiv class="modal-dialog modal-dialog-scrollable"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltdiv class="modal-content"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ltdiv class="modal-header text-dark"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lth4 class="modal-title">Modal Heading&lt/h4> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ltbutton type="button" class="btn-close"
+              data-bs-dismiss="modal">&lt/button> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt/div> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ltdiv class="modal-body text-dark">Modal body&lt/div> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ltdiv class="modal-footer text-dark">Modal Footer <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ltbutton type="button" class="btn btn-danger"
+              data-bs-dismiss="modal">Close&lt/button> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt/div> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt/div> <br>
+              &nbsp;&nbsp;&lt/div> <br>
+              &lt/div> <br>
+            </div>
+          </td>
+          <td><!-- Button to Open the Modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+              Open modal
+            </button>
+            <!-- The Modal -->
+            <div class="modal fade modal-lg" id="myModal">
+              <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                  <!-- Modal Header -->
+                  <div class="modal-header text-dark">
+                    <h4 class="modal-title">Modal Heading</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                  </div>
+                  <!-- Modal body -->
+                  <div class="modal-body text-dark">
+                    Modal body <br>1 <br>2 <br>3 <br>4 <br>5 <br>6 <br>7 <br>8 <br>9 <br>0 <br>1 <br>2 <br>3 <br>4 <br>5
+                    <br>6 <br>7 <br>8 <br>9 <br>0 <br>1 <br>2 <br>3 <br>4 <br>5 <br>6 <br>7 <br>8 <br>9 <br>0 <br>
+                  </div>
+                  <!-- Modal footer -->
+                  <div class="modal-footer text-dark">
+                    Modal Footer<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Tooltip, Popovers</td>
+          <td class="col-8">
+            <div class="font-monospace">
+              &ltbutton type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" <br>
+              &nbsp;&nbsp;title="Hooray!">Hover over me!&lt/button> <br>
+              // Initialize tooltips, Declared outside of <code>&ltbody></code> <br>
+              &ltscript> <br>
+              &nbsp;&nbsp;var tooltipTriggerList =
+              [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]')) <br>
+              &nbsp;&nbsp;var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) { <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;return new bootstrap.Tooltip(tooltipTriggerEl) <br>
+              &nbsp;&nbsp;}) <br>
+              &lt/script> <br>
+              // Popovers code is hidden, need to initialize javascript like tooltip
+            </div>
+          </td>
+          <td>
+            <button type="button" class="btn btn-primary m-2" data-bs-toggle="tooltip" data-bs-placement="right"
+              title="Hooray!">Hover over me!</button>
+            <button type="button" class="btn btn-primary m-2" data-bs-toggle="popover" title="Popover Header"
+              data-bs-content="data-bs-trigger changable to focus" data-bs-placement="bottom"
+              data-bs-trigger="hover">Toggle popover</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Toast</td>
+          <td class="col-8">
+            <div class="font-monospace">
+              &ltdiv class="toast show"> <br>
+              &nbsp;&nbsp;&ltdiv class="toast-header ">Toast Header <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltbutton type="button" class="btn-close" data-bs-dismiss="toast">&lt/button> <br>
+              &nbsp;&nbsp;&lt/div> <br>
+              &nbsp;&nbsp;&ltdiv class="toast-body">Some text inside the toast body&lt/div> <br>
+              &lt/div>
+            </div>
+          </td>
+          <td>
+            <div class="toast show">
+              <div class="toast-header">
+                Toast Header
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+              </div>
+              <div class="toast-body">
+                Some text inside the toast body
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Scrollspy</td>
+          <td class="col-8">
+            <div class="font-monospace">
+              &ltbody data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50"> <br>
+              &nbsp;&nbsp;&ltnav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltul class="navbar-nav"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ltli>&lta href="#section1">Section 1&lt/a>&lt/li> <br>
+              &nbsp;&nbsp;&lt/nav> <br>
+              &nbsp;&nbsp;&ltdiv id="section1"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lth1>Section 1&lt/h1> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltp>...&lt/p> <br>
+              &nbsp;&nbsp;&lt/div> <br>
+              &lt/body>
+            </div>
+          </td>
+          <td>
+            <iframe src="ExternalFiles/scrollspy.html" width="100%" height="400px" frameborder="0"></iframe>
+          </td>
+        </tr>
+        <tr>
+          <td>Offcanvas</td>
+          <td class="col-8">
+            <div class="font-monospace"> <br>
+              &ltdiv class="offcanvas offcanvas-start text-bg-dark" id="demo1"> <br>
+              &nbsp;&nbsp;&ltdiv class="offcanvas-header"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lth1 class="offcanvas-title">Heading&lt/h1> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&ltbutton type="button" class="btn-close" data-bs-dismiss="offcanvas">&lt/button>
+              <br>
+              &nbsp;&nbsp;&lt/div> <br>
+              &nbsp;&nbsp;&ltdiv class="offcanvas-body">offcanvas-body&lt/div> <br>
+              &lt/div> <br>
+              &ltdiv class="container-fluid mt-3"> <br>
+              &nbsp;&nbsp;&ltbutton class="btn btn-primary" type="button" <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;data-bs-toggle="offcanvas" data-bs-target="#demo1"> <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;Open Offcanvas Sidebar <br>
+              &nbsp;&nbsp;&lt/button> <br>
+              &lt/div> <br>
+            </div>
+          </td>
+          <td>
+            <div class="offcanvas offcanvas-start text-bg-dark" id="demo1">
+              <div class="offcanvas-header">
+                <h1 class="offcanvas-title">Heading</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+              </div>
+              <div class="offcanvas-body">
+                <p>offcanvas-body</p>
+              </div>
+            </div>
+            <div class="container-fluid mt-3">
+              <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo1">
+                Open Offcanvas Sidebar
+              </button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!-- Utilities -->
+    <h1>Utilities</h1>
+    <div class="border p-2 my-4">
+      <!-- border, rounded -->
+      <h4>.border, .rounded</h4>
+      <div class="border container-fluid p-2">
+        <span class="border-bottom border-danger"
+          style="display: inline-block; width: 70px; height: 70px; margin: 6px; background-color: grey;"></span>
+        <span class="border border-0 border-warning rounded-3"
+          style="display: inline-block; width: 70px; height: 70px; margin: 6px; background-color: grey;"></span>
+        <span class="border border-4  border-bottom-0 border-success rounded-circle"
+          style="display: inline-block; width: 70px; height: 70px; margin: 6px; background-color: grey;"></span>
+        <span class="border border-5  border-primary"
+          style="display: inline-block; width: 70px; height: 70px; margin: 6px; background-color: grey;"></span>
+      </div>
+      <h4>.float, .clearfix</h4>
+      <div class="border p-2">
+        float-start and float-end (Only works on inline)
+        <div class="border clearfix p-2 my-2">
+          <span class="float-start">Float left</span>
+          <span class="float-end">Float right</span>
+        </div>
+        Responsive Float
+        <div class="border clearfix p-2 my-2">
+          <div class="float-sm-end">Float right on small screens or wider</div><br>
+          <div class="float-md-end">Float right on medium screens or wider</div><br>
+          <div class="float-lg-end">Float right on large screens or wider</div><br>
+          <div class="float-xl-end">Float right on extra large screens or wider</div><br>
+          <div class="float-xxl-end">Float right on XXL screens or wider</div><br>
+          <div class="float-none">Float none</div>
+        </div>
+      </div>
+      <h4>Spacing</h4>
+      <div class="border p-2 my-2">
+        Width
+        <div class="border my-2">
+          <div class="w-25 border p-2 my-2 mx-auto">Width 25% .mx-auto</div>
+          <div class="w-50 border p-2 my-2">Width 50%</div>
+          <div class="w-75 border p-2 my-2">Width 75%</div>
+          <div class="w-100 border p-2 my-2">Width 100%</div>
+          <div class="w-auto border p-2 my-2">Auto Width</div>
+          <div class="mw-100 border p-2 my-2">Max Width 100%</div>
+        </div>
+        <div class="border p-2 my-2">
+          Bootstrap 5 has a wide range of responsive margin and padding utility classes. They work for all breakpoints:
+          xs (<=576px), sm (>=576px), md (>=768px), lg (>=992px), xl (>=1200px) or xxl (>=1400px)): <br>
+            The classes are used in the format: {property}{sides}-{size} for xs and
+            {property}{sides}-{breakpoint}-{size} for sm, md, lg, xl and xxl. <br>
+            Where property is one of: <br> <br>
+            m - sets margin <br>
+            p - sets padding <br> <br>
+            Where sides is one of: <br> <br>
+            t - sets margin-top or padding-top <br>
+            b - sets margin-bottom or padding-bottom <br>
+            s - sets margin-left or padding-left <br>
+            e - sets margin-right or padding-right <br>
+            x - sets both padding-left and padding-right or margin-left and margin-right <br>
+            y - sets both padding-top and padding-bottom or margin-top and margin-bottom <br>
+            blank - sets a margin or padding on all 4 sides of the element <br> <br>
+            Where size is one of: <br> <br>
+            0 - sets margin or padding to 0 <br>
+            1 - sets margin or padding to .25rem <br>
+            2 - sets margin or padding to .5rem <br>
+            3 - sets margin or padding to 1rem <br>
+            4 - sets margin or padding to 1.5rem <br>
+            5 - sets margin or padding to 3rem <br>
+            auto - sets margin to auto
+        </div>
+      </div>
+      <h4>Other Class</h4>
+      <div class="border p-2 my-2">
+        "ratio ratio-16x9" - Create responsive video or slideshows based on the width of the parent <br>
+        .shadow <br>
+        .visible .invisible <br>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  // Initialize tooltips
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })
+</script>
+<script>
+  // Initialize popover
+  var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+  var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl)
+  })
+</script>
+<script>
+  // Initialize Toast
+  document.getElementById("toastbtn").onclick = function () {
+    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+    var toastList = toastElList.map(function (toastEl) {
+      return new bootstrap.Toast(toastEl)
+    })
+    toastList.forEach(toast => toast.show())
+  }
+</script>
+
+</html>

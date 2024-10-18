@@ -1,0 +1,122 @@
+/* Elements */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Calibri', 'Trebuchet MS', sans-serif;
+  background-color: lightgray;
+}
+
+h1 {
+  color: purple;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 2px;
+  table-layout: auto;
+  background-color: seashell;
+}
+
+td:first-child {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+code {
+  background-color: antiquewhite;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link {
+  color: purple;
+}
+
+a:visited {
+  color: blue;
+}
+
+a:hover {
+  color: white;
+}
+
+a:active {
+  color: red;
+}
+
+/* Custom Class */
+
+.table_category {
+  background-color: lightgray;
+  text-align: center;
+}
+
+.warning {
+  color: red;
+}
+
+/* Example Class */
+
+/* layout1- */
+.layout1-container {
+  text-align: center;
+  padding: 10px;
+  margin-top: 7px;
+  background-color: seashell;
+}
+
+.layout1-container h1{
+  color:black;
+}
+
+.layout1-overflow{
+  overflow:auto;
+}
+
+.layout1-menu {
+  float: left;
+  width: 20%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.layout1-menu a {
+  background-color: seashell;
+  padding: 8px;
+  margin-top: 7px;
+  display: block;
+  width: 100%;
+  color: black;
+}
+
+.layout1-main {
+  float: left;
+  width: 60%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.layout1-right {
+  background-color: seashell;
+  float: left;
+  width: 20%;
+  padding: 15px;
+  margin-top: 7px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 620px) {
+  .layout1-menu,
+  .layout1-main,
+  .layout1-right {
+    width: 100%;
+  }
+}

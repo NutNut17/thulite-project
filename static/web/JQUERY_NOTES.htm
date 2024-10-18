@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQUERY_NOTES</title>
+    <link rel="stylesheet" href="ExternalFiles/HTMLstyles.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+    <!--additional method - for checkbox .. ,require_from_group method ...-->
+    <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <a href="HTML_NOTES.htm" target="_blank">HTML Note</a>
+        <a href="CSS_NOTES.htm" target="_blank">CSS Note</a>
+        <a href="JSCRIPT_NOTES.htm" target="_blank">JavaScript Note</a>
+        <a href="JQUERY_NOTES.htm" target="_blank">JQuery Note</a>
+    </nav>
+    <h1>JQUERY INTRODUCTION</h1>
+    <p>JQuery is a Javascript Library must be declared in <code>script</code> tag.</p>
+
+    <table>
+        <tr>
+            <th>Feature</th>
+            <th>Syntax</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td class="table_category" colspan="3">Selector</td>
+        </tr>
+        <tr>
+            <td>Basic Select</td>
+            <td>$("selector")</td>
+            <td>Selector is the same as HTML selector including pseudo class</td>
+        </tr>
+        <tr>
+            <td>Input Select</td>
+            <td>$("input[name='id']") </td>
+            <td>Select input element with name as id</td>
+        </tr>
+        <tr>
+            <td class="table_category" colspan="3">Get and Set Function</td>
+        </tr>
+        <tr>
+            <td>text</td>
+            <td>.text() / .text("value")</td>
+            <td>Get or set the text value</td>
+        </tr>
+        <tr>
+            <td>HTML</td>
+            <td>.html() / .html("value")</td>
+            <td>Get or set the html value</td>
+        </tr>
+        <tr>
+            <td>value</td>
+            <td>.val() / .val("value")</td>
+            <td>Get or set the val value</td>
+        </tr>
+        <tr>
+            <td>CSS</td>
+            <td>.css("property", "value")</td>
+            <td>Access single CSS properties</td>
+        </tr>
+        <tr>
+            <td>CSS</td>
+            <td>.css({"prop1":"value","prop2":"value"})</td>
+            <td>Access multiple CSS properties</td>
+        </tr>
+        <tr>
+            <td>prop</td>
+            <td>.prop("property", value)</td>
+            <td>Access property</td>
+        </tr>
+        <tr>
+            <td>append</td>
+            <td>.append("&ltli> List &lt/li>")</td>
+            <td>Append list to the selected element</td>
+        </tr>
+        <tr>
+            <td>remove</td>
+            <td>.remove()</td>
+            <td>Remove the element</td>
+        </tr>
+        <tr>
+            <td>empty</td>
+            <td>.empty()</td>
+            <td>Empty the element</td>
+        </tr>
+        <tr>
+            <td>show / hide</td>
+            <td>.show() / .hide()</td>
+            <td>Show or hide the element</td>
+        </tr>
+        <tr>
+            <td>toggle</td>
+            <td>.toggle()</td>
+            <td>Toggle the show/hide element</td>
+        </tr>
+        <tr>
+            <td>removeAttr</td>
+            <td>.removeAttr('attributename')</td>
+            <td>Remove the attribute</td>
+        </tr>
+        <tr>
+            <td>mouseover / mouseout</td>
+            <td>.mouseover(func...) / .mouseout(func...)</td>
+            <td>Run the function when mouseover or mouseout</td>
+        </tr>
+        <tr>
+            <td>hover</td>
+            <td>.hover(fun1(mouseover), fun2(mouseout))</td>
+            <td>Run the fun1 or fun2 according to mouse location</td>
+        </tr>
+        <tr>
+            <td>change</td>
+            <td>.change(func...)</td>
+            <td>Run the function when an event occurs</td>
+        </tr>
+        <tr>
+            <td>click</td>
+            <td>.click(func...)</td>
+            <td>Run function when clicked</td>
+        </tr>
+        <tr>
+            <td class="table_category" colspan="3">Some Implementation</td>
+        </tr>
+        <tr>
+            <td>
+                text
+            </td>
+            <td>
+                $("#btn1a").click(function () { alert($("#btn1a").text()); });<br>
+                $("#btn1b").click(function () { $("#btn1b").text("X"); });
+            </td>
+            <td>
+                <div><button id="btn1a">btn1a</button>Get Text <br>
+                    <button id="btn1b">btn1b</button>Set Text
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                html
+            </td>
+            <td>
+                $("#btn2a").click(function () { alert($("#t1").html()); });<br>
+                $("#btn2b").click(function () { $("#btn2b").html("&ltb>Hi&lt/b>"); });
+            </td>
+            <td>
+                <div id="t1"><button id="btn2a">btn2a</button>Get HTML <br>
+                    <button id="btn2b">btn2b</button>Set HTML
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                val
+            </td>
+            <td>
+                $("#btn3a").click(function () { alert($("#btn3a").val()); });<br>
+                $("#btn3b").click(function () { $("#btn3b").val("0"); alert($("#btn3b").val()) });
+            </td>
+            <td>
+                <div><button id="btn3a" value="1">btn3a</button>Get Value <br>
+                    <button id="btn3b">btn3b</button>Set Value
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                hover
+            </td>
+            <td>
+                $("#p1").mouseover(function () { $("#p1").css({ "color": "#0000FF", "cursor": "pointer" }); });<br>
+                $("#p1").mouseout(function () { $("#p1").css("color", "black"); });<br>
+                $("#p2").hover(
+                function () { $("#p2").css({ "color": "#00FF00", "cursor": "pointer" }); },
+                function () { $("#p2").css("color", "black"); }
+            </td>
+            <td>
+                <div><span id="p1">Hover Me(Blue)</span><br><span id="p2">Hover Me(Green)</span></div>
+            </td>
+        </tr>
+    </table>
+    <script>
+        $(function () {
+            $("#btn1a").click(function () { alert($("#btn1a").text()); });
+            $("#btn1b").click(function () { $("#btn1b").text("X"); });
+            $("#btn2a").click(function () { alert($("#t1").html()); });
+            $("#btn2b").click(function () { $("#btn2b").html("<b>Hi</b>"); });
+            $("#btn3a").click(function () { alert($("#btn3a").val()); });
+            $("#btn3b").click(function () { $("#btn3b").val("0"); alert($("#btn3b").val()) });
+            $("#p1").mouseover(function () { $("#p1").css({ "color": "#0000FF", "cursor": "pointer" }); });
+            $("#p1").mouseout(function () { $("#p1").css("color", "black"); });
+            $("#p2").hover(
+                function () { $("#p2").css({ "color": "#00FF00", "cursor": "pointer" }); },
+                function () { $("#p2").css("color", "black"); }
+            );
+        });
+    </script>
+
+    <h1>FORM USING JQUERY VALIDATION PLUGIN </h1>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+    <!--additional method - for checkbox .. ,require_from_group method ...-->
+    <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+
+    <script>
+        $(document).ready(function ($) {
+            $("#form2").validate({
+                submitHandler: function (form) {
+                    form.submit();
+                },
+                rules: {
+                    // Checkbox of class cb_group named cb_1, ...
+                    cb_1: {
+                        require_from_group: [1, ".cb_group"]
+                    },
+                    cb_2: {
+                        require_from_group: [1, ".cb_group"]
+                    },
+                    cb_3: {
+                        require_from_group: [1, ".cb_group"]
+                    },
+                    // Checkbox of same name
+                    groups: {
+                        hobbies: 'hobby[]'
+                    },
+                    "hobby[]": {
+                        required: true,
+                        minlength: 2,
+                        maxlength: 3
+                    },
+                    // Radiobox of name type
+                    type: {
+                        required: true
+                    },
+                    // Password check
+                    pswd: {
+                        required: true,
+                    },
+                    pswd2: {
+                        required: true,
+                        equalTo: "#pswd"
+                    },
+                    // Textbox of name textbox, linkaddr, content
+                    textbox: {
+                        required: true
+                    },
+                    linkaddr: {
+                        required: true,
+                        url: true
+                    },
+                    content: {
+                        required: true
+                    },
+                    // Select
+                    select4: {
+                        required: true,
+                        min: 1
+                    }
+                },
+                messages: {
+                    // To specify message. If none, the default error message will be used
+                    cb_1: {
+                        // We want the message be shown at the last checkbox
+                        require_from_group: ""
+                    },
+                    cb_2: {
+                        require_from_group: ""
+                    },
+                    cb_3: {
+                        require_from_group: "Choose at least one (Specified)"
+                    }
+                }
+            });
+        });
+    </script>
+
+    <form id="form2">
+        <table>
+            <tr>
+                <th>
+                    Example
+                </th>
+                <th>
+                    Code
+                </th>
+            </tr>
+            <tr>
+                <td colspan="2"><code>
+                    &ltscript src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js">&lt/script> <br>
+                    &ltscript src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js">&lt/script>
+                </code></td>
+            </tr>
+            <tr>
+                <td>
+                    <input name="cb_1" class="cb_group" type="checkbox" value="1">1
+                    <input name="cb_2" class="cb_group" type="checkbox" value="2">2
+                    <input name="cb_3" class="cb_group" type="checkbox" value="3">3
+                    <label for="cb_3" class="error">
+                </td>
+                <td>
+                    rules: { <br>
+                    cb_1: { require_from_group: [1, ".cb_group"] }, <br>
+                    cb_2: { require_from_group: [1, ".cb_group"] }, <br>
+                    cb_3: { require_from_group: [1, ".cb_group"] }, } <br>
+                    messages: { <br>
+                    // To specify message. If none, the default error message will be used <br>
+                    // We want the message be shown at the last checkbox <br>
+                    cb_1: { require_from_group: "" }, <br>
+                    cb_2: { require_from_group: "" }, <br>
+                    cb_3: { require_from_group: "..." } }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input name="hobby[]" type="checkbox" value="4">4
+                    <input name="hobby[]" type="checkbox" value="5">5
+                    <input name="hobby[]" type="checkbox" value="6">6
+                    <input name="hobby[]" type="checkbox" value="7">7
+                    <label for="hobby[]" class="error">
+                </td>
+                <td>
+                    rules: { "hobby[]": { required: true, minlength: 2, maxlength: 3 }, }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="type" value="1">A
+                    <input type="radio" name="type" value="2">B
+                    <input type="radio" name="type" value="3">C
+                    <label for="type" class="error">
+                </td>
+                <td> rules: { type: { required: true } }</td>
+            </tr>
+            <tr>
+                <td><input type="text" name="textbox" id="textbox" placeholder="Textbox"></td>
+                <td> rules: { textbox: { required: true } }</td>
+            </tr>
+            <tr>
+                <td><input type="text" name="linkaddr" id="linkaddr" placeholder="Link"></td>
+                <td> rules: { linkaddr: { required: true, url: true } }</td>
+            </tr>
+            <tr>
+                <td><input type="password" name="pswd" id="pswd" placeholder="Password"></td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td><input type="password" name="pswd2" id="pswd2" placeholder="Confirm Password"></td>
+                <td> rules: { pswd2: { equalTo: "#pswd" } }</td>
+            </tr>
+            <tr>
+                <td><textarea name="content" id="textarea" rows="5" cols="20"></textarea> </td>
+                <td> rules: { content: { required: true } }</td>
+            </tr>
+            <tr>
+                <td>
+                    <select name="select4" size="1">
+                        <option value="0"> - </option>
+                        <option value="1"> 1 </option>
+                        <option value="2"> 2 </option>
+                        <option value="3"> 3 </option>
+                        <option value="4"> 4 </option>
+                        <option value="5"> 5 </option>
+                        <option value="6"> 6 </option>
+                        <option value="7"> 7 </option>
+                        <option value="8"> 8 </option>
+                        <option value="9"> 9 </option>
+                        <option value="10"> 10 </option>
+                        <option value="11"> 11 </option>
+                        <option value="12"> 12 </option>
+                    </select>
+                </td>
+                <td>rules: { select4: { required: true, notEqualTo: "0" } }</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" size="20" value="Submit">
+                    <input type="reset" size="20" value="Reset">
+                </td>
+                <td>
+                    $(document).ready(function ($) {
+                    $("#form1").validate({
+                    submitHandler: function (form) {
+                    form.submit();
+                    },
+                    rules: { },
+                    messages: { }
+                    });
+                    });
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">jQuery Validation is about automating and simplifying the process. Error messages are
+                    automatically labeled right after the input without have to make a label for error message and has
+                    it's own message depending of the error. We can specify the rule simply in the rule section and edit
+                    the error message for the corresponding rule at the message section and add
+                    <code>&ltinput for="inputNameAttr"></code> to specify the location of message.
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+
+</html>

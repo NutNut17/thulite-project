@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CSS_NOTES</title>
+	<style>
+		body {
+			background-color: #2E4053;
+			font-family: calibri;
+		}
+
+		h1,
+		p,
+		table,
+		tr,
+		td,
+		th {
+			color: white;
+		}
+
+		table,
+		td,
+		th {
+			border: white solid 1px;
+			border-collapse: collapse;
+			padding: 2px;
+		}
+
+		#a1 {
+			color: gray;
+		}
+
+		#a2 {
+			font-family: 'Courier New', Courier, monospace;
+		}
+
+		#a3 {
+			font-size: 8pt;
+		}
+
+		#a4 {
+			font-style: italic;
+		}
+
+		#a5 {
+			font-style: oblique;
+		}
+
+		#a6 {
+			line-height: 1px;
+		}
+
+		#a7 {
+			font-weight: bold;
+		}
+
+		#a8 {
+			font-weight: bolder;
+		}
+
+		#a9 {
+			font-weight: lighter;
+		}
+
+		#a10 {
+			font-variant: small-caps;
+		}
+
+		#a11 {
+			text-transform: capitalize;
+		}
+
+		#a12 {
+			text-transform: uppercase;
+		}
+
+		#a13 {
+			text-transform: lowercase;
+		}
+
+		#a14 {
+			text-decoration: underline;
+		}
+
+		#a15 {
+			text-decoration: overline;
+		}
+
+		#a16 {
+			text-decoration: line-through;
+		}
+
+		#a17 {
+			text-decoration: blink;
+		}
+
+		#a18 {
+			text-align: center;
+		}
+
+		#a19 {
+			vertical-align: center;
+		}
+
+		#a20 {
+			letter-spacing: 3px;
+		}
+
+		#a21 {
+			word-spacing: 5px;
+		}
+
+		#a22 {
+			text-indent: 10px;
+		}
+
+		.item {
+			margin: 5px;
+			padding: 5px;
+			flex: none;
+			color: #FFFFFF;
+			width: 300px;
+			display: inline-block;
+		}
+
+		@media screen and (max-width: 1200px) {
+			.item {
+				width: 30%;
+			}
+		}
+
+		@media screen and (max-width: 768px) {
+			.item {
+				width: 45%;
+			}
+		}
+
+		@media screen and (max-width: 500px) {
+			.item {
+				width: 90%;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<nav>
+		<a href="HTML_NOTES.htm" target="_parent">HTML Note</a>
+        <a href="CSS_NOTES.htm" target="_blank">CSS Note</a>
+        <a href="JSCRIPT_NOTES.htm" target="_blank">JavaScript Note</a>
+        <a href="JQUERY_NOTES.htm" target="_blank">JQuery Note</a>
+    </nav>
+	<h1>CSS INTRODUCTION</h1>
+	<p>Cascading Style Sheets (CSS) use .css as file extension. CSS can be added to HTML documents in
+		3
+		ways:<br>
+		Inline - by using the style attribute inside HTML elements<br>
+		Internal - by using a "style" element in the &lthead&gt section<br>
+		External - by using a "link" element to link to an external CSS file &ltlink rel="stylesheet" href="/Personal HTML Notes/ExternalFiles/HTMLstyles.css"&gt
+	</p>
+
+	<table>
+		<caption>Text CSS</caption>
+		<tr>
+			<th>Style</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>color</td>
+			<td id="a1">color</td>
+		</tr>
+		<tr>
+			<td>font-family</td>
+			<td id="a2">font-family</td>
+		</tr>
+		<tr>
+			<td>font-size</td>
+			<td id="a3">font-size 8pt</td>
+		</tr>
+		<tr>
+			<td>font-style</td>
+			<td><span id="a4">italic</span>, <span id="a5">oblique</span></td>
+		</tr>
+		<tr>
+			<td>line-height</td>
+			<td id="a6">line-height 1px</td>
+		</tr>
+		<tr>
+			<td>font-weight</td>
+			<td><span id="a7">bold</span>, <span id="a8">bolder</span>, <span id="a9">lighther</span></td>
+		</tr>
+		<tr>
+			<td>font-variant</td>
+			<td><span id="a10">SMALL-CAPS</span></td>
+		</tr>
+		<tr>
+			<td>text-transform</td>
+			<td><span id="a11">capitalize</span>, <span id="a12">uppercase</span>, <span id="a13">LOWERCASE</span>
+			</td>
+		</tr>
+		<tr>
+			<td>text-decoration</td>
+			<td><span id="a14">underline</span>, <span id="a15">overline</span>, <span id="a16">line-through</span>,
+				<span id="a17">blink</span>
+			</td>
+		</tr>
+		<tr>
+			<td>text-align</td>
+			<td id="a18">center</td>
+		</tr>
+		<tr>
+			<td>vertical-align</td>
+			<td id="a19">center</td>
+		</tr>
+		<tr>
+			<td>letter-spacing</td>
+			<td id="a20">letter-spacing 3px</td>
+		</tr>
+		<tr>
+			<td>word-spacing</td>
+			<td id="a21">word-spacing 5px</td>
+		</tr>
+		<tr>
+			<td>text-indent</td>
+			<td id="a22">text-indent 10px</td>
+		</tr>
+	</table>
+	<h1>CSS LAYOUT PROPERTY</h1>
+	<table>
+		<tr>
+			<th>Layout</th>
+			<th>Description</th>
+			<th>Value</th>
+		</tr>
+		<tr>
+			<td>display</td>
+			<td>whether the element will be show on the webpage</td>
+			<td>none, block, inline, inline-block, flex, list-item</td>
+		</tr>
+		<tr>
+			<td>visibility</td>
+			<td>whether the element will be visible on the webpage</td>
+			<td>visible, hidden, collapse</td>
+		</tr>
+		<tr>
+			<td>position</td>
+			<td>position of specific element</td>
+			<td>static(default), relative(add top:a px; left:b px;), absolute</td>
+		</tr>
+		<tr>
+			<td>z-index</td>
+			<td>the higher the value, the more privilege it gets</td>
+			<td>integer</td>
+		</tr>
+		<tr>
+			<td>overflow</td>
+			<td>way to handle if the element overflows</td>
+			<td> size, visible, hidden, scroll</td>
+		</tr>
+		<tr>
+			<td>box-shadow</td>
+			<td>shadow of the element</td>
+			<td>offset-x offset-y blur-radius color</td>
+		</tr>
+		<tr>
+			<td>float</td>
+			<td>float the elemtent to a direction</td>
+			<td>none, left, right, initial, inherit</td>
+		</tr>
+		<tr>
+			<td>clear</td>
+			<td>remove float property</td>
+			<td>none, left, right</td>
+		</tr>
+		<tr>
+			<td>justify-content</td>
+			<td>aligns the flexible container's items when the items do not use all available space on the main-axis
+			</td>
+			<td>center, flex-start, flex-end, space-between, space-around, space-evenly</td>
+		</tr>
+		<tr>
+			<td>align-items</td>
+			<td>align the items vertically</td>
+			<td>center, stretch, flex-start, flex-end</td>
+		</tr>
+	</table>
+	<a href="https://www.w3schools.com/cssref/playdemo.php?filename=playcss_align-items">Link to layout
+		reference</a>
+</body>
+
+</html>
