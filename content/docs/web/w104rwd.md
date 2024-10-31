@@ -1,60 +1,23 @@
 ---
-title: "Web Design"
+title: "Responsive Web Design"
 description: ""
 summary: ""
-date: 2024-10-10T16:43:10+08:00
-lastmod: 2024-10-10T16:43:10+08:00
+date: 2024-10-19T15:58:18+08:00
+lastmod: 2024-10-19T15:58:18+08:00
 draft: false
-weight: 102
-toc: true
+weight: 104
+toc: false
 seo:
   title: "" # custom title (optional)
   description: "" # custom description (recommended)
   canonical: "" # custom canonical URL (optional)
   noindex: false # false (default) or true
 ---
-### The Web Roadmap
 
-### TECH STACK
 
-#### Bootstrap
+RWD (Responsive Web Design) is an art of adjusting the size of elements on different screen.
 
-A simple CSS framework for easy designing using class by adding the source below
-
-```html
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-```
-
-#### SASS
-
-A CSS preprocessor and will compile to CSS
-
-- .scss have same syntax to css and add more functionality like variable, nesting, mixin(grouping attribute), function
-- .sass have similar syntax to python
-
-#### Tailwind CSS
-
-A CSS framework for faster development, similar to bootstrap. But having more configuration space
-
-#### Purge CSS
-
-Remove unused CSS using PostCSS plugin
-
-#### Databse
-
-- MongoDB: storage on document
-- SQL: storage on relations
-
-#### Typescript
-
-A language derived from javascript to deal with variable type consistency and typescript compiles to javascript.
-
-### Basic Tutorial
-
-<iframe src="/web" width="100%" height="600" style="border:none;"></iframe>
-
-### Responsive Web Design
+### CSS Flex
 
 RWD is done by flexbox, to control the size of your web elements dynamically
 
@@ -282,17 +245,3 @@ p,
 {{< /tabs >}}
 
 {{< /details >}}
-
-### Icons
-
-Discover amazing icon from [fontawesome](https://fontawesome.com/start) and embed into web
-
-#### Figma
-
-Figma is a collaborative web application for interface design. Making layout with autolayout, variable
-
-### Wordpress
-
-A web content management system. Build website on templates easily
-
-javafx, doks, markdown, design, reference, awt, concept

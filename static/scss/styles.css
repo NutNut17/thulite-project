@@ -1,0 +1,45 @@
+.button, .secondary-btn {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+.button:hover, .secondary-btn:hover {
+  background-color: #217dbb;
+}
+
+.secondary-btn {
+  background-color: #2ecc71;
+}
+.secondary-btn:hover {
+  background-color: #25a25a;
+}
+
+.button, .secondary-btn {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+.button:hover, .secondary-btn:hover {
+  background-color: #217dbb;
+}
+
+.secondary-btn {
+  background-color: #2ecc71;
+}
+.secondary-btn:hover {
+  background-color: #25a25a;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  background-color: #e1f0fa;
+  margin: 0;
+  height: 100vh; /* Make sure the body takes the full height of the viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}/*# sourceMappingURL=styles.css.map */

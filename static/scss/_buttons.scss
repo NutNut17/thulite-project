@@ -1,0 +1,20 @@
+.button {
+  padding: $base-padding 20px;
+  background-color: $primary-color;
+  color: white;
+  @include border-radius(5px);
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+.secondary-btn {
+  @extend .button;
+  background-color: $secondary-color;
+
+  &:hover {
+    background-color: darken($secondary-color, 10%);
+  }
+}

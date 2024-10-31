@@ -1,0 +1,13 @@
+@import 'variables';
+@import 'mixins';
+@import 'buttons';
+@import 'layout';
+
+body {
+  font-family: $font-stack;
+  background-color: lighten($primary-color, 40%);
+  margin: 0;
+  height: 100vh; /* Make sure the body takes the full height of the viewport */
+
+  @include flex-center;
+}

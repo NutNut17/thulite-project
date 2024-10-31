@@ -109,4 +109,4 @@ Others -> Leetcode -> ML(Coursera) -> Cmake -> Cybersecurity
 
 ```
 
-A [reference](Roadmap: https://roadmap.sh/) for learning roadmap in IT sector. [Java](https://medium.com/javarevisited/the-java-programmer-roadmap-f9db163ef2c2) roadmap
+A [reference](https://roadmap.sh/) for learning roadmap in IT sector. [Java](https://medium.com/javarevisited/the-java-programmer-roadmap-f9db163ef2c2) roadmap

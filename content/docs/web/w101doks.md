@@ -114,3 +114,9 @@ For content navbar arrangement, lower weight results in higher position
 | Web  | 101             |
 | Java | 201             |
 | Dev  | 301             |
+
+To enable other device viewing the localhost part, enable Firewall Exception on the port 1313 by going to the Control Panel → System and Security → Windows Defender Firewall → Advanced Settings. Then, make sure to allow hugo server listening on all IP by
+
+```bash
+hugo server --bind 0.0.0.0 --baseURL http://<host IP address>:1313
+```
