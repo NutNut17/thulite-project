@@ -14460,5 +14460,10 @@ body {
   background-color: {{ site.Params.doks.backGround }};
 }
 */
+.custom-box {
+  background-color: #23262f;
+  border: 1px solid #30333b;
+  padding: 1rem;
+  text-align: center; }
 
 /*# sourceMappingURL=main.css.map */
