@@ -13,6 +13,9 @@ seo:
   canonical: "" # custom canonical URL (optional)
   noindex: false # false (default) or true
 ---
+
+{{< inline-svg src="svgs/logos/java.svg" width="100px" height="79px" class="svg-inline-custom" >}}
+
 Quick note for Java basic knowledge, concept and syntax. This notes assume you have basic understanding of general programming language.
 
 ### Intro

@@ -97,18 +97,60 @@ content-type: application/json
 
 Axios is a flexible HTTP client for making requests with features like automatic JSON parsing, request/response interception, and easier error handling
 
-### HTTPS
+```js
+try {
+  const response = axios.post('https://example.com/api/resource', data, {
+    Authorization: `Bearer ${token}`,
+  })
+  console.log(response.data)
+}
+catch (error) {
+  console.log(error)
+}
+```
 
-HTTPS (HTTP Secure) is an encrypted version of HTTP, using SSL/TLS to secure the data transferred between client and server. Obtaining an SSL Certificate need to purchase from a certificate authority (CA)
+### JWT
 
-CErtificates usually comes with two files: certificat file `.cf` and private file `.pf`
-
-Implementation on Express.js
+JWT (JSON Web Token) is a compact, secure way to transmit information between parties as a JSON object. A server creates token for client, client will keep and use token to verify its identity. Install `jsonwebtoken` package in npm to use.
 
 ```js
-const express = require("express");
-const https = require("https");
-const fs = require("fs");
+const jwt = require('jsonwebtoken');
+const secretKey = 'your-secret-key';
+const user = {
+  id: 1,
+  username: 'johndoe',
+  role: 'admin',
+};
+// Generate the token
+const token = jwt.sign(user, secretKey, { expiresIn: '1h' }); // 1-hour expiry
+console.log('Generated Token:', token);
+
+// Middleware to verify JWT
+const verifyToken = (req, res, next) => {
+  const token = req.headers['authorization']?.split(' ')[1]; // Extract token from "Bearer TOKEN"
+  if (!token) return res.status(403).send('Token is required');
+
+  jwt.verify(token, secretKey, (err, decoded) => {
+    if (err) return res.status(401).send('Invalid token');
+    req.user = decoded; // Attach decoded user data to the request
+    next();
+  });
+};
+
+// Example usage
+app.get('/protected', verifyToken, (req, res) => {
+  res.send(`Hello, ${req.user.username}! You are authorized.`);
+});
+```
+
+### HTTPS
+
+HTTPS (HTTP Secure) is an encrypted version of HTTP, using SSL/TLS to secure the data transferred between client and server. Obtaining an SSL Certificate need to purchase from a certificate authority (CA). Certificates usually comes with two files: certificate file `.cf` and private file `.pf`
+
+```js
+import express from "express";
+import https from "https";
+import fs from "fs";
 
 const app = express();
 
@@ -139,3 +181,4 @@ http.createServer((req, res) => {
   res.end();
 }).listen(80);
 ```
+

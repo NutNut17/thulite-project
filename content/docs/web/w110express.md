@@ -14,6 +14,8 @@ seo:
   noindex: false # false (default) or true
 ---
 
+{{< inline-svg src="svgs/logos/express.svg" width="100px" height="79px" class="svg-inline-custom" >}}
+
 ### Setting Up
 
 Express.js is a simplified Node.js framework to create a web server. A seperated server of web server and database server is served at different port
@@ -50,10 +52,10 @@ const PORT = 3000;
 // Enable CORS for all routes
 app.use(cors());
 
-  // Define a route
-  app.get('/', (req, res) => {
-    res.send('Hello from Express.js!');
-  });
+// Define a route
+app.get('/', (req, res) => {
+res.send('Hello from Express.js!');
+});
 
 // Serve static files from the "public/images" folder
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
@@ -65,6 +67,8 @@ app.listen(PORT, () => {
 ```
 
 ```js {title="server.mjs"}
+// Able to configure package.json to use es module using .js file too
+
 import express from 'express';
 import cors from 'cors';
 import path from 'path';

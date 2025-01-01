@@ -16,6 +16,8 @@ seo:
 
 #### Basic Syntax
 
+{{< inline-svg src="svgs/logos/php.svg" width="100px" height="79px" class="svg-inline-custom" >}}
+
 ```php
 <!DOCTYPE html>
 <html>

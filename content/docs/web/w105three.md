@@ -14,6 +14,8 @@ seo:
   noindex: false # false (default) or true
 ---
 
+{{< inline-svg src="svgs/logos/three.svg" width="100px" height="79px" class="svg-inline-custom" >}}
+
 Three.js is a rich JavaScript library for computer graphics representation on browser using WebGL. Visit their [documentation](https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene) and [examples](https://threejs.org/examples/#webgl_animation_keyframes) top understand better.
 
 ### Computer Graphics Concepts

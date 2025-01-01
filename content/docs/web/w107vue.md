@@ -14,6 +14,8 @@ seo:
   noindex: false # false (default) or true
 ---
 
+{{< inline-svg src="svgs/logos/vue.svg" width="100px" height="79px" class="svg-inline-custom" >}}
+
 ### Concepts
 
 A `.vue` files may have HTML, CSS, JS template syntax inside. `<template></template>` is for HTML structure, `<style></style>` is for CSS style, `<script></script>` is for JavaScript script.
@@ -33,24 +35,27 @@ Run the code below to get started
 npm install -g @vue/cli
 vue create my-vue-app
 cd my-vue-app
+npm run dev
+# or
 npm run serve
+# For deployment
+npm run build
 ```
 
-Then, select manually select feature to suits your need. Router, Vuex is recommended. Starter template will be at [port 8080](http://localhost:8080)
+Then, select manually select feature to suits your need. Router, Pinia (global state management) is recommended. Starter template will be at [port 8080](http://localhost:8080)
 
-Initial structure with Router, Vuex installed
-
-```bash
+```bash {title="Project Structure"}
 vue-app/
 ├── public/
 ├── src/
 │   ├── assets/
-│   ├── components/
+│   ├── components/ # For reusable components
+│   │   └── ButtonComponent.vue 
 │   ├── router/
 │   │   └── index.js
 │   ├── store/
 │   │   └── index.js
-│   ├── views/
+│   ├── views/ # For pages
 │   │   ├── HomeView.vue
 │   │   └── AboutView.vue
 │   ├── App.vue
@@ -76,9 +81,8 @@ This briefly shows some fundamentals concepts on Vue in two files. The concepts 
 import { reactive, ref } from 'vue' // Import state library
 
 // Declarative rendering: renders dynamically
-const counter = reactive({ count: 0 })  // Works on JS objects
-const message = ref('Hello World!')     // Create an object
-console.log(message.value)              // Access in JS
+const counter = reactive({ count: 0 })  // Access by counter.count
+const message = ref('Hello World!')     // Access by message.value
 const styleRef = ref('red')
 
 function increment() {
@@ -121,7 +125,6 @@ const childMsg = ref('No child msg yet')
 <template>
   <!-- Attribute Binding: ':class' is 'v-bind:class', binding class values to styleRef ref, message under mustache '{{ message }}' render dynamically to message ref -->
   <h1 :class="styleRef">{{ message }}</h1>
-
 
   <!-- Event Listeners: '@click' is 'v-on:click', calls the function 'increment() when clicked' -->
   <button @click="increment"> Count is: {{ counter.count }}</button>
@@ -238,31 +241,32 @@ emitFromChild('response', 'This is an emit from child')
 
 #### Router
 
-Essential tool to control the view in single web page
+To control and remember URL routes on the site
 
 {{< details "Router Configurations" >}}
 
-The structure are as below. Configure index.js, add views and make sure `main.js` imported router to be use
+The structure are as below. Configure index.js, add views and make sure `main.js` imports router to be use
 
 ```js {title="src/router/index.js"}
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import HomeView from '../views/LoginView.vue'
 
 // You have two ways to configure router
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: '/', redirect: '/about/home', // Default route
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    path: '/about', name: 'about',
+    // Nested routes
+    children: [
+      { path: 'home', component: HomeView },
+      { path: 'login', component: LogInView },
+    ],
+    // Route level code-splitting: this generates a separate chunk about.[hash].js)
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+  },
 ]
 
 const router = createRouter({
@@ -271,6 +275,20 @@ const router = createRouter({
 })
 
 export default router
+```
+
+```vue
+<script>
+  import { useRouter } from 'vue-router';
+  const router = useRouter();
+
+  router.push('/path'); // Move to a route
+</script>
+
+<template>
+  <router-link to="/path"><a> Link </a></router-link>
+  <router-view> Router views will be rendered here </router-view>
+</template>
 ```
 
 ```vue {title="src/views/HomeView.vue"}
@@ -296,62 +314,39 @@ import HelloWorld from '@/components/HelloWorld.vue'
 
 {{< /details >}}
 
-#### Vuex State Manager
+#### Pinia
 
-A state management tool (uncompleted)
+Am official global state management tool for vue
 
-{{< details "Vuex Configurations" >}}
+{{< details "Pinia Configurations" >}}
 
-Configure simple global state, counter
+Install pinia through npm
 
 ```js {title="src/store/index.js"}
-import { createStore } from 'vuex'
+import { defineStore } from 'pinia';
 
-export default createStore({
-  state: {
-    counter: 0
-  },
-  mutations: {
-    increment(state) {
-      state.counter++;
-    }
+export const useGlobalStore = defineStore('global', {
+  state: () => ({
+    // The global value
+    value: null, 
+    uname: null
+  }),
+  getters: {
+    getValue: (state) => state.value,
+    getUname: (state) => state.uname
   },
   actions: {
-    increment({ commit }) {
-      commit('increment');
+    setValue(newValue) {
+      this.value = newValue;
+    },
+    setUname(uname) {
+      this.uname = uname;
+    },
+    clear() {
+      this.value = null;
+      this.uname = null;
     }
   },
-  getters: {
-    counter: (state) => state.counter
-  }
-})
-```
-
-{{< /details >}}
-
-#### Vue calling API
-
-{{< details "Example Connection Between Vue and Express.js" >}}
-
-```html {title="src/components/HelloWorld.vue"}
-
-```
-
-```js {title="server.js"}
-const express = require('express');
-const app = express();
-const cors = require('cors');
-const PORT = 3000;
-
-app.use(cors()); // Enable CORS to allow Vue to communicate with Node.js
-
-// API route
-app.get('/api/message', (req, res) => {
-  res.json({ message: 'Hello from Node.js API!' });
-});
-
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
 });
 ```
 
