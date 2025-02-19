@@ -1,0 +1,13 @@
+Setting Xilinx on Linux
+
+1. Download Xilinx and install the app
+2. Load License
+Step 1: cd /opt/Xilinx/14.7/ISE_DS/
+Step 2: source settings64.sh (try "bash settings64.sh" if it does not work)
+Step 3: xlcm -manage
+
+3. Start Xilinx
+
+Start Xilinx:
+cd /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/ 
+sudo ./ise

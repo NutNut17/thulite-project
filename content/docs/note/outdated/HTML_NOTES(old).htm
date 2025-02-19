@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <title>HTML_NOTES</title>
+  <!--The link element below uses css format in HTMLstyles.css, the link enables multiple HTML files to use same
+CSS format. Or you can change the link element below with style element like this:
+<style>
+h1 {color:purple;}
+h1 {font-family:calibri;}
+p {font-family:calibri;}
+</style>-->
+  <link rel="stylesheet" href="HTMLstyles.css">
+</head>
+
+<body style="background-color:silver">
+
+
+  <h1>HTML BASICS</h1>
+  <p>HTML (Hyper Text Markup Language) is the standard markup language for creating Web pages. HTML use .htm or .html for file extension, press Ctrl + U to find source code of the page and Ctrl + Shift + I to inspect element</p>
+  <a href="CSS_NOTES.htm" target="blank">CSS Note Link</a><br>
+  <a href="JSCRIPT_NOTES.htm" target="blank">Java Script Note Link</a>
+
+
+  <h1 style='color:purple'>HTML ELEMENTS</h1>
+  <p>The element"!DOCTYPE html"is the type of the document will be</p>
+  <p>The element"head"is the starting of the web,it may store title and style element that will apply to the whole body
+  </p>
+  <p>The element"body"is the content of the page</p>
+  <p>The element"h1"to"h6"is heading</p>
+  <p>The element"p"is paragraphz</p>
+  <p>The element"a"used for hyperlink.For example:<a href="https://www.w3schools.com">This is a link</a></p>
+  <p>The element"img"used for displaying an image.For example:<img src="w3schools.jpg" alt="W3Schools.com" width="104"
+      height="142"></p>
+  <p>The element"br"is break line</p>
+  <p>The element"hr"is horizontal line</p>
+  <p>The element"pre"used to preserve both line break and spaces in paragraphs</p>
+  <p>The element"a"is used to link</p>
+
+
+  <h1 style='color:purple'>HTML ATTRIBUTES</h1>
+  <p>All HTML elements can have attributes</p>
+  <p>The <b>href</b> attribute of "a" specifies the URL of the page the link goes to.For instance,<br>
+    &it;href="https://www.w3schools.com/html/styles.css", This example uses a full URL to link<br>
+    &it;href="/html/styles.css", This example links to a file located in the html folder on the current web site<br>
+    &it;href="styles.css", This example links to a file located in the same folder as the current page</p>
+  <p>The <b>src</b> attribute of <img> specifies the path to the image to be displayed</p>
+  <p>The <b>width</b> and <b>height</b> attributes of <img> provide size information for images</p>
+  <p>The <b>alt</b> attribute of <img> provides an alternate text for an image</p>
+  <p>The <b>style</b> attribute is used to add styles to an element, such as color, font, size, and more<br>
+    -Use <b>background-color</b> for background color<br>
+    -Use <b>color</b> for text colors<br>
+    -Use <b>font-family</b> for text fonts<br>
+    -Use <b>font-size</b> for text sizes<br>
+    -Use <b>text-align</b> for text alignment<br>
+    -Use <b>border</b> for the border of the text. For example:style="border:2px solid Violet;"<br>
+    -Use <b>padding</b> to distance the text and the border. For example:style="border: 2px solid powderblue;padding:
+    30px;"<br>
+    -Use <b>margin</b> to define margin (space) outside the border. For example:style="border: 2px solid
+    powderblue;margin: 10px;"<br>
+  <p>The <b>lang</b> attribute of the <html> tag declares the language of the Web page</p>
+  <p>The <b>title</b> attribute defines some extra information about an element when mouse pointing on it</p>
+
+
+  <h1 style='color:purple'>HTML FORMATTING</h1>
+  <p>Formatting elements were designed to display special types of text</p>
+  <p>The element"b" <b>Bold text</b></p>
+  <p>The element"strong" <strong>Important text</strong></p>
+  <p>The element"i" <i>Italic text</i></p>
+  <p>The element"em" <em>Emphasized text</em></p>
+  <p>The element"mark" <mark>Marked text</mark></p>
+  <p>The element"small" <small>Smaller text</small></p>
+  <p>The element"del" <del>Deleted text</del></p>
+  <p>The element"ins" <ins>Inserted text</ins></p>
+  <p>The element"sub" <sub>Subscript text</sub></p>
+  <p>The element"sup" <sup>Superscript text</sup></p>
+
+
+  <h1 style='color:purple'>HTML QUOTATIONS</h1>
+  <p>The element"abbr"defines an abbreviation or acronym(short form).For example:<abbr
+      title="World Health Organization">WHO</abbr></p>
+  <p>The element"address"Defines contact information for the author/owner of a document</p>
+  <p>The element"bdo"Defines the text direction.For example:<bdo dir="rtl">This line will be written from right to
+      left</bdo></p>
+  <p>The element"blockquote"Defines a section that is quoted from another source</p>
+  <p>The element"cite"Defines the title of a work</p>
+  <p>The element"q"Defines a short inline quotation</p>
+
+
+  <h1 style='color:purple'>HTML COMMENTS</h1>
+  <p>Write&it;!--messages--&gt;into<> to keep a message that will not be displayed on the browser for the purpose of
+      programmer to understand
+      the codes below
+
+      <h1>HTML ESCAPE SEQUENCE</h1>
+      <p>type & lt; for < and & gt; for> and delete the spaces between & and it/gt</p>
+
+
+      <h1 style='color:purple'>HTML COLORS</h1>
+      <P>Color code are written as style="color:colourname/colourcode"</p>
+      <p>RGB code(Red Green Blue) "style=color:rgb(x,y,z)". Where x,y,z ranged in 0-255 and x is red light source, y is
+        green light source, z is
+        blue light source. or example:<q style="color:rgb(60, 179, 133);">rgb(60, 179, 133)</q><q
+          style="color:rgb(5, 5, 5);">rgb(5, 5, 5)</q></p>
+      <p>RGBA code(RGB with Alpha channel)"style=color:rgba(x,y,z,a)". The alpha,a determine the opacity of the color.
+        <br>
+        The colour is fully transparent when a=0 andfully opaque when a=1. For example:<q
+          style="color:rgb(255, 0, 0,1);">rgb(255, 0, 0,1)</q>
+        <q style="color:rgb(255, 0, 0,0.5);">rgb(255, 0, 0,0.5)</q>
+      </p>
+      <p>HEX code(Hexadecimal Colors)"style=color:#rrggbb, r for red, g for green, b for blue. The value of rr,gg,bb
+        ranged from 00-ff. For example:
+        <br><q style="color:#ff0000;">#ff0000</q><q style="color:#6a5acd;">#6a5acd</q>
+        <q style="color:#ffa500;">#ffa500</q><q style="color:#ffffff;">#ffffff</q>
+      </p>
+      <p>HSL code(Hue Saturation Lightness)"style=color:hsl(x,y,z)". Where y,z valued from 0-100%. X is the Hue(0-360),0
+        is red,120 is green,
+        <br>240 is blue from color wheel. Y is saturation of the color, 0% is grey, 100% is the full color. Z is
+        lightness of the color.
+        <br>0% is black, 100% is white. For example:<q style="color:hsl(248, 53%, 58%);">hsl(248, 53%, 58%)</q>
+        <q style="color:hsl(60, 0%, 58%);">hsl(60, 0%, 58%)</q><q style="color:hsl(220, 50%, 20%);">hsl(220, 50%,
+          20%)</q>
+      </p>
+      <p>HSLA(HSL with Alpha channel)"style=color:hsla(x,y,z,a)".</p>
+
+
+      <h1>HTML CSS</h1>
+      <p>Cascading Style Sheets (CSS) is used to format the layout of a webpage.CSS can be added to HTML documents in 3
+        ways:<br>
+        Inline - by using the style attribute inside HTML elements<br>
+        Internal - by using a "style" element in the
+
+        <head> section<br>
+          External - by using a "link" element to link to an external CSS file
+      </p>
+
+
+      <h1>HTML LINKS</h1>
+      <p>Use "a" element to make a link.For example:<a href="https://www.w3schools.com/" title="W3SChool">Click Here to
+          W3School</a>.<br>
+        The title attribute shows a text when a mouse over it and the href attributes link to a website.</p>
+      <p>-To use a full URL to link to a web page, write as https://www.w3schools.com/html/default.asp in href<br>
+        -To link to a page located in the html folder on the current web site, write as /html/default.asp in href<br>
+        -To link to a page located in the same folder as the current page, write as default.asp in href</p>
+      <p>The target attribute specifies where to open the linked document.The target attribute can have one of the
+        following values:<br>
+        "_self" - Default. Opens the document in the same window/tab as it was clicked<br>
+        "_blank" - Opens the document in a new window or tab<br>
+        "_parent" - Opens the document in the parent frame<br>
+        "_top" - Opens the document in the full body of the window</p>
+      <p>An image also can be used to link. To do this, just add "img" element inside "a" element
+        <a href="https://www.w3school.com" target="_self"><img src="smiley.gif" alt="HTML tutorial"
+            style="width:42px;height:42px;"></a>
+      </p>
+      <p>Insert mailto:(email) inside the href attribute to create a link that opens the user's email program (to let
+        them send a new email)<br>
+        For example:<a href="mailto:howwilson11@gmail.com">Send email</a></p>
+      <p>For the color of links and it's decoration, look into<a href="HTMLstyles.ccs">HTMLstyles.ccs </a>located
+        together with this document</p>
+      <p>Link also can be displayed as button by adding such style elements in the head elements as:<br>
+        a:link, a:visited {background-color: #f44336;color: white;padding: 15px 25px;<br>
+        text-align: center;text-decoration: none;display: inline-block;}<br>
+        a:hover, a:active {background-color: red;}</p>
+      <p>Bookmarks can be useful if a web page is very long. To create a bookmark, first create the bookmark, then add a
+        link to it.<br>
+        When the link is clicked, the page will scroll down or up to the location with the bookmark.<br>
+        -Use the id attribute (id="value") to define bookmarks in a page. Usually in headings.<br>
+        -Use the href attribute (href="#value") to link to the bookmark</p>
+
+
+      <h1>HTML IMAGES</h1>
+      <p>You can use the style attribute to specify the width and height of an image. For example:<br>
+        'img src="img_girl.jpg" alt="Girl in a jacket" style="width:500px;height:600px;"'or<br>
+        'img src="img_girl.jpg" alt="Girl in a jacket" width="500" height="600"'<br>
+        However, style attribute are more suggested. It prevents styles sheets(CSS) from changing the size of images.
+      </p>
+      <p>To use an image as a link, put the "img" element inside the "a" element.</p>
+      <p>Use the HTML "img" element to define an image<br>
+        Use the HTML src attribute to define the URL of the image<br>
+        Use the HTML alt attribute to define an alternate text for an image, if it cannot be displayed<br>
+        Use the HTML width and height attributes or the CSS width and height properties to define the size of the
+        image<br>
+        Use the CSS float property to let the image float to the left or to the right</p>
+      <p>The HTML "map" tag defines an image map. An image map is an image with clickable areas.<br>
+        The areas are defined with one or more "area" tags. Here's an example:<br>
+        'img src="workplace.jpg" alt="Workplace" usemap="#workmap"' <--to find image<br>
+          'map name="workmap"' <--to display map image<br>
+            'area shape="rect" coords="34,44,270,350" alt="Computer" href="computer.htm"'<--x,y value starts from left
+              top corner<br>
+              'area shape="circle" coords="337,300,44" alt="Coffee" href="coffee.htm"'<--44 is the radius of thr circle
+                from the center<br>
+                'area shape="poly" coords="140,121,181,116,204,160,204,222,191,270,140,329,85,355,58,352,37,322"
+                href="croissant.htm"><br>
+                '/map'<br></p>
+      <p>A clickable area can also trigger a JavaScript function. For example:<br>
+        'map name="workmap"'<br>
+        'area shape="circle" coords="337,300,44" href="coffee.htm" onclick="myFunction()"'<map name="workmap"''
+          /map'<br>
+          'script'<br>
+          function myFunction() {<br>
+          alert("You clicked the coffee cup!");<br>
+          }<br>
+          '/script'</p>
+      <p>A background image can be specified for almost any HTML element.<br>
+        Depending on which element you want to put the background, add 'background-image' in style. For Example:<br>
+        'style'<br>
+        body {<br>
+        background-image: url('img_girl.jpg');<br>
+        background-repeat: no-repeat;<--if the image is smaller than the elemnt, it will repeats<br>
+          background-attachment: fixed;<--to make sure the image will keep its original proportions<br>
+            background-size: 100% 100%;<--to stretch the image to fit the entire element.Use"cover"if don't want to
+              stretch<br>
+              }<br>
+              </style><br></p>
+      <p>If you have a small screen or device, it is not necessary to load a large image file. The following code
+        will<br>
+        display different image for device with different screen size<br>
+        'head'<br>
+        'meta name="viewport" content="width=device-width, initial-scale=1.0"'<br>
+        '/head'<br>
+        'body'<br>
+        'picture'<br>
+        'source media="(min-width: 650px)" srcset="img_food.jpg"'<br>
+        'source media="(min-width: 465px)" srcset="img_car.jpg"'<br>
+        'img src="img_girl.jpg" style="width:auto;"'<br>
+        '/picture'<br>
+        The browser will use the first 'source' element with matching attribute values, and ignore any following
+        'source>' elements.<br>
+        Some browsers or devices may not support all image formats and it will use the first format it recognizes, and
+        <br>
+        ignore any of the following elements.
+      </p>
+
+
+      <h1>HTML TABLES</h1>
+      <p>-Use the HTML 'table' element to define a table<br>
+        -Use the HTML 'tr' element to define a table row<br>
+        -Use the HTML 'td' element to define a table data<br>
+        -Use the HTML 'th' element to define a table heading<br>
+        -Use the HTML 'caption' element to define a table caption<br>
+        -Use the CSS border property to define a border<br>
+        -Use the CSS border-collapse property to collapse cell borders<br>
+        -Use the CSS padding(distance between text and border) property to add padding to cells<br>
+        -Use the CSS text-align property to align cell text<br>
+        -Use the CSS border-spacing property to set the spacing between cells<br>
+        -Use the colspan attribute to make a cell span many columns<br>
+        -Use the rowspan attribute to make a cell span many rows<br>
+        -Use the syntax tr>td*n to create n cell in a rows
+        Here's an example how to make a table with span<br>
+      <table style="width:60%;border:1px solid black">
+        <tr style="text-align:center">
+          <th>A</th>
+          <th>B</th>
+          <th>C</th>
+          <th>D</th>
+        </tr>
+        <tr style="text-align:center">
+          <td colspan='2'>Lol</td>
+          <td>1</td>
+          <td>2</td>
+        </tr>
+        <tr style="text-align:center">
+          <td>3</td>
+          <td rowspan='2'>HIHI</td>
+          <td>2</td>
+          <td>3</td>
+        </tr>
+        <tr style="text-align:center">
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+        </tr>
+
+      </table>
+      <br>
+      'table style="width:60%;border:1px solid black"'<br>
+      'tr style="text-align:center"''th'A'/th'th'B'/th''th'C'/th''th'D'/th''/tr'<br>
+      'tr style="text-align:center"''td colspan='2''lol'/td''td'1'/td''td'2'/td''/tr'<br>
+      'tr style="text-align:center"''td'3'/td' 'td rowspan='2''HIHI'/td''td'2'/td' 'td'3'/td''/tr'<br>
+      'tr style="text-align:center"''td'4'/td' 'td'5'/td' 'td'6'/td''/tr'<br>
+      '/table'<br>
+      -Use the id attribute to uniquely define one table. Then, add CSS property for the defined table:<br>
+      table {<br>
+      width:100%;}<br>
+      table, th, td {<br>
+      border: 1px solid black;<br>
+      border-collapse: collapse;}<br>
+      th, td {<br>
+      padding: 15px;<br>
+      text-align: left;}<br>
+      #t01 tr:nth-child(even) {<br>
+      background-color: #eee;}<br>
+      #t01 tr:nth-child(odd) {<br>
+      background-color: #fff;<br></p>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

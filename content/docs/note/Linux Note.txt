@@ -1,0 +1,118 @@
+Ubuntu 22.04 on VM Windows 11
+
+Shared Folder Location on Host:
+
+C:\MyFolder\Linux_Ubuntu\Ubuntu_SharedFolder
+C:\Users\howwi\OneDrive\Coding\UbuntuSF
+
+VM Folder: C:\Users\howwi\VirtualBox VMs\Ubuntu
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Shortcuts:
+
+ctrl + L : Select current directory path in Nautilus(file explorer) to be copied or edit
+ctrl + alt + t : Open terminal
+ctrl + shift + C : Copy in terminal
+ctrl + shift + V : Paste in terminal
+ctrl + / : Undo the previous message done in terminal
+
+Commands: 
+
+sudo: running a file as user (Terminal on the respective directory): "sudo ./filename"
+cd: change directory
+rm: remove file
+
+
+
+Operations
+
+1. Update Ubuntu: "sudo apt update && sudo apt upgrade -y" and then "sudo snap refresh"
+2. Installing guess addition: "sudo apt-get install virtualbox-guest-additions-iso"
+3. Expanding Storage: At VM goto File -> Tool -> Virtual Media Manager -> Hard Disk -> Set Size -> Then run ubuntu and open GParted. Select the disk, right-click and resize
+4. Task Manager: System monitor application
+
+5. Sharing Folders: Add shared folder in vm machine after mounting, run "sudo usermod -a -G vboxsf $USER" to give access to guest
+https://www.pragmaticlinux.com/2021/02/how-to-mount-a-shared-folder-in-virtualbox/
+
+6. Removing lock sign from your file / folder:
+{
+cd <the directory the file or folder>
+sudo su
+chmod a+rwx <file or folder name>
+}
+
+7. Making Shortcut on Desktop:
+
+Installing Xilinx ISE - https://antc2lt.medium.com/hello-fpga-nexys-3-setup-on-ubuntu-ff58e774566b
+1. Install and extracted the installation package
+2. Change directory to extracted folder and run "sudo ./xsetup"
+3. installation Complete
+4. Adding shortcut: run "sudo nano /opt/Xilinx/14.7/ISE_DS/ise"
+5. Paste the following, then save (ctrl + x) and set extension as .sh then press enter
+
+#!/bin/bash
+export LD_PRELOAD=/opt/Xilinx/usb-driver/libusb-driver.so
+ISE_DS_DIR=/opt/Xilinx/14.7/ISE_DS
+unset LD_PRELOAD
+export gmake=/usr/bin/make
+cd "$ISE_DS_DIR"
+source "$ISE_DS_DIR"/settings64.sh
+export LANG=''  # reset locale to English to fix decimal/comma seperation
+"$ISE_DS_DIR"/ISE/bin/lin64/ise
+
+6. run "sudo chmod a+x /opt/Xilinx/14.7/ISE_DS/ise"
+7. Create .desktop file run "sudo nano /usr/share/applications/ISE.desktop"
+
+[Desktop Entry]
+Version=1.0
+Name=ISE
+Exec=/opt/Xilinx/14.7/ISE_DS/ise
+Terminal=false
+Icon=/opt/Xilinx/14.7/ISE_DS/ISE/data/images/pn-ise.png
+Type=Application
+Categories=Development
+
+8. Complete and run "xlcm -manage" in terminal to load license
+
+Alternative method: run the code below in terminal
+cd /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/ 
+sudo ./ise 
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Linux Installation (Ubuntu on windows using oracle VM)
+
+https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview
+
+1. Download Oracle VM Virtualbox: https://www.virtualbox.org/
+2. Download Ubuntu image: https://ubuntu.com/download/desktop
+3. Create / Load Machine (guest system): Goto machine -> new machine
+
+Name: The name of the environment. If you include the word Ubuntu in your name the Type and Version will auto-update.
+Machine Folder: This is where your virtual machines will be stored so you can resume working on them whenever you like.
+ISO Image: Here you need to add a link to the ISO you downloaded from the Ubuntu website.
+User profile: To secure the ubuntu
+Add guess addition: Some addition like window sizing support could be added
+Define the Virtual Machine's resources: Recommended to use at least 8GB RAM, 4 CPUs, 32GB hard disk
+Create disk: You can create a new disk or load existing disk
+
+Settings on Linux
+
+1. Bidirectional "copy and paste" and "drag and drop": Goto VM settings -> general -> advanced, set to bidirectional
+2. Enable network: Goto VM settings -> Network -> Adapter1 -> Choose Bridged Adapter1
+3. Adding USB: Goto VM settings -> Add new USB -> Choose USB
+4. Adding shared folder: Goto VM settings -> Shared Folders -> Set as auto mount and add folder path -> run VM
+- Make sure guess addition is added, then add user to vboxsf group: { sudo adduser [username] vboxsf } -> restart
+5. USB:
+- Download vb extension pack on host https://www.virtualbox.org/wiki/Downloads
+- File -> tools -> extension pack manager -> load the extension pack downloaded
+- Create vboxuser: { sudo groupadd vboxusers }
+- Add yourself into the group: { sudo usermod -aG vboxusers your_username }
+- In VM settings -> USB -> add filter -> start ubuntu -> goto file, the USB is there
+
+
+----------------
+
+./ represent the current directory
+/ represent the root directory

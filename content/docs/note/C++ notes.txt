@@ -1,0 +1,1382 @@
+-------------------------------------------------------------------------------------------------------------------------------
+
+C++ Notes. Last Updated: 2022/6/23 23:57
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Contents
+
+1. Basic C++ Features
+
+Header and Seperate Files
+Data Type Conversation
+Functions
+Pointer and References
+Const
+Dynamic Memory Allocation
+Little Tips
+Windows Screen Control
+String
+
+2. Class
+
+Constructor
+Pointer of Class
+Constant Member Functions
+Friend of Class
+Copy Constructor
+Overloading Functions and Operators
+Type conversion Operator and Convert Constructors
+Aggregation and Composotion
+Inheritance and Feature of Inheritance
+
+3. Advanved File IO
+
+Standard IO
+IO Stream
+Binary File IO
+
+4. Polymorphism and Virtual Functions
+
+5. Exception
+
+6. Standard Template Library (STL)
+
+Templates
+STL Containers
+STL Algorithm
+List of STL Containers
+
+7. Basic Data Structures
+
+8. Appendices
+
+ASCII Character Table
+Operator Precedence and Associativity
+
+-------------------------------------------------------------------------------------------------------------------------------
+1. Basics C++ Features
+
+Header Files
+
+#include <iostream>     //Includes a standard header file
+#include "myheader.h"   //Includes a user defined header file
+
+Using Seperate Files
+
+Place class declaration in a header file that serves as the class specification file. Name the file classname.h. Place member
+function definitions in a class implementation file. Name the file classname.cpp. This file should #include the class
+specification file. A client program (client code) that uses the class must #include the class specification file and be
+compiled and linked with the class implementation file.
+
+Creating class specification file (classname.h):
+
+#ifndef CLASSNAME_H // Usually the contents of #ifndef use all capital letters with the same
+#define CLASSNAME_H	// Name with the header file name as a standard to avoid conflict
+// Class declarations
+#endif
+
+Include guards used to prevent a header file from being included twice. #ifndef stands for "if not defined".
+
+Extern
+
+To declare a variable which are visible to multiple cpp files in a project, include the header file with this declaration in
+the header file: "extern variable;" .Then, it must be declared on one cpp files, then it can only be shared by multiple cpp
+files after the declaration.
+
+Static
+
+Static have several use depending where it declared
+
+Declared in a function - exist in the lifetime of a program
+Declared in a global scope of a file -  the variable is only visible in the current file
+Declared in class - static variable / function of the class, it does not belongs to any instance.
+
+Creating implementation file (classname.cpp):
+#include "classname.h"
+// Member function declarations (all functions in implementation file have to be prototyped here)
+
+Creating a client code (projectname.cpp):
+#include "classname.h"
+#include <library used in implementation file>
+// Body of client code
+
+To execute the program, compile the class specification file and implementation file into object file (.obj) and link the
+object files to create a executable file (.exe). An enviroment called project that automatically link the files when the
+project is compiled.
+
+Data Type Conversion
+
+Values of different types are first converted to the largest data type used in an expression and then the expression is
+evaluated. A Type cast can convert data type with our means. x = (float) a / b 
+
+Namespace and Scope Resolution
+
+C++ provides the scope resolution operator (::), which used to access global variables that have same names as local variables.
+A namespace can be unnamed. In this case, scope resolution operator is not needed to access the member of anoynumous namespace.
+
+    namespace namespace_name { // Body of the namespace that contains declarations of it's members}
+    using namespace namespace_name; // Directive of namespace. Without this, ones has to type namespace_name::identifier
+
+Inline Function
+
+Inline function is similar to macros, it expands the body of inline function at where the identifier of inline function called.
+Inline function are better than macros in terms of execution speed and debugging. But it may make the program larger.
+
+    inline return_type function_name (parameter list){ // Body of the function }
+
+Default Argument
+
+Values assigned to default arguments can be constants, global variables, or function calls. If a function has both default and
+non default arguments, the non default arguments must be listed first in the function's parameter list. C++ programmers place
+ellipsis (…) at the end of the parameter list to create functions with unspecified number of parameters of any type. However,
+default argument are recommended to use. 
+
+Function Overload
+
+C++ enables the same name to be used for two or more different functions. Requirements for overload function:
+a. Have a different number of parameters
+b. Have the same number of parameters but the parameter types should be in a different order
+c. Have the same number of parameters but the at least one parameter type should be different
+
+Function name mangling use function signature which is similar to scope resolution by scoping to function prototype. For
+example: int C::C2:: func(parameter). Ambiguity happends when compiler is confused deciding which version of the overloaded
+function to use, it produces an error message.
+
+Pointer
+
+Pointers in C/C++ able to modify the function arguments. Remember that function argument without pointer are seek as constant.
+Indirection operator/dereferencing(*): precedes a pointer and returns the value of a variable of the address the pointer points.
+Address of operator(&): returns the memory address of its operand.
+
+- A void pointer can point to a variable of any type.
+- String is equivalent to a character pointer.
+- An array name returns the starting address of the array. 
+- Pointers of different types can be assigned to each other by using a type cast.
+
+Reference
+
+A reference is an implicit pointer that is automatically dereferenced. References also act as alternative names for other
+variables. Reference_name can also be passed to function argument
+
+    data_type & reference_name = variable_name;
+    return_type function_name (& reference_parameter)
+
+A reference must be initialized when declared, then it cannot be initialized again. It cannot refer to other pointer or
+reference or be a void reference. Array of reference cannot be created. Unlike passing with a pointer, no memory location is
+required and no copy of the function argument is made when using a reference. Returning a reference by a function also permits
+the function to be called from the left side of the assignment operator. For example:
+
+int &put_val(int a[], int n)    // Function returns a reference
+{
+    if (n >= SIZE || n < 0)
+    {
+        cout << "Outside of border";
+        exit(1);
+    }
+    return a[n];
+}
+int main()
+{
+    int array[SIZE];
+    for (int i = 0; i < SIZE; i++)  // Function call is on the left side
+        put_val(array, i) = i * 2;
+}
+
+Const
+
+The function put_val() checks at runtime that the array boundaries are not exceeded before it returns a reference to an array
+element. This prevents run time errors such as array overflows. Assume that variable_name is a type int below
+
+Reference to a Constant: const reference_type & reference_name = variable_name;
+reference_name = value; //Illegal
+variable_name = value;  //Legal
+
+A Pointer to a Constant: const pointer_type *pointer_name = &variable_name;
+*pointer_name = value;  //Illegal
+variable_name = value;  //Legal
+
+A constant pointer: pointer_type * const pointer_name = &variable_name;
+pointer_name = &value;  //Illgeal
+*pointer_name = value;  //Legal
+variable_name = value;  //Legal
+
+A constant pointer to a constant: const pointer_type * const pointer_name = &variable_name;
+*pointer_name = value;  //Illegal
+pointer_name = &value;  //Illgeal
+variable_name = value;  //Legal
+
+Dynamic Memory Allocation
+
+Dynamic memory allocation allocate at run time to find a heap (a region of free memory). In C, malloc(), free() are used.
+In C++, new and delete are introduced.
+
+    data_type *pointer_name = new data_type(0); // Allocates a data_type variable and initializes to 0
+    delete pointer_name;                        // Dellocated the pointer and the memory it points to
+
+Dynamically Allocated Multidimensional Array
+
+pointer_type ** 2d_pointer;                     //Declares a pointer to pointer
+2d_pointer = new pointer_type *[rows];          //Sets up an array of row to hold column arrays
+for( i = 0; i < rows; i++ )
+    2d_pointer[i] = new pointer_type [columns]; //Sets up the column arrays
+for( i = 0; i <r ows; i++ )
+    delete [] 2d_pointer[i];                    //Deletes the column arrays
+delete [] 2d_pointer;                           //Deletes the row arrays
+Enumeration and Static_cast
+
+    enum enum_name{type1, type2, ... , typeN};
+
+Enum is a new data type, when we want to assign to a enum datatype, a static_cast is needed. Static_cast is common used as
+implict conversition such as pointer to array, function to pointer, rvalue to lvalue and enum type conversion. The syntax
+is given by
+
+    static_cast<new_type>(expression)
+
+// The program below illustrate how to use enumeration and list the text out.
+
+enum Errors{ErrorA = 0, ErrorB, ErrorC };
+std::ostream &operator<<(std::ostream &out, const Errors value  // Overloading operator <<
+{
+    static std::map<Errors, std::string> strings;
+    if (strings.size() == 0)
+    {
+    #define INSERT_ELEMENT(p) strings[p] = #p
+        INSERT_ELEMENT(ErrorA);
+        INSERT_ELEMENT(ErrorB);
+        INSERT_ELEMENT(ErrorC);
+    #undef INSERT_ELEMENT
+    }
+    return out << strings[value];
+}
+int main()
+Errors a = ErrorA, b = ErrorB, c = ErrorC;
+{
+    std::cout << ErrorA << a << std::endl << ErrorB << b << std::endl << ErrorC << c << std::endl;
+    return 0;
+}
+Output:
+ErrorA0
+ErrorB1
+ErrorC2
+
+Bitwise Operator
+
+Bitwise operation relates the bits in a data. There are few common operator: >>(right shift) <<(left shift) &(AND) and |(OR).
+A example of bitwise opration is to check the binary digit of a integer. Let say 14 is 1110 in base 2 and 10 is 1010 in
+base 2. 14 & 10 = 1010 and 14 | 10 = 1110. The operator >> and << used to shift the bits. This could be useful in enumeration
+by letting the enumeration value be power of 2. For example: enum tool{A = 1, B = 2, C = 4, D = 8};
+A: 0001     B: 0010     C:0100      D: 1000
+A | B = 0011 = 3
+B | D = 1010 = 10
+By looking at the value of enumeration, we can observe which member of enumeration presents.
+(1111 | X) is true when X =  A or B or C or D and false conversely.
+
+Function Passing
+
+To modify the member of classes, use a function to return the modified class.
+class = func(class);    // Better
+void func(class);       // The original argument are copied but not modified. This can be solved using reference
+
+Typedef
+
+    typedef <data_type>;    // Set alias(tag) for the data type. Try to ingest the syntax carefully
+
+A typedef tag won't be visible until end of declaration. In case declaring a typedef's tag type in the declaration of typedef,
+write the original tag in the declaration. For example:
+
+typedef struct s{   // Giving 'struct s' tag of 'T'
+    struct s* ptr;
+    int data;
+}T;
+{ T variable1, variable2; } are identical to { struct s variable1, variable2; }
+
+Multiple Assign
+
+a = b = c = 0;  // assigns 0 to c first, then c to b, then b to a.
+
+fmod function
+
+fmod(float n, modvalue)=0.0 returns true if the float number is divisible by modvalue.
+
+Random Positive Integer
+
+#include <cstdlib>	// include rand() and srand() function
+#include <ctime> 	// include time() function
+unsigned seed;      // seed is used to generate random stream, the domain of srand is unsigned type
+seed = time(0);		// time () returns the number of seconds that have elapsed since midnight, January 1, 1970
+srand(seed); 		// a seed, to generate the numbers
+int randomnumber = rand();  // Generate random number
+
+With the existence of srand(time()), the stream at each time is different, creating a random stream for rand(). Without a
+random stream, rand() will results in same number when executed in each line.
+
+Termination
+
+#include <cstdlib>  // exit() function are in the library
+exit(EXIT_SUCCESS); // terminates the program unconditionally and return the sucess signal to the computer's OS
+The constants (EXIT_SUCESS or EXIT_FAILURE) which is defined in cstdlib indicates the result back to computer's OS.
+
+Windows Screen Control
+
+This program creates a simple animation using Windows functions to simulate a yoyo moving down and up.
+
+#include <windows.h>
+HANDLE screen = GetStdHandle(STD_OUTPUT_HANDLE);
+struct COORD
+{ short int X; short int Y; }position ;     // column and row position
+SetConsoleCursorPosition(screen, position); // control cursor position
+Sleep(millisecond);                         // Stops the program for the time interval
+
+#include <iostream>
+#include <windows.h> // Needed to set cursor positions
+using namespace std;
+int main()
+{
+    HANDLE screen = GetStdHandle(STD_OUTPUT_HANDLE);
+    COORD pos = {40, 3}; // Start position
+    SetConsoleCursorPosition(screen, pos);
+    cout << "O" << endl;
+    Sleep(500);
+    // Watch the yoyo go down & back up 3 times
+    for (int tossIt = 1; tossIt <= 3; tossIt++)
+    {
+        // Yoyo unwinds
+        while (pos.Y <= 20) // pos.Y is the row
+        {
+            // Move the yoyo down 1 position and then pause
+            SetConsoleCursorPosition(screen, pos);
+            cout << "|" << endl;
+            pos.Y++;
+            SetConsoleCursorPosition(screen, pos);
+            cout << "O" << endl;
+            Sleep(100);
+        }
+        // Yoyo winds back up
+        while (pos.Y > 3)
+        {
+            // Erase character at current position
+            // Move yoyo up one position, then pause
+            SetConsoleCursorPosition(screen, pos);
+            cout << " " << endl;
+            pos.Y--;
+            SetConsoleCursorPosition(screen, pos);
+            cout << "O" << endl;
+            Sleep(100);
+        }
+    }
+    return 0;
+}
+To add color to the console output, add this to the code, the code below shows the color available.
+HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+// you can loop k higher to see more color choices
+for (int k = 1; k < 255; k++)
+{
+    // pick the colorattribute k you want
+    SetConsoleTextAttribute(hConsole, k);
+    cout << k << " I want to be nice today!" << endl;
+}
+
+Huge Array
+
+To declare a huge array, declare it in global space. Passing the name of the array to a function's argument risk the element of
+the array to be modified.
+
+C-String and Class string
+
+C-String
+
+A C-string is a sequence of characters stored in consecutive memory locations and terminated by a null character. String
+literals, also called string constants, are written directly into the program as a sequence of characters enclosed in double
+quotes. char arr[] = "string literals"; //The program will find sufficient space to store the array of characters.
+
+C-String Functions  Definitions
+strlen()            Returns the length of the C-string not including the null terminator
+strcat()            The function appends the contents of the second string to the first C-string
+strcpy()            The function copies the second C-string to the first C-string
+strncpy()           Copies at most n characters of string2 to string1
+strcmp()            If string1 and string2 are the same, this function returns 0, pos if str2 > str1, neg if str2 < str1
+strstr()            Searches for the first occurrence of string2 in string1 and returns a pointer to it. Otherwise returns NULL
+strdup()            A stable function to copy huge cstring
+atoi(char*)         The function converts the C-string to an integer and returns that value
+atol(char*)         The function converts the C-string to a long integer and returns that value
+atof(char*)         The function converts the C-string to a double and returns that value
+itoa(int,char*,int) Converts an integer to a C-string. The third argument, specifies the base number
+
+Class String
+
+String Constructors             Definition
+string()                        Default constructor: Creates an empty string
+string(const char *s)           Convert constructor: creates a string object from a C-string s
+string(const string &s)         Copy constructor: creates a new string from an existing string s
+string(const char *s, int n)    Creates a string initialized to the first n characters of the C-string s
+
+Overloaded Operator     Description
+>>                      Extracts characters from a stream and inserts them into the string until space or null encountered
+<<                      Inserts the string into a stream.
+=                       Assigns the string on the right to the string object on the left
++=                      Appends a copy of the string on the right to the string object on the left
++                       Returns a string that is the concatenation of the two string operands
+[ ]                     Implements array-subscript notation, as in name[x] which is a reference
+
+Relational Operators Each of the relational operators are implemented
+< > <= >= == !=
+
+String Class Member Functions   Description
+theString.append(str);          Appends str to theString. The argument str can be a string object or character array
+theString.append(str, p, n);    n number of characters from str, starting at position p, are appended to theString
+theString.append(str, n);       The first n characters of the C-string str are appended to
+theString.append(n, ch);        Appends n copies of character ch to theString
+theString.assign(str);          Assigns str to theString. The parameter str can be a string object or a C-string
+theString.assign(str, p, n);    n number of characters from str, starting at position p, are assigned to theString
+theString.assign(str, n);       The first n characters of the C-string str are assigned to theString
+theString.assign(n, ch);        Assigns n copies of the character ch to theString
+theString.at(p);                Returns the character at position p in the string
+theString.begin();              Returns an iterator pointing to the first character in the string
+theString.capacity();           Returns the size of the storage allocated for the string
+theString.clear();              Clears the string by deleting all the characters stored in it
+theString.compare(str);         Compare theString to str in the manner of the strcmp
+theString.c_str():              Returns the C-string value of the string object
+theString.data();               Returns a character array containing a null terminated string, as stored in theString
+theString.empty();              Returns true if theString is empty.
+theString.end();                Returns an iterator pointing to the last character of the string in theString
+theString.erase(p, n);          Erases n characters from theString, beginning at position p
+theString.find(ch, p);          Returns the first position at or beyond position p where the character ch is found in theString
+theString.insert(p, str);       Inserts a copy of str into theString, beginning at position p
+theString.insert(p, n, ch);     Inserts the character ch, n times into theString at position p
+theString.length();             Returns the length of the string in theString
+theString.replace(p, n, str);   Replaces the n characters in theString beginning at position p in string object str
+theString.resize(n, ch);        Changes the size of the allocation in theString to n
+theString.size();               Returns the length of the string in theString
+theString.substr(p, n);         Returns a copy of a substring. The substring is n characters long and begins at position p
+theString.swap(str);            Swaps the contents of theString with str.
+
+Member Functions of ostringstream and istringstream Classes in <sstream> library
+istringstream(string s)         Constructor for istringstream
+ostringstream(string s)         Constructor for ostringstream
+string str()                    Returns the string contained in the ostringstream or istringstream object
+void str(string &s)             Sets the string that serves as the input or output stream for the object
+
+For some functions, string::npos is returned if the function fails. We can use library functions of <string>, <cstring> to
+create our own modified string class.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+2. Class
+
+class class_name{ // Declarations };
+
+Access specifiers specifies which member is accessible. Members are attributes, member function are methods. Objects are
+instance of class, they could be accessed using dot operator(.). Class is similar to structure, but has many other advantages.
+
+To define a function outside the class, code the prototype in the class member and in the function definition, precede the
+function name with the class name and scope resolution operator.  class_name::member_name( parameter ){ // Declarations }.
+
+Like variables, class and structure can be passed into function and returned as class or structure. Passing by reference will
+be faster and it is capable of modifing the parameters. Using const at reference parameter can protect the parameter from being
+modified.
+
+Constructor
+
+A constructor is a member function that is often used to initialize data members of a class. It is called automatically when an
+object of the class is created. It must be a public member function and be named the same as the class with no return type.
+Overloaded constructors in a class must have different parameter lists. A default constructor is one that takes no arguments
+either due to no parameters or all parameters have default values. If a class has any programmer defined constructors, it must
+have a default constructor.
+
+Square
+{
+    // Declarations
+public:
+    Square(int s = 1){...}      // Default constructor
+    Square(int s, int t){...}   // Overload Function
+}
+
+Square() calls Square::Square(int), Square(0) calls Square::Square(int), Square( 1, 2 ) calls Square::Square(int s, int t). To
+create an object using the default constructor, use no argument list. For example: Square square1;. Destructer is a public
+member function automatically called when an object is destroyed. Only 1 destructor is allowed per class and the name of
+destructor must be same as the name of class preceded by a tilde character (~). Constructor concept can be used on structures.
+
+    ~Class{ // Declarations to perform shutdown procedures }
+
+Pointer of Classes
+
+"this" is a name of a implict pointer that points to the current object only
+
+class Example{ int x;}
+void Example::setValue(int x)
+{ this->x = x; }
+
+If x is passed into the parameter, the identifier of the variable int in the Example class become non-visible. "this" is a
+pointer that can point to the non-visible x.
+
+Constant Member Functions
+
+class K
+{
+    void output() // Missing const here
+    { cout << "Output of a K object" << endl; }
+};
+
+void outputFirst(const K arr[])
+{ arr[0].output();} // output() does not guarantee arr[0] will be modified or not
+
+int main()
+{
+    K arr[] = { K() };
+    outputFirst(arr);
+    return 0;
+}
+
+The compiler will not allow to compile the code because the object of K which should be const is prone to be modified when
+calling output(). To deal with this situation, add a const at the right side of output() member function declaration. A member
+functio declared with a const after parameter guarentees the object will not be modified.
+
+Static Member Variable and Static Member Function
+
+If a member variable is declared static, all objects of that class have access to that variable and the variable can be
+declared outside of class and it may be called before any instances of the class are defined.
+
+An instance variable of a class must be accessed through a specific instance of its class, and an instance member function must
+be called through a specific instance of its class.
+
+The this pointer cannot be used in a static member function, because static member functions are not called through any
+instance of their class. Moreover, a static member function cannot access an instance member of its class unless it specifies
+what instance the member belongs to. For example:
+
+class StatAccess
+{
+    private:
+        int x;
+    public:
+        static void output()
+        {
+            cout << x; // Incorrect access of non-static member
+        }
+        StatAccess(int x) { this->x = x; }
+};
+The attempt to access x in the statement cout << x is incorrect because it is tantamount to an implicit use of the this pointer
+which the static function output does not have. In contrast, in the following modified example of the same class, the static
+member function print correctly accesses the nonstatic member x because it qualifies it with the name of a class object passed
+to it as a parameter.
+
+class StatAccess
+{
+    private:
+        int x;
+    public:
+        static void print(StatAccess a)
+        {
+            cout << a.x;
+        }
+        StatAccess(int x) { this->x = x; }
+};
+An advantage of static member functions is they can be called before any instances of the class have been created. This allows
+them to be used to perform complex initialization tasks that have to be done before objects of the class have been created.
+
+Friend of Classes
+
+A friend of a member can access the private member of the class. To declare a whole class as a friend:
+
+    friend return_type member_name(parameters);
+
+class B
+{
+private:
+    static int global_val;  // Private Member of Class B
+    int B_val;
+public:
+    Budget() { B_val = 0; }
+    void add(int b)
+    {
+        B_val += b;
+        global_val += B_val;
+    }
+    friend void A::add(int);// A::add() is given access to the private value of class B only
+};
+class A
+{
+private:
+    int A_val;
+public:
+    A() { A_val = 0; }
+    void add(int);
+};
+void A::add(int b)
+{
+    A_val += b;
+    B::global_val += A_val;
+}
+int B::global_val = 0;
+
+B::global_val += A_val is an access of class A to the class B. A static member must be accessed by static function.
+
+Copy of an Object and Operation Function
+
+    Class::Class(Class &object); // Adding a const will be a good idea too
+
+A copy constructor must have a single parameter that is a reference to the same class. Class copy constructor is called when a
+variable is being initialized from an object of the same class or function is called with a value parameter of the class and
+returning a value that is an object of the class. Copy constructors are not called when a parameter of the class is passed by
+reference or through a pointer, nor are they called when a function returns a reference or pointer to an object of the class.
+
+class NumberArray
+{
+private:
+    double *aPtr;
+    int arraySize;
+public:
+NumberArray operator=(const NumberArray &right)
+{
+    if (arraySize > 0) delete [] aPtr;
+    arraySize = right.arraySize;
+    aPtr = new double[arraySize];
+    for (int index = 0; index < arraySize; index++)
+        aPtr[index] = right.aPtr[index];
+    return *this;
+}
+Overloaded operator function for assignment. To assign a new value from right to left, the left side must clear it's data
+first. Returning the value of the left operand can be done by returning the 'this' pointer of the object.
+left.operator=(right); is equivalent to left = right.
+
+// Copy Constructor
+NumberArray::NumberArray(const NumberArray &obj)
+{
+    arraySize = obj.arraySize;
+    aPtr = new double[arraySize];
+    for(int index = 0; index < arraySize; index++)
+        aPtr[index] = obj.aPtr[index];
+}
+// Constructor
+NumberArray(int size, double value)
+{
+    arraySize = size1;
+    aPtr = new double[arraySize];
+    setValue(value);
+}
+// Destructer
+~NumberArray()
+{
+    if (arraySize > 0) delete [ ] aPtr;
+};
+
+There are two approaches you can take to overload an operator:
+
+1. Make the overloaded operator a member function of the class. This allows the operator function access to private members of
+the class. It also allows the function to use the implicit 'this' pointer parameter to access the calling object. The class
+itself is lvalue.
+
+2. Make the overloaded member function a separate, stand-alone function. When overloaded in this manner, the operator function
+must be declared a friend of the class to have access to the private members of the class. Some operators, such as the stream
+input and output operators >> and <<, must be overloaded as stand-alone functions. Other operators may be overloaded either as
+member functions or stand-alone functions. But, in case a we dont want the class calling the operator be lvalue, we could use
+seperated function for that operator function.
+
+Operators that can be overloaded:
++   -   *   /   %   ^   &   |   ~   !   =   <   >   +=  -=  *=  /=  %=  ^=  &=  |=  <<  >>  >>=
+<<= ==  !=  <=  >=  &&  ||  ++  --  ->* ,   ->  []  ()  new delete
+
+The only operators that cannot be overloaded:
+?:  .   .*  ::  sizeof
+
+Length Length::operator+(Length b)  // Overloading + Operator
+{
+    return Length(this->len + b.len);
+}
+c = a + b will be equivalent to c = a.operator+(b). If a is not a class, this will fail to compile.
+
+Length Length::operator+(Length a, Length b)    // Overloading + Operator
+{
+    return Length(a.len + b.len);
+}
+c = a + b wil be equivalent to  c.operator(a, b). If a is not a class, this will not fail to compile.
+
+Length Length::operator++()     // Overloading Prefix ++ Operator
+{
+    len ++;
+    return *this;
+}
+
+Length Length::operator++(int)  // Overloading Postfix + Operator. The dummy parameter 'int' used to distinguish ++operators
+{
+    Length temp = *this;
+    len ++;
+    return temp;
+}
+
+ostream &operator<<(ostream& out, Length &a)    // Overloading the Stream Extraction Operator
+{
+    out << a.getFeet() << " feet, " << a.getInches() << " inches";
+    return out;
+}
+
+istream &operator>>(istream &in, Length &a)     // Overloading the Stream Insertion Operator
+{ 
+    int feet, inches;
+    in >> feet >> inches;   
+    a.setLength(feet, inches);
+    return in;
+}
+The reason to return ostream& out and istream& in is to support chain assigning.
+
+int &IntArray::operator[](int sub) const    // Overloading the [] Operator 
+{
+    return aptr[sub];
+}
+The return type of function must be a reference. In case class[n] = n, if class is a int return type, the value in the class
+will not change, illustrated as n = n. If class return a reference, the return will be *n = n, which ables to change the value.
+
+bool operator==(Length a, Length b) // Overloading == Operator
+{
+    return a.val == b.val;
+}
+
+Type conversion Operator and Convert Constructors
+
+Convert constructors convert a value of a given type to an object of the class. A convert constructor converting its parameter
+of other class into an object of its class. For example,
+
+ClassName::operator double() const  // Convert class into double. a(double) = b(class) 
+{ return A_val / 10 + B_val / 10.0; }
+
+Class(int intValue) { ... }     // Convert constructor from int to Class type
+Class func(int n) { return n; } // The function call convert constructor when return n
+Class func(Class class){...}    // The function call convert constructor when int type value is passed into the parameter
+
+Aggregation and Composition (has-a)
+
+Class aggregation occurs when an object of one class owns an object of another class using pointers to point the object of
+another class. Class composition is a form of aggregation where the owner class controls the lifetime of objects of the owned
+class by owning the class in the private space.
+
+Inheritance (is-a)
+
+    class derivedClass:baseClass{ // Declarations which is additional specification of it's base class }
+    
+A derived class has all the member functions of the base class. The derived class is often called a subclass of the base class,
+and the base class is called a superclass of the derived class. C++ supports multiple inheritance, in which a derived class
+simultaneously derives from two or more base classes.
+
+Inheritance Member initialization
+
+C++ have a member initialization list, that allows constructors of classes to pass arguments to constructors of member objects
+using colon notation. This allows constructors of different objects of the same class to be invoked in the same initialization
+list. Here's an example:
+
+class Person // uniqueID is a static int variable
+{
+private:
+    Date birth; Country *ptr; int ID;
+public:
+    Person( string month, int day, int year, Country *c): birth(month, day, year), ptr(c), ID(Person::uniqueID)
+    { // Addition Constructor for class Person 's member variable };
+};
+
+Class Access
+
+Class Access determine which member is accessible by other. Without any access specifiers, the default will be private.
+
+Private members:    Only accessible by it's member functions and Friend functions and friend classes
+Protected members:  Similar to private members, except they may be accessed by derived classes.
+Public members:     Accessible by anything
+
+The base class access specification determines how class members are accessed when they are inherited by the derived class.
+
+    class derivedClass: < Base Access Specification > baseClass { // Declarations };
+
+Base Access Specification:
+1. Public object of derived class can be treated as object of base class (not vice versa)
+2. Protected more restrictive than public, but allows derived classes to know some of the details of parents
+3. Private prevents objects of derived class from being treated as objects of base class
+
+class Base
+{
+    // Member Access Specification
+    private: X;
+    protected: y;
+    public: z;
+};
+And the derived class has the following type for it's members
+Types   private         protected       public
+
+x       inaccessible    inaccessible    inaccessible
+
+y       private         protected       protected
+
+z       private         protected       public
+
+
+Inheritance Constructor
+
+When an object of a derived class is being instantiated, the base class constructor is called before the derived class
+constructor. When the object is destroyed, the derived class destructor is called before the base class destructor.
+
+Overriding Base Class Functions
+
+To override a member function declare a member function with the same name at the base class as the overriden member function
+in the derived class. We can use scope resolution to access specified member function.
+
+Overriding can only be done in the context of inheritance and refers to the defining of a member function by a derived class
+when the base class already has a member function of the same name and parameter list.
+
+Overloading refers to the definition of different functions within the same class with the same name and different parameter
+lists. Overloading can also refer to the definition of different functions with different parameter lists at the global level.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+3. Advanced File and IO
+
+Standard IO
+
+#include <iomanip>
+
+IO Manipulator      Description
+setw(int)           Sets the width for a single output and should be specified for each value individually
+setprecision(int)   Sets the floating point precision, round up the number if condition met
+setiosflag(flag)    Sets the output format flags
+resetiosflags(flag) Resets the output format flags
+setfill(char)       Sets the fill character that is empty in the field
+endl                Inserts a new line character 'n' and flushes the buffer
+ends                Inserts a null character '0'
+flush               Flushes the buffer
+
+Flags               Description
+ios::left           Sets left justification within a field
+ios::right          Sets right justification within a field
+ios::dec            Sets decimal numeric base
+ios::oct            Sets octal numeric base
+ios::hex            Sets hexadecimal numeric base
+ios::showbase       Shows a numeric base before a number
+ios::uppercase      Shows uppercase letters in hexadecimal values
+ios::showpos        Shows a positive/negative sign before a number
+ios::fixed          Shows decimal numbers with a fixed decimal point. Otherwise, it will be expressed in significant figure
+ios::scientific     Shows decimal numbers in scientific notation
+showbase            Show the base when printing numbers.
+noshowbase          Do not show the base when printing numbers.
+showpoint           Forces decimal point and trailing zeros to be displayed.
+noshowpoint         Prints no trailing zeros and drops decimal point if possible.
+noshowpos           Prints no + with nonnegative numbers.
+
+Example:
+cout << setfill('#') << setiosflags(ios::left | ios::fixed | ios::showpos) << setw(20) << setprecision(4) << 123.45678;
++123.4568###########
+cout << setfill('*') << setiosflags(ios::right | ios::showpos) << setw(20) << setprecision(4) << 123.45678;
+**************+123.5
+
+IO stream
+
+#include <fstream>
+
+ifstream objects are used for file input, ofstream objects are used for file output, and fstream objects are used for both
+input and output. Data is stored in an output buffer associated with the file and is later transferred to the file in a process
+known as flushing the buffer when the buffer is full or when the file is closed. ::ios is a static constant member of ios class.
+
+Member functions of fstream
+
+    void open(const char *filename, ios::openmode mode); // Calling member function of an instance
+    fstream outFile("filename.txt", ios::in | ios::out); // Using Constructors to Open Files
+
+File Mode   Description
+ios::app    Append: output will always take place at the end of the file
+ios::ate    At end: output will initially take place at the end of the file
+ios::binary Binary: data read or written to the file is in binary form
+ios::in     Input: input operations. If the file does not exist, the open will fail
+ios::out    Output: output operations. If the file does not exist, an empty file of the given name is created
+ios::trunc  Truncate: if the file being opened exists, its contents are discarded and its size is truncated to zero
+
+Files Condition Bit Flags
+
+Bit             Description
+ios::eofbit     Set when the end of an input stream is encountered
+ios::failbit    Set when an attempted operation has failed
+ios::hardfail   Set when an unrecoverable error has occurred
+ios::badbit     Set when an invalid operation has been attempted
+ios::goodbit    Set when all the flags above are not set. Indicates the stream is in good condition
+
+Member Functions That Report on the Bit Flags
+
+Function    Description
+eof()   Returns true (nonzero) if the eofbit flag is set; otherwise returns false
+fail()  Returns true (nonzero) if the failbit or hardfail flags are set; otherwise returns false
+bad()   Returns true (nonzero) if the badbit flag is set; otherwise returns false
+good()  Returns true (nonzero) if the goodbit flag is set; otherwise returns false
+clear() When called with no arguments, clears all the flags listed above. Can also be called with a specific flag
+
+A stream object behaves as a Boolean expression that is true when no error flags are set and is false otherwise.
+
+Getline Member Function
+
+    istream& getline (istream& is, string& str, char delim = '\n'); 
+    // is: input stream, str: string to be stored, delim: delimiting character.
+
+If one counter a condition that getline(cin,str) don't stop at screen during execution, it might caused by '\n' character in
+buffer. Add this two line below into the code before getline() to solve this problem.
+
+cin.clear(); // Clear the bad bits
+cin.sync();
+
+C string (char*) works the following
+cin.width(size);                // limit the size of input
+cin.getline(stringname,size);   // input a line of characters
+
+Getchar Member Function
+
+    file.open(fileName.c_str(), ios::in); // fileName is a string class and c_str() is used convert to C-string to open file
+    int get();
+    istream& get(char& c);
+    char ch = file.get(); 
+
+The first version reads a single character. If successful, returns an integer code representing the character that was read.
+If unsuccessful, it sets the error codes on the stream and returns the special value EOF.
+
+Peek Member Function    cin.peek(); // returns copy of the next character available without removing it from the stream
+Put Member Function     ostream& put(int c);
+
+Binary Files
+
+Values of numeric data types such as int and double must be formatted for output before being written to text files. No such
+formatting takes place when numbers are written to binary files. The conversion of string representation to numeric is called
+parsing, while the reverse conversion from numeric to string is called formatting.
+
+    fstream file(fileName.c_str(), ios:binary|ios:out );
+
+The write member function of the ostream and ofstream classes can be used to write binary data to a file or other output stream.
+
+    write(char *addressOfBuffer, int numberOfBytes);
+    reinterpret_cast<TargetType>(value);
+
+When we call write, we need to tell the compiler to interpret the address of the buffer as a pointer to char. We do this by
+using a special form of type casting called a reinterpret_cast to force the compiler to interpret the bits of one type as if
+they defined a value of a different type.
+
+There is a read member function in the istream and ifstream classes that can be used to read binary data written by write. It
+takes as parameters the address of a buffer in which the bytes read are to be stored, and the number of bytes to read
+
+    read(char *addressOfBuffer, int numberOfBytes);
+
+Creating Records with Structure in Binary Files
+
+struct Info people.write(reinterpret_cast<char *>(&person),sizeof(person));// store data from variable people
+people.read(reinterpret_cast<char *>(&person),sizeof(person));// read data into variable people
+
+Structures containing pointers cannot be correctly stored to disk using the techniques of this section. This is because if the
+structure is read into memory on a subsequent run of the program, it cannot be guaranteed that all program variables will be at
+the same memory locations. Because string class objects contain implicit pointers, they cannot be a part of a structure that 
+has to be stored. Use file end with (.dat) to store binary data.
+
+Random-Access Files
+
+Random access means nonsequentially accessing information in a file.
+
+Rewinding a File
+
+If you are already at the end of the file, to move to the beginning of a file stream, you must clear the end of file flag
+before calling this function. There are 3 ios constants: ios::beg (beginning), ios::cur (current), and ios::end (end of file).
+
+    dataIn.seekg(0L, ios::beg); // 0l: move 0 bytes relative to the beginning of the file. seekg: seek and get
+    dataOut.seekp(20L, ios::beg);  // 20l: moves 20 bytes relative to the beginning of the file. seekp: seek and put
+    
+The first argument is a long integer representing an offset into the file. This is the number of the byte you wish to move
+to. In this example, 20L is used to moves the file’s write position to byte number 20. (All numbering starts at 0, so byte
+number 20 is actually the 21st byte.)
+
+Member Function of fstream that return a long integer of the current byte number of a file’s read and write position 
+tellp();// return the write position
+tellg();// return the read position
+
+Opening a File for Both Input and Output. 
+
+// recNum: Number of record relative to beginning, inventory: A stream to read the data of struct type
+inventory.seekg(recNum * sizeof(record), ios::beg);                 // Find the recNum position
+inventory.read(reinterpret_cast<char *>(&record), sizeof(record));  // Read at the position
+inventory.seekp(recNum * sizeof(record), ios::beg);                 // Go to the recNum position
+inventory.write(reinterpret_cast<char *>(&record), sizeof(record)); // Rewrite at recNum position
+
+A fstream with both in and out flags share the same pointer in the file. It can open but can't create a file.
+
+An example of implementation
+
+class message
+{
+    string str;
+    int length(){return str.size();}
+}
+
+Class::Class(string message)
+{this->message = message;}
+
+void Class::store(ofstream &outFile)
+{
+int messageLength = message.length(); // Write length and data for message
+outFile.write(reinterpret_cast<char *>(&messageLength), sizeof(int));
+outFile.write(message.data(), messageLength); // data() returns C-string from string class
+}
+
+void Class::load(ifstream &inFile)
+{
+static char buffer[256];    // Used to read message
+int messageLength;          // First get length and data for message
+inFile.read(reinterpret_cast<char *>(&messageLength),sizeof(int));
+inFile.read(buffer, messageLength); // Read the data for message into a local buffer
+buffer[messageLength] = '\0';       // Null terminate the buffer
+finalMessage = buffer;              // Convert to string class
+}
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+4. Polymorphism an Virtual Functions
+
+Type Compatibility in Inheritance
+
+Certain type compatibility relationships hold among different classes in an inheritance hierarchy
+- A derived class pointer can always be assigned to a base class pointer
+- A type cast is required to perform the opposite assignment of a base class pointer to a derived class pointer
+Derived *derived_pointer = static_cast <Derived *> (base_pointer); (base_pointer: A pointer pointing to a base)
+An error may result at run time if the base class pointer does not actually point to a derived class object.
+
+A function that is declared as taking a pointer to a base class will accept a pointer to a derived class object as an actual
+parameter. Also, a function that declares a return type of a pointer to a particular class C may actually return a pointer to
+on object of a class derived from C.
+
+Using Type Casts with Base Class Pointers
+
+C++ defaults to using the class of the pointer to determine access to the members of the object rather than in the class of the
+object of the pointer pointing.
+
+base_pointer -> basefunction1(); // Compiling error! We can use a type cast to get the compiler to accept the statement
+static_cast<Derived *>(base_pointer) -> derivedfunction1(); // An overriden function1 from the base
+
+Virtual functions allow the most specific version of a member function in an inheritance hierarchy to be selected for
+execution. Virtual functions make polymorphism possible. A piece of code is said to be polymorphic if executing the code with
+different types of data produces different behavior. For example, to declare a virtual function in the base class
+
+class B { virtual void mfun() { cout << "Base class version"; } };
+class D : public B { void mfun() { cout << "Derived class version"; } }; // A virtual function too
+
+The virtual characteristic is inherited. If a member function of a derived class overrides a virtual function in the base
+class, then that member function is automatically virtual itself.
+
+Dynamic and Static Binding
+
+The compiler binds the name to a function definition when the function is called. In static binding, only overriden function
+in base class are invoked. Dynamic binding works only if the compiler can determine at run time the exact class that a
+subclass object belongs to. The compiler stores run-time type information in every object of a class with a virtual function.
+Dynamic binding always uses the version of the member function in the actual class of the object, regardless of the class of
+the pointer used to access the object.
+
+Abstract Base Classes and Pure Virtual Functions
+
+Abstract classes and pure virtual functions can be used to define an interface that must be implemented by derived classes. A
+pure virtual function is a member function for which the class provides no implementation. The C++ way of declaring a pure
+virtual function is to put the expression = 0 in the class declaration and have no body. void function() = 0; A pure virtual
+function is sometimes called an abstract function, and a class with at least one pure virtual function is called an abstract
+class. Pure virtual functions must be overridden in derived classes that need to be instantiated. Abstract classes can only
+be subclassed. A class derived from an abstract class inherits all functions in the base class and will itself be an abstract
+class unless it overrides all the abstract functions it inherits. It's like a Colour class. There are no instance of Colour
+but there is a lot of subclass of Colour such as Red and Yellow. There are instance of subclass. 
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+5. Exception
+
+throw datatype(parameter for constructor or something);
+
+The throw key word is followed by an argument, which can be any value. The line containing a throw statement is known as the
+throw point. When a throw statement is executed, control is passed to exception handler. To handle an exception, a program
+must have a try/catch construct. The general format of the try/catch construct is
+
+    try { // code here calls functions or object member and functions that might throw an exception. }
+    catch(exception parameter) { // code here handles the exception } // Catch is an exception handler
+
+Repeat as many catch blocks as needed. There might be different error type, which we want to detect and the type of thrown
+exception will be writen in the parameter of catch. For example, if a exception class error() is thrown to exception handler,
+the catch version of error() will take the class as parameter and run the code inside that catch.
+
+double divide(double numerator, double denominator)
+{
+    if (denominator == 0)
+        throw string("ERROR: Cannot divide by zero.\n"); // The string is passed to exceptionString parameter
+    else
+        return numerator / denominator;
+}
+int main()
+{
+    cin >> num1 >> num2;
+    try { quotient = divide(num1, num2); }
+    catch (string exceptionString) { cout << exceptionString; } // The program runs when throw string() is detected
+    catch (int n) { // code } // In this program, this line will never work because there is no throw of type int
+}
+
+After execution of a catch block, the exception will continue at the first statement after the sequence of catch blocks
+attached to the try block. Exception will propagate backwards if the function throwing it don't have a catch and finds for
+other catch that can handle it. If no such try block is ever found, the exception will eventually be thrown out of the main
+function, causing the program to be terminated. This process of propagating uncaught exceptions from a function to its caller
+is called unwinding the stack of function calls.
+
+When a try block is nested, the inner part of exception will be rethrow outside of the nest and if both inner and outer nest
+has a catch to handle the type of exception, both of the catch will run. In this case, if we want just outer catch to run, we
+can do rethrowing the exception by just declare an catch in the inner nest with just a throw; statement to handle that kind of
+exception. catch(typename){ throw; } // the exception will be rethrown.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+6. Standard Template Library (STL)
+
+Function Template
+
+A function template is a “generic” function that can work with different data types. The programmer writes the specifications
+of the function, but substitutes parameters for data types. When the compiler encounters a call to the function, it generates
+code to handle the specific data type(s) used in the call. Function template may have one or more variable in the parameter
+and it can be overloaded be a template or regular function.
+
+template <class Ttype>
+return_type function_name(parameter list)
+{ //body of the function template }
+
+template <typename Ttype>
+return_type function_name(parameter list)
+{ //body of the function template }
+
+Class Templates may also be used to create generic classes and abstract data types. Declaring Class Template just have to
+prefix the class declaration with an appropriately written template header. Here's an example of such declaration
+
+template <class T>
+class SimpleVector
+{
+private:
+    T *aptr;
+    int arraySize;
+    void subError() const; // Handles subscripts out of range
+public:
+    SimpleVector() { aptr = 0; arraySize = 0;}  // Default Constructor
+    SimpleVector(int);                          // Constructor
+    SimpleVector(const SimpleVector &);         // Copy constructor
+    ~SimpleVector();                            // Destructor
+    int size() const{ return arraySize; }
+    T &operator[](int);                         // Overloaded [] operator
+    void print() const;
+};
+
+template <class T>  // To define a member function outside the class
+T &SimpleVector<T>::operator[](int sub) { ... };
+
+template <class T>  // An example of a constructor for SimpleVector of data type int
+SimpleVector<T>::SimpleVector(int s)
+
+Declare instance of a template class:
+SimpleVector<double> var1;
+SimpleVector<string> var2;
+
+Template class can also be inherited
+
+class SearchableVector : public SimpleVector<T>
+{
+public:
+    SearchableVector(int s) : SimpleVector<T>(s){ };// Constructor
+    SearchableVector(SearchableVector &);           // Copy constructor
+    SearchableVector(SimpleVector<T> &obj):         // Additional constructor
+    SimpleVector<T>(obj){ };                        // Additional constructor
+    int findItem(T);
+};
+
+Standard Template Library (STL)
+
+STL is a collection of programmer-defined data types. The data types that are defined in the STL are called containers. A
+sequence container organizes data in a sequential fashion. Associative containers organize data with keys, which allow rapid,
+random access to elements stored in the container. STL contains many templates for useful algorithms and data structures.
+
+#include <vector>
+vector<datatype> vectorname(numberofelements, value);   // declare a vector
+vector<datatype> newvector(oldvector);                  // declare a vectoe and copy one vector
+vector<vector<datatype>>                                // vector of vector (similari to 2d array)
+vectorname[n];                                          // access the (n+1)th element of vector
+vectorname.push_back(value);                            // insert a new vector element if the vector is full
+vectorname.size();                                      // return the size of vector (number of element)
+vectorname.pop_back();                                  // remove the last element of vector
+vectorname.clear();                                     // completely clear all of the elements of vector
+vectorname.empty();                                     // returns true if there is no element in vector
+vectorname.at(position);                                // returns the value of the element located at position in the vector
+vectorname.swap(vector2);                               // Swaps the contents of vectorname and vector2
+vectorname.reverse();                                   // reverses the order of the elements in the
+
+Some other vector member function
+front()             Returns a reference to the vector's first element.
+back()              Returns a reference to the last element in the vector.
+begin()             Returns an iterator pointing to the vector's first element.
+end()               Returns an iterator pointing to just after the last element of the vector.
+capacity()          Returns the maximum number of elements that may be stored without additional memory being allocated.
+erase(iter)         Causes the vector element pointed to by the iterator iter to be removed.
+erase(iter1, iter2) Removes all vector elements in the range specified by the iterators iter1 and iter2.
+insert(iter, value) Inserts an element into the vector.
+insert(iter,n,value)Inserts n copies of value into the vector, starting at the position pointed to by the iterator iter.
+reverse()           Reverses the order of the elements in the vector
+
+Sequential container:
+vector      Items can be efficiently added and removed from the vector at its end only.
+deque       Items can be efficiently added or removed from the front and back.
+list        A sequence of items that allows quick additions and removals from any position.
+
+Associative Containers:
+set         Stores a set of keys. No duplicate values are allowed.
+multiset    Stores a set of keys. Duplicates are allowed.
+map         Maps a set of keys to data elements. Duplicate keys are not permitted.
+multimap    Maps a set of keys to data elements. The same key may be associated with multiple values.
+
+Iterators:
+Forward         Can only move forward in a container (uses the ++ operator).
+Bidirectional   Can move forward or backward in a container (uses the ++ and -- operators).
+Random-access   Can move forward and backward, and can jump to a specific data element in a container.
+Input           Can be used with cin to read information from an input device or a file.
+Output          Can be used with cout to write information to an output device or a file.
+
+Iterator is an object of an inner class called iterator that is defined inside a container class, the use of the scope
+resolution operator is necessary to obtain an iterator for a given container.
+
+#include <algorithm>
+binary_search()     Performs a binary search for an object and returns true if the object is found, false if not.
+                    Example: binary_search(iter1, iter2, value); // iter1 points at begin, iter2 points at end.
+count()             Returns the number of times a value appears in a range.
+                    Example: count(iter1, iter2, value); // iter1 and iter2 define the range to be searched.
+for_each()          Executes a function for each element in a container.
+                    Example: for_each(iter1, iter2, func); Current element is passed as an argument to func.
+find()              Finds the first object in a container that matches a value and returns an iterator to it.
+                    Example: iter3 = find(iter1, iter2, value);
+max_element()       Returns an iterator to the largest object in a range.
+                    Example: iter3 = max_element(iter1, iter2);
+min_element()       Returns an iterator to the smallest object in a range.
+                    Example: iter3 = min_element(iter1, iter2);
+random_shuffle()    Randomly shuffles the elements of a container.
+                    Example: random_shuffle(iter1, iter2);
+sort()              Sorts a range of elements in ascending order.
+                    Example: sort(iter1, iter2);
+
+List of STL Containers
+
+Sequence containers
+
+array           Static contiguous array
+vector          Dynamic contiguous array
+deque           Double-ended queue
+forward_list    Singly-linked list
+list            Doubly-linked list
+
+Associative containers
+
+Set         Collection of unique keys, sorted by keys
+Map         Collection of key-value pairs, sorted by keys, keys are unique
+multiset    Collection of keys, sorted by keys
+multimap    Collection of key-value pairs, sorted by keys
+
+Unordered associative containers
+
+unordered_set       Collection of unique keys, hashed by keys
+unordered_map       Collection of key-value pairs, hashed by keys, keys are unique
+unordered_multiset  Collection of keys, hashed by keys
+unordered_multimap  Collection of key-value pairs, hashed by keys
+
+Container adaptors
+
+stack           Adapts a container to provide stack
+queue           Adapts a container to provide queue
+priority_queue  Adapts a container to provide priority queue
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+7. Basic Data Structure
+
+Linked list- Covered in C
+
+Stacks
+
+A container adapter are designed to adapt other container to add some specification. Stack STL is one of those.
+
+    stack <datatype, container> instance;   // Container can be STL vector and list.
+    stack<datatype> instance;               // To make a pure stack. Known as deque
+
+Queue
+
+Static Queue: Elements are stored in an array, a variable remembers the next position of array to be enqued or dequed.
+
+Dynamic Queue: Elements are stored as linked list, the front and rear updates.
+
+STL deque container can quick access to elemets at front and back. However, the STL queue container only can access element at
+one end only. Both of these STL can act as container adapter.
+
+Binary Tree
+
+Binary is a similar to linked list. It has node with two pointer pointing to a node or nothing. It has few tranversal mode
+Inorder traversal   : left > node > right
+Preorder traversal  : node > left > right
+Postorder traversal : left > right > node
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+8. Appendices
+
+ASCII Character Table
+
+============================================================================================
+|-----Nonprintable-----|-----------------------------Printable-----------------------------|
+============================================================================================
+|Dec| Hex| Oct| Char   |Dec| Hex| Oct| Char   |Dec| Hex| Oct| Char   |Dec| Hex| Oct| Char  |  
+============================================================================================
+| 0    0    0    NULL  | 32   20   40   Space | 64   40   100    @   | 96   60   140   `   |       
+| 1    1    1    SOTT  | 33   21   41     !   | 65   41   101    A   | 97   61   141   a   |
+| 2    2    2    STX   | 34   22   42         | 66   42   102    B   | 98   62   142   b   |       
+| 3    3    3    ETY   | 35   23   43     #   | 67   43   103    C   | 99   63   143   c   |       
+| 4    4    4    EOT   | 36   24   44     $   | 68   44   104    D   | 100  64   144   d   |       
+| 5    5    5    ENQ   | 37   25   45     %   | 69   45   105    E   | 101  65   145   e   |       
+| 6    6    6    ACK   | 38   26   46     &   | 70   46   106    F   | 102  66   146   f   |       
+| 7    7    7    BELL  | 39   27   47         | 71   47   107    G   | 103  67   147   g   |
+| 8    8    10   BKSPC | 40   28   50     (   | 72   48   110    H   | 104  68   150   h   |       
+| 9    9    11   HZTAB | 41   29   51     )   | 73   49   111    I   | 105  69   151   i   |       
+| 10   a    12   NEWLN | 42   2a   52     *   | 74   4a   112    J   | 106  6a   152   j   |       
+| 11   b    13   VTAB  | 43   2b   53     +   | 75   4b   113    K   | 107  6b   153   k   |       
+| 12   c    14   FF    | 44   2c   54         | 76   4c   114    L   | 108  6c   154   l   |
+| 13   d    15   CR    | 45   2d   55     -   | 77   4d   115    M   | 109  6d   155   m   |       
+| 14   e    16   SO    | 46   2e   56     .   | 78   4e   116    N   | 110  6e   156   n   |       
+| 15   f    17   SI    | 47   2f   57     /   | 79   4f   117    O   | 111  6f   157   o   |       
+| 16   10   20   DLE   | 48   30   60     0   | 80   50   120    P   | 112  70   160   p   |       
+| 17   11   21   DC1   | 49   31   61     1   | 81   51   121    Q   | 113  71   161   q   |       
+| 18   12   22   DC2   | 50   32   62     2   | 82   52   122    R   | 114  72   162   r   |       
+| 19   13   23   DC3   | 51   33   63     3   | 83   53   123    S   | 115  73   163   s   |
+| 20   14   24   DC4   | 52   34   64     4   | 84   54   124    T   | 116  74   164   t   |       
+| 21   15   25   NAK   | 53   35   65     5   | 85   55   125    U   | 117  75   165   u   |       
+| 22   16   26   SYN   | 54   36   66     6   | 86   56   126    V   | 118  76   166   v   |       
+| 23   17   27   ETB   | 55   37   67     7   | 87   57   127    W   | 119  77   167   w   |       
+| 24   18   30   CAN   | 56   38   70     8   | 88   58   130    X   | 120  78   170   x   |
+| 25   19   31   EM    | 57   39   71     9   | 89   59   131    Y   | 121  79   171   y   |       
+| 26   1a   32   SUB   | 58   3a   72     :   | 90   5a   132    Z   | 122  7a   172   z   |       
+| 27   1b   33   ESC   | 59   3b   73     ;   | 91   5b   133    [   | 123  7b   173   {   |       
+| 28   1c   34   FS    | 60   3c   74     <   | 92   5c   134    \   | 124  7c   174   |   |       
+| 29   1d   35   GS    | 61   3d   75     =   | 93   5d   135    ]   | 125  7d   175   }   |       
+| 30   1e   36   RS    | 62   3e   76     >   | 94   5e   136    ^   | 126  7e   176   ~   |
+| 31   1f   37   US    | 63   3f   77     ?   | 95   5f   137    _   | 127  7f   177   DEL |
+============================================================================================
+Uppercase -> Lowercase : +32
+Index of character '0' : 48
+Index of character 'A' : 65
+
+Operator Precedence and Associativity
+
+From Highest Precedence         Associativity 
+::                              unary: left to right    binary: right to left
+() [] -> .                      left to right
+++ – + - ! ~ (type) * &         right to left
+sizeof                          right to left
+* / %                           left to right
++ -                             left to right
+<< >>                           left to right
+< <= > >=                       left to right
+== !=                           left to right
+&                               left to right
+^                               left to right
+|                               left to right
+&&                              left to right
+||                              left to right
+?:                              right to left
+= += -= *= /= %= &= ^= |=       right to left
+<<= >>=                         right to left
+,                               left to right
+
+-------------------------------------------------------------------------------------------------------------------------------
