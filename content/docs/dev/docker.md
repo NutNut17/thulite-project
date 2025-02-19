@@ -68,6 +68,31 @@ General Steps is after building the docker image with dockerfile, push the image
 #### Container Project Structure
 
 ```
+my-docker-project/
+│-- backend/
+│   ├-- Dockerfile
+│   ├-- package.json
+│   ├-- server.js
+│   ├-- src/
+│   └-- node_modules/
+│
+│-- frontend/
+│   ├-- Dockerfile
+│   ├-- package.json
+│   ├-- vue.config.js
+│   ├-- src/
+│   └-- node_modules/
+│
+│-- db-data/                  # Persistent database volume (bind mount)
+│
+│-- nginx/
+│   ├-- default.conf           # Nginx configuration for reverse proxy
+│   └-- Dockerfile
+│
+│-- docker-compose.yml
+│-- .env                       # Environment variables
+│-- .gitignore
+│-- README.md
 
 ```
 
@@ -94,7 +119,7 @@ COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 80
 ```
 
-This is the content of frontend `Dockerfile`. The `FROM` specifies a base image with node server and using lightweight and multiplatform alpine version. The working directory inside the container will be at `/app`. Then, the local json package file will be copied to the container first to initialize the modules by npm. Then, the rest of local file will be copied to the docker container. Note that the files specified in `.docketignore` will not be copied to the container. After the frontend in container have been built, the container will use ngnix web server of alpine version and and host it on `port 80` of the container.
+This is the content of frontend `Dockerfile`. The `FROM` specifies a base image with node server and using lightweight and multiplatform alpine version. The working directory inside the container will be at `/app`. Then, the local json package file will be copied to the container first to initialize the modules by npm. Then, the rest of local file will be copied to the docker container. Note that the files specified in `.dockerignore` will not be copied to the container. After the frontend in container have been built, the container will use ngnix web server of alpine version and and host it on `port 80` of the container.
 
 ```Dockerfile
 FROM node:alpine
@@ -108,44 +133,24 @@ CMD [ "npm", "start" ]
 
 This is the content of backend `Dockerfile`. It expose port 3000 of the container. Then it runs the `npm start` command defined in `package.json` to start the server inside the container.
 
-```yml
-version: '3.8'
+#### Multiplatform build and push
 
-services:
-  backend:
-    build: 
-      context: ./backend
-    ports:
-      - "3000:3000"
-    env_file:
-      - ./backend/.env
-
-  frontend:
-    build: 
-      context: ./frontend
-    ports:
-      - "5173:80"
-```
-
-This is a `docker-compose.yml` file, it's the starting point of the docker to run and the image container is defined in `Dockerfile`. In the configuration of the ports, `5173:80` indicates the port 80 in the container is accessible at port 5173 at the host server.
+Use `buildx` for advanced build like multiplatform build, caching, remote build, CI/CD integration.
 
 ```bash
-# Tag might be needed
-docker tag docker-test-frontend  nut17/docker-test:frontend   
+# Tag first
+docker tag docker-test-frontend nut17/docker-test:frontend 
+docker buildx build --platform linux/amd64,linux/arm64 -t nut17/docker-test:frontend --push .
 ```
 
 To build and push the image to the repository, run the following code in frontend's terminal. Alpine supports for linux arm64 and amd64 but it cannot work on windows. After the image is built in couple of time, the image will be uploaded to a repository. Do the same for backend. In case of cloud deploy, if the frontend and backend is at different server, the backend api url of frontend had to be adjusted to match.
-
-```bash
-docker buildx build --platform linux/amd64,linux/arm64 -t nut17/docker-test:frontend --push .
-```
 
 ### Docker Commands
 
 #### Lists all images
 
 ```bash
-docker ps -a:
+docker ps -a
 ```
 
 | Information | Description |
@@ -169,7 +174,7 @@ docker push username/your_image_name:tag
 docker pull username/your_image_name:tag
 ```
 
-The `pull` command fetches the image from the [**Docker registry**](https://hub.docker.com/explore/) and saves it to our system. Image format like `respository/image`, `repository/image:version` format is user defined image and image format like `server:version` is official images.
+The `pull` command fetches the image from the [Docker registry](https://hub.docker.com/explore/) and saves it to our system. Image format like `respository/image`, `repository/image:version` format is user defined image and image format like `server:version` is official images.
 
 #### Offline Sharing
 
@@ -198,7 +203,12 @@ docker stop <image_name>
 
 #### Tag
 
+A tagged image can tell more information about the version of the image
+
 ```bash
+docker tag my-app-image-id my-app:1.0.0 # Tag an image
+docker build -t my-app:1.0.0 .          # Tag while building an image
+docker push my-dockerhub-username/my-app:1.0.0 # Push tagged image to a registry
 ```
 
 #### Remove
@@ -207,8 +217,115 @@ docker stop <image_name>
 docker rm <image_id>
 ```
 
-#### Multiplatform build and push
+### Advanced Concepts
+
+#### Docker Network
+
+A container have it's own IP address and in default, they share over the default network bridge. We can isolate some containers into a private network.
 
 ```bash
-docker buildx build --platform linux/amd64,linux/arm64 -t respository/project:version --push .
+#!/bin/bash
+
+# build the flask container
+docker build -t yourusername/foodtrucks-web .
+
+# create the network
+docker network create foodtrucks-net
+
+# start the ES container
+docker run -d --name es --net foodtrucks-net -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.3.2
+
+# start the flask app container
+docker run -d --net foodtrucks-net -p 5000:5000 --name foodtrucks-web yourusername/foodtrucks-web
+
+# Remove network
+docker network rm network_name
+
+# Inspect network
+docker network inspect network_name
 ```
+
+- `-d`: Runs the container in detached mode (background).
+- `-p 9200:9200 -p 9300:9300`: 9200 is the main REST API port for Elasticsearch, 9300 is the internal port used for inter-node communication in Elasticsearch clusters.
+- `-e "discovery.type=single-node"`: Sets an environment variable inside the container, configures Elasticsearch to run in "single-node" mode, bypassing clustering logic. This is commonly used for development or testing environments.
+
+#### Docker Compose
+
+A tool for defining and running multi-container Docker applications.
+
+```yml
+version: "3"
+services:
+  es:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.3.2
+    container_name: es
+    environment:
+      - discovery.type=single-node
+    ports:
+      - 9201:9200
+    volumes:
+      - esdata1:/usr/share/elasticsearch/data
+  web:
+    build: .
+    command: python3 app.py
+    environment:
+      - DEBUG=True
+    depends_on:
+      - es
+    ports:
+      - 5000:5000
+    volumes:
+      - ./flask-app:/opt/flask-app
+volumes:
+  esdata1:
+    driver: local
+```
+
+This is a `docker-compose.yml` file, it's the starting point of the docker to run and the image container is defined in `Dockerfile`.
+
+- `9200:9200` indicates the port 9201 in the container is accessible at port 9200 at the host server.
+- `build`: Docker will look for a Dockerfile in the current directory to build the image in developement. Follow `image` configurations in the es container for release.
+- `environment: - DEBUG=True`: tells flask to update the server by changes in project.
+- `depends_on` tells docker to start the es container before web container.
+- `volumes` mount points in container for persistent database after restart.
+
+```bash
+# Run
+docker-compose up
+
+# Stop containers
+docker-compose down 
+
+# Stop and remove named volume
+docker-compose down -v
+```
+
+#### Persistent Data
+
+Docker provides two main ways to manage persistent data: Named Volumes and Bind Mounts. 
+
+A named volume is managed entirely by Docker, and Docker decides where to store it on the host machine. This is more portable but harder to access directly from host.
+
+```yml
+services:
+  myapp:
+    image: myimage
+    volumes:
+      - mydata:/app/data
+```
+- `mydata`: Named volume managed by Docker.
+- `/app/data`: Path inside the container where the volume is mounted.
+
+A bind mount directly links a specific directory on the host machine to a directory inside the container. This provides real-time synchronization of files between the host and the container. Better for code sharing during developement
+
+```yml
+services:
+  web:
+    image: myimage
+    volumes:
+      - ./my-local-dir:/app/data
+```
+- `./my-local-dir`: Path on the host machine (relative to the compose file).
+- `/app/data` : Path inside the container where the folder is mounted. 
+
+Reference: [Docker Curriculum](https://docker-curriculum.com/)

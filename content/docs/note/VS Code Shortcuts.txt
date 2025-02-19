@@ -1,0 +1,49 @@
+Shortcuts could be useful to faster coding speed. Here are some common and useful shortcuts for C/C++ VS Code.
+
+Source:
+https://code.visualstudio.com/docs/editor/codebasics
+https://www.sitepoint.com/visual-studio-code-keyboard-shortcuts/
+
+1. Block Comment
+highlight, shift + alt + A
+
+2. Select box or column of code
+shift + alt + drag mouse accross line
+
+3. Select Current Line
+ctrl + L
+
+4. Move line and blocks
+highlight, alt + up / down
+
+5. Copy line and blocks upwards or downwards
+highlight, shift + alt + up / down
+
+6. Code Formatting (Entire File)
+shift + alt + F
+
+7. Code Formatting (Part of File)
+highlight, ctrl + K ,then ctrl + F
+
+8. Quick Fix (For example: semicolon ; is missing at end of a statement)
+ctrl + .
+
+9. Trim White Space File at End of Line
+ctrl + K + X
+
+10. Multi-Cursor Selector
+alt + click to select multiple similar word or function
+highlight, ctrl + alt + up / down (selects the column stright above it)
+highlight, ctrl + D (selects the word at the cursor, or the next occurrence of the current selection)
+highlight, ctrl + shift + L (selection at each occurrence of the current selected text)
+
+11. Shrink / Expand Selection (Highlight)
+shift + alt + left(Shrink) / right(Expand)
+
+12. Zoom
+crtl + = to zoom ; ctrl + - to shrink
+
+13. Select lines above or below at the same column
+alt + control + arrow
+
+14. Delete a whole word in a row ctrl + backspace

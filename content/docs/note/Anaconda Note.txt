@@ -1,0 +1,26 @@
+# print(np.array([1, 2, 3, 4, 5]))
+
+# Note on python anaconda:
+# 1. Don't set anaconda on global unless needed
+# 2. Running cmd prompt will show default python intepreter
+# 3. Running anaconda prompt will show anaconda python intepreter
+# 4. Run ctrl+shift+p and choose 'Python: Select Intepreter' to change intepreter for vscode debug
+
+# conda install numpy == pip intall numpy
+# 'conda list' to show installed package, 'conda env list' to show all environment
+# 'where python' to show which version of python the system is using
+
+# Creating environment
+# conda create --name envtest1 python=3.10
+# conda create --name envtest2 python=3.11
+# conda create --name envtest3 python=3.8
+
+# Activate the environment
+# conda activate envtest1
+
+# Deactivate environment
+# conda deactivate
+# Remove environment
+# conda env remove --name envtest1
+
+# conda update --all
