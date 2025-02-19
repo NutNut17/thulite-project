@@ -236,8 +236,7 @@ grep -v "pattern" file.txt    # Display lines that do not match a pattern
 
 Source: [Linux Terminal](https://wirekat.com/how-to-use-the-terminal-in-linux/), [FreeCodeCamp](https://www.freecodecamp.org/news/the-linux-commands-handbook/)
 
-
-#### teletype
+#### Teletype
 
 `tty` stands for teletype, and it refers to a terminal or command-line interface that allows users to interact with the system.
 
@@ -267,7 +266,7 @@ echo "Hello World!"
 
 #### Permissions
 
-File have to change it's permission to enable execution. `r` read 4, `w` write '2', `x` write '1', `u` owner, `g` group, `o` others
+File have to change it's permission to enable execution. `r` read 4, `w` write 2, `x` write 1, `u` owner, `g` group, `o` others
 
 ```bash
 # Change mode
