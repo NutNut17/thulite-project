@@ -49,6 +49,10 @@ async function fetchData() {
 fetchData();
 ```
 
+```bash
+GET /users?age=30
+```
+
 Fetch `POST` request. To send data to the server
 
 ```js
@@ -81,6 +85,26 @@ fetch("https://api.example.com/user/123", {
 });
 ```
 
+#### HTTP Status Code
+
+- 4XX Client Error
+- 5XX Server Error
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful request, often a GET |
+| 201 | Successful request after a create, usually a POST |
+| 204 | Successful request with no content returned, usually a PUT or PATCH |
+| 301 | Permanently redirect to another endpoint |
+| 400 | Bad request (client should modify the request) |
+| 401 | Unauthorized, credentials not recognized |
+| 403 | Forbidden, credentials accepted but don’t have permission |
+| 404 | Not found, the resource does not exist |
+| 410 | Gone, the resource previously existed but does not now |
+| 429 | Too many requests, used for rate limiting and should include retry headers |
+| 500 | Server error, generic and worth looking at other 500-level errors instead |
+| 503 | Service unavailable, another where retry headers are useful |
+
 ### VS Code Extension: REST Client
 
 You can write a file in VS Code and send this API request to test the functionality
@@ -93,11 +117,15 @@ content-type: application/json
 }
 ```
 
-### Axios
+#### Axios
 
 Axios is a flexible HTTP client for making requests with features like automatic JSON parsing, request/response interception, and easier error handling
 
+```bash
+npm install axios
+```
 ```js
+import axios from "axios"
 try {
   const response = axios.post('https://example.com/api/resource', data, {
     Authorization: `Bearer ${token}`,
@@ -182,3 +210,49 @@ http.createServer((req, res) => {
 }).listen(80);
 ```
 
+### API Docs
+
+#### Swagger (OpenAPI)
+
+Swagger is an open-source API documentation tool that generates interactive and downloadable documentation for HTTP APIs. It provides a user-friendly interface for describing and testing APIs. Swagger use JSON or yaml to describe the API endpoints, parameters, and responses.
+
+#### FastAPI
+
+A python framework for building APIs, automatically generates API documentation using swagger UI.
+
+```bash
+pip install fastapi uvicorn fastapi[all]
+```
+
+```python {title="backend/main.py"}
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI()
+
+# Enable CORS for frontend requests
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],  # Update with frontend URL
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+@app.get("/api/message")
+def get_message():
+    return {"message": "Hello from FastAPI!"}
+```
+
+```bash
+uvicorn backend.main:app --reload
+```
+
+#### API Implemantation Practice
+
+1. Authentication
+2. Authorisation
+3. Input validation
+4. CRUD
+5. Notification (broadcast the event)
+6. Output filtering
