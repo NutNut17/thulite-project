@@ -31,9 +31,6 @@ Modern website uses HTML (HyperText Markup Language) to define the structure of 
     </div>
 </div>
 
-</div>
-</div>
-
 {{< tabs "website" >}}
 {{< tab "example.html" >}}
 
@@ -719,7 +716,7 @@ A fast, modern build tool and development server for JavaScript and TypeScript p
     </div>
 </div>
 
-Node.js is a JavaScript runtime environment available on backend. It is event driven, non-blocking I/O, fast and lightweight. `npm` (Node Package Manager) is well known for its vast ecosystem of libraries and module.
+Node.js is a JavaScript runtime environment available on backend. It is event driven, non-blocking I/O, fast and lightweight. `npm` (Node Package Manager) is well known for its vast ecosystem of libraries and module, it install the package globally. While `npx` runs package without installing them globally.
 
 Node.js uses `.js` file extension. But to use Es modules, `.mjs` is used as file extension. `.js` use `require()` to require, `module.exports` to export. `.mjs` use `import` and `export`. Set `"type": "module"` in `package.json` to use module if you're using `.js`
 

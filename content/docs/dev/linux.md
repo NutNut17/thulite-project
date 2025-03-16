@@ -547,3 +547,48 @@ journalctl # Query and display system logs.
 journalctl -u servicename # Filter logs for a specific service
 journalctl --since "2023-12-01 00:00:00" # Display logs since a specific time
 ```
+
+### Ubuntu 22.04 on VM Windows 11
+
+Shared Folder Location on Host:
+
+C:\MyFolder\Linux_Ubuntu\Ubuntu_SharedFolder
+C:\Users\howwi\OneDrive\Coding\UbuntuSF
+
+VM Folder: C:\Users\howwi\VirtualBox VMs\Ubuntu
+
+Shortcuts:
+
+```txt
+ctrl + L : Select current directory path in Nautilus(file explorer) to be copied or edit
+ctrl + alt + t : Open terminal
+ctrl + shift + C : Copy in terminal
+ctrl + shift + V : Paste in terminal
+ctrl + / : Undo the previous message done in terminal
+```
+
+#### Linux Installation (Ubuntu on Windows using Oracle VM)
+
+[Reference](https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview)
+
+1. Download Oracle VM Virtualbox: https://www.virtualbox.org/
+2. Download Ubuntu image: https://ubuntu.com/download/desktop
+3. Create / Load Machine (guest system): Goto machine -> new machine
+
+| Details | Description |
+| --- | --- |
+| Name | The name of the environment. If you include the word Ubuntu in your name the Type and Version will auto-update. |
+| Machine Folder | This is where your virtual machines will be stored so you can resume working on them whenever you like. |
+| ISO Image | Here you need to add a link to the ISO you downloaded from the Ubuntu website. |
+| User profile | To secure the ubuntu |
+| Add guess addition | Some addition like window sizing support could be added |
+| Define the Virtual Machine's resources | Recommended to use at least 8GB RAM, 4 CPUs, 32GB hard disk |
+| Create disk | You can create a new disk or load existing disk |
+
+#### Settings
+
+1. Bidirectional "copy and paste" and "drag and drop": Goto VM settings -> general -> advanced, set to bidirectional
+2. Enable network: Goto VM settings -> Network -> Adapter1 -> Choose Bridged Adapter1
+3. Adding USB: Goto VM settings -> Add new USB -> Choose USB
+4. Adding shared folder: Goto VM settings -> Shared Folders -> Set as auto mount and add folder path -> run VM. Make sure guess addition is added, then add user to vboxsf group: { sudo adduser [username] vboxsf } -> restart
+5. USB: Download vb extension pack on host [here](https://www.virtualbox.org/wiki/Downloads). Then goto File -> tools -> extension pack manager -> load the extension pack downloaded. Create vboxuser `sudo groupadd vboxusers`. Add yourself into the group `sudo usermod -aG vboxusers your_username`. In VM settings -> USB -> add filter -> start ubuntu -> goto file, then USB is there.

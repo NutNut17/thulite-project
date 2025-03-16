@@ -2,8 +2,8 @@
 title: "Roadmap"
 description: "My Roadmap"
 summary: "My Computer Science & Software Developement learning roadmap."
-date: 2023-09-07T16:27:22+02:00
-lastmod: 2023-09-07T16:27:22+02:00
+date: 2025-03-15T16:27:22+02:00
+lastmod: 2025-03-15T16:27:22+02:00
 draft: false
 weight: 50
 categories: []

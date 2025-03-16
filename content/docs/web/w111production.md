@@ -89,10 +89,10 @@ A global network of servers that deliver static content quickly to users (e.g., 
           {{< inline-svg src="svgs/logos/azure.svg" width="100px" height="79px" class="svg-inline-custom" >}}
         </div>
         <div class=" col-12 col-sm-4 flex-fill">
-          {{< inline-svg src="svgs/logos/firebase.svg" width="100px" height="79px" class="svg-inline-custom" >}}
+          {{< inline-svg src="svgs/logos/aws.svg" width="100px" height="79px" class="svg-inline-custom" >}}
         </div>
         <div class=" col-12 col-sm-4 flex-fill">
-          {{< inline-svg src="svgs/logos/aws.svg" width="100px" height="79px" class="svg-inline-custom" >}}
+          {{< inline-svg src="svgs/logos/firebase.svg" width="100px" height="79px" class="svg-inline-custom" >}}
         </div>
     </div>
 </div>
@@ -174,5 +174,3 @@ These framework support full backend frameworks
 | Heroku | X | O | Suitable for frontend + backend hosting together in one app |
 | Render | O | O | Ideal for dynamic backends or full-stack apps |
 | AWS EC2 + Elastic Beanstack (For deploying dynamic apps) + Lambda | O | O | Excellent for dynamic backends |
-
-Todo: Developement HTTPS, Deployment
