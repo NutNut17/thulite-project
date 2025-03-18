@@ -70,12 +70,12 @@ jobs:
         run: |
           sleep 10
           pwd
-          cat ./public/docs/web/javascript/index.html
+          # cat ./public/docs/web/javascript/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./public/thulite-project/
+          path: ./public/
 
   # Deployment job
   deploy:
