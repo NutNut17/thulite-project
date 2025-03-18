@@ -74,7 +74,7 @@ mainSections = ["docs"]
   editPage = true # false (default) or true
   lastMod = true # false (default) or true
   repoHost = "GitHub" # GitHub (default), Gitea, GitLab, Bitbucket, or BitbucketServer
-  docsRepo = "https://github.com/NutNut17/thulite-project/"
+  docsRepo = "https://github.com/NutNut17/"
   docsRepoBranch = "main" # main (default), master, or <branch name>
   docsRepoSubPath = "" # "" (none, default) or <sub path>
 
