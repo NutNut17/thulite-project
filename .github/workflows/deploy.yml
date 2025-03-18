@@ -36,7 +36,7 @@ jobs:
     steps:
       - name: Install Hugo CLI
         run: |
-          cd..
+          cd ..
           tree -L 2
           cd thulite-project
           sleep 10
@@ -69,7 +69,7 @@ jobs:
           npm run build \
             -- \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
-          cd..
+          cd ..
           tree -L 2
           cd thulite-project
           sleep 10
