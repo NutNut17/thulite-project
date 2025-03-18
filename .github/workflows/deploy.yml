@@ -69,7 +69,6 @@ jobs:
       - name: Debug Logging
         run: |
           sleep 10
-          tree -L 5 -I 'node_modules'
           pwd
           cat ./public/docs/web/javascript/index.html
 

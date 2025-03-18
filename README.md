@@ -3,10 +3,10 @@
   <h2 My personal note on software developement learning </h2>
 
   <p align="center">
-    <a href="https://github.com/NutNut17/gitprofile/stargazers"><img src="https://img.shields.io/github/stars/NutNut17/gitprofile"/></a>
-    <a href="https://github.com/NutNut17/gitprofile/network/members"><img src="https://img.shields.io/github/forks/NutNut17/gitprofile"/></a>
-    <a href="https://github.com/NutNut17/gitprofile/commits/main"><img src="https://img.shields.io/github/last-commit/NutNut17/gitprofile/main"/></a>
-    <a href="https://github.com/NutNut17/gitprofile/blob/main/LICENSE"><img src="https://img.shields.io/github/license/NutNut17/gitprofile"/></a>
+    <a href="https://github.com/NutNut17/thulite-project/stargazers"><img src="https://img.shields.io/github/stars/NutNut17/thulite-project"/></a>
+    <a href="https://github.com/NutNut17/thulite-project/network/members"><img src="https://img.shields.io/github/forks/NutNut17/thulite-project"/></a>
+    <a href="https://github.com/NutNut17/thulite-project/commits/main"><img src="https://img.shields.io/github/last-commit/NutNut17/thulite-project/main"/></a>
+    <a href="https://github.com/NutNut17/thulite-project/blob/main/LICENSE"><img src="https://img.shields.io/github/license/NutNut17/thulite-project"/></a>
   </p>
 
 </p>
@@ -30,7 +30,7 @@
 3. Run dev server.
 
   ```shell
-  npm run dev
+  hugo server
   ```
 
 4. Finally, visit `http://localhost:1313/` from your browser.
