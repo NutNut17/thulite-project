@@ -66,8 +66,10 @@ jobs:
             -- \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
 
-      - name: Check Project
-        run: tree -L 4  # Prints up to 3 levels deep
+      - name: Debug Logging
+        run: |
+          cat ./public/docs/web/javascript/index.html
+          tree -I 'node_modules'
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
