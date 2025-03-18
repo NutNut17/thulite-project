@@ -36,13 +36,6 @@ jobs:
     steps:
       - name: Install Hugo CLI
         run: |
-          pwd
-          cd ..
-          cd ..
-          pwd
-          tree -L 3
-          sleep 10
-
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
           && sudo dpkg -i ${{ runner.temp }}/hugo.deb
       - name: Install Dart Sass
@@ -69,8 +62,6 @@ jobs:
           HUGO_ENV: production
           TZ: America/Los_Angeles
         run: |
-          pwd
-          sleep 3
           npm run build \
             -- \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
@@ -79,11 +70,6 @@ jobs:
       - name: Debug Logging
         run: |
           pwd
-          tree -L 2
-          echo "${{ steps.pages.outputs.base_url }}/"
-          sleep 3
-
-          # cat ./public/docs/web/javascript/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

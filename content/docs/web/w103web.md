@@ -106,7 +106,7 @@ console.log(divide(10, 2)); // Outputs: 5
 {{< link-card
   title="JavaScript"
   description="Click here to understand basics of JavaScript"
-  href="/docs/web/javascript/"
+  href="/thulite-project/docs/web/javascript/"
 >}}
 
 {{< /tab >}}
@@ -551,7 +551,7 @@ Vue is an open-source JS framework for building single-page application similar 
 {{< link-card
   title="Vue"
   description="Click here to explore more about Vue"
-  href="/docs/web/vue/"
+  href="/thulite-project/docs/web/vue/"
 >}}
 
 #### Hugo (Static)
@@ -672,7 +672,7 @@ A backend web server is used to manage client request (Apache or Ngnix). Visit p
 {{< link-card
   title="Production"
   description="Click here to learn more about hosting platform"
-  href="/docs/web/production/"
+  href="/thulite-project/docs/web/production/"
 >}}
 
 #### Nuxt.js vs Next.js
@@ -785,7 +785,7 @@ Express.js is a minimal web framework for Node.js, designed to simplify building
 {{< link-card
   title="Express.js"
   description="Explore how Express.js works!"
-  href="/docs/web/express.js/"
+  href="/thulite-project/docs/web/express.js/"
 >}}
 
 #### Django
