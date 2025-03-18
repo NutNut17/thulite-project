@@ -68,8 +68,8 @@ jobs:
 
       - name: Debug Logging
         run: |
-          sleep 3
-          tree -L 4 -I 'node_modules'
+          sleep 10
+          tree -L 5 -I 'node_modules'
           cat ./public/docs/web/javascript/index.html
 
       - name: Upload artifact
