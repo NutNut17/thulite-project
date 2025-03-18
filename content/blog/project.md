@@ -2,8 +2,8 @@
 title: "Projects"
 description: "My Projects"
 summary: "My notable projects during undegrad studies."
-date: 2025-03-15T17:27:22+02:00
-lastmod: 2025-03-15T18:27:22+02:00
+date: 2025-03-17T17:27:22+02:00
+lastmod: 2025-03-17T18:27:22+02:00
 draft: false
 weight: 50
 categories: []
@@ -21,6 +21,8 @@ seo:
 ### Coming Soon | Personal Website
 
 This website is currently under development. Tech to be tried: Next.js, React, Tailwind CSS, Vercel Hosting, MongoDB, Chatbot with RAG.
+
+---
 
 ### 2025 Jan | System Design Full Stack Application
 
@@ -45,6 +47,8 @@ I took the lead in selecting the right tech stack, designing the system architec
 ![System Design](images/sysdes-register.png)
 ![System Design](images/sysdes-admin.png)
 {{< /details >}}
+
+---
 
 ### 2024 Dec | Graduation Topic Project - AI Application
 
