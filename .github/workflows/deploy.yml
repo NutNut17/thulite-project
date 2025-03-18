@@ -69,7 +69,7 @@ jobs:
       - name: Debug Logging
         run: |
           cat ./public/docs/web/javascript/index.html
-          tree -I 'node_modules'
+          tree -L 4 -I 'node_modules'
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
