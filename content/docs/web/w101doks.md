@@ -42,6 +42,14 @@ Shortcode is a feature from Hugo to provide feature elements like creating a lin
 {{</* /card-grid */>}}
 ````
 
+Callout blocks are indicated using `{{</* callout context="tip" title="Tips" icon="outline/rocket" */>}}{{</* /callout */>}}` to wrap your content, and can be of `type` `note`, `tip`, `caution` or `danger` like shown below.
+
+{{< callout context="tip" title="Tips" icon="outline/rocket" >}}
+
+This is a callout
+
+{{< /callout >}}
+
 {{< card-grid >}}
     {{< link-card title="Shortcode Docs" href="https://getdoks.org/docs/basics/shortcodes/" >}}
     {{< link-card title="Deploy Docs" href="https://docs.thulite.io/guides/deploy/" >}}

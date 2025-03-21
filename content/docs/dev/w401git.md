@@ -4,7 +4,7 @@ description: ""
 summary: ""
 date: 2024-10-18T20:27:34+08:00
 lastmod: 2024-10-18T20:27:34+08:00
-weight: 301
+weight: 401
 draft: false
 seo:
   title: "" # custom title (optional)
@@ -45,6 +45,14 @@ Git is a tool to track changes in a working directory(repository), a perfect too
       </div>
   </div>
 </div>
+
+| Feature | GitHub | GitLab | Bitbucket |
+| - | - | - | - |
+| Free Repos | Unlimited | Unlimited | Limited to 5 users |
+| CI/CD | GitHub Actions | Built-in | Pipelines |
+| Self-Hosting | No | Yes | Yes |
+| Integration | Widely supported | GitLab-exclusive | Atlassian tools |
+| Best For | Open-source projects, team collaboration | Enterprises and teams focused on DevOps workflows | Teams using Atlassian tools |
 
 ### Workflow and Concept
 
@@ -186,6 +194,7 @@ git add -i
 ```
 
 Reference: [git-guide](https://rogerdudler.github.io/git-guide/)
+Visual Tutorial: [Learning Git](https://learngitbranching.js.org/?locale=en_US&source=post_page-----c5dc0639dd9--------------------------------)
 
 ### GitHub
 
@@ -198,7 +207,7 @@ git remote add origin https://github.com/username/repository.git
 git push -u origin master
 ```
 
-GitHub repository have its own branch based on users. On each branch of user, the repository have its own branch. After a user fork a GitHub repository, that user can open a `Pull Request` to merge the fork back to the original branch and is to be reviewed by the original author.
+GitHub repository have its own branch based on GitHub users. On each branch of user, the repository have its own branch. After a user fork a GitHub repository, that user can open a `Pull Request` to merge the fork back to the original branch and is to be reviewed by the original author.
 
 ### Git on VS Code
 
@@ -208,10 +217,4 @@ VS Vode comes with a pre-built git UI system. It will detect a git repository on
 2. Create and checkout branch on `More Action...`
 3. Press `Fetch From All Remotes` and click `SYNC` to update to latest remote repository
 
-| Feature | GitHub | GitLab | Bitbucket |
-| - | - | - | - |
-| Free Repos | Unlimited | Unlimited | Limited to 5 users |
-| CI/CD | GitHub Actions | Built-in | Pipelines |
-| Self-Hosting | No | Yes | Yes |
-| Integration | Widely supported | GitLab-exclusive | Atlassian tools |
-| Best For | Open-source projects, team collaboration | Enterprises and teams focused on DevOps workflows | Teams using Atlassian tools |
+Alternately, Git Graph extension is also quite intuitive and easy to manage git visually.
