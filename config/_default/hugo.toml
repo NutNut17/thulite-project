@@ -61,6 +61,7 @@ timeout = "180s"
 [permalinks]
   blog = "/blog/:slug/"
   docs = "/docs/:sections[1:]/:slug/"
+  minecraft = "/minecraft/:sections[1:]/:slug/"
 # docs = "/docs/1.0/:sections[1:]/:slug/"
 
 [minify.tdewolff.html]

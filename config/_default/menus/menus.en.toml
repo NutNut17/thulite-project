@@ -25,7 +25,17 @@
 [[main]]
   name = "Blog"
   url = "/blog/"
+  weight = 20
+
+[[main]]
+  name = "Minecraft"
+  url = "/minecraft/projectn/showcase/"
   weight = 30
+
+[[main]]
+  name = "About Me"
+  url = "/aboutme/"
+  weight = 40
 
 # [[social]]
 #   name = "Discord"
