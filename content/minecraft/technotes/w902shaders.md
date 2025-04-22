@@ -1,6 +1,6 @@
 ---
 title: "Shaders"
-description: "Quick note for Java basic knowledge, concept and syntax"
+description: ""
 summary: ""
 date: 2024-10-08T19:53:05+08:00
 lastmod: 2024-10-08T19:53:05+08:00
