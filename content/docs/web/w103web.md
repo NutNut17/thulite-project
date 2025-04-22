@@ -406,7 +406,13 @@ $base-padding: 10px
 {{< inline-svg src="svgs/logos/tailwindcss-icon.svg" width="192px" height="150px" class="svg-inline-custom" >}}
 </div>
 
-A optimized and lightweight CSS framework with highly customizable developement and more configuration space than Bootstrap. Tailwind CSS does not impose a predefined style for components, but they have a utilities class to help building components. Tailwind also have 'purge' feature to remove unused CSS. Visit [Tailwind CSS](https://tailwindcss.com/) website for more info.
+A optimized and lightweight CSS framework with highly customizable developement and more configuration space than Bootstrap. Tailwind CSS does not impose a predefined style for components, but they have a utilities class to help building components. Tailwind also have 'purge' feature to remove unused CSS.
+
+{{< link-card
+  title="Tailwind CSS"
+  description="Click here to explore more about TailwindCSS"
+  href="/thulite-project/docs/web/vue/"
+>}}
 
 #### Purge CSS
 
@@ -544,7 +550,7 @@ Vue is an open-source JS framework for building single-page application similar 
 | - | - | - | - |
 | Learning Curve | Steep | Gentle |
 | Performance | Great on large, complex project | Great on small-medium, simple project |
-| State Management | Using hooks (Redux, Zustand) | Using reactive data (Pinia) |
+| State Management | Using hooks | Using reactive data (Pinia) |
 | Data Binding | One-way data binding (parent to child) | Two-way data binding |
 | Community | Vast and mass support and supported by Facebook | Growing Rapidly |
 
@@ -554,13 +560,19 @@ Vue is an open-source JS framework for building single-page application similar 
   href="/thulite-project/docs/web/vue/"
 >}}
 
+{{< link-card
+  title="React"
+  description="Click here to explore more about React, Next.js framework and web developement concepts"
+  href="/thulite-project/docs/web/react/"
+>}}
+
 #### Hugo (Static)
 
 <div style="margin: 3rem">
 {{< inline-svg src="svgs/logos/hugo.svg" width="192px" height="79px" class="svg-inline-custom" >}}
 </div>
 
-A framework wrtitten on GO for static content. It's very quick to build up. This website is powered by Hugo.
+A framework wrtitten on GO for static content developement and management. It's very quick to build up. This website is powered by Hugo.
 
 ### Backend Tools
 
@@ -651,7 +663,7 @@ A tool to identifying and fixing common issue in JavaScript on syntax error, pot
 {{< inline-svg src="svgs/logos/wordpress-icon.svg" width="192px" height="79px" class="svg-inline-custom" >}}
 </div>
 
-A full-stack online web content management system. Build website with templates easily
+A full-stack online web CMS (Content Management System). Build website with templates easily without coding.
 
 ### Backend Framework
 
@@ -718,7 +730,11 @@ A fast, modern build tool and development server for JavaScript and TypeScript p
 
 Node.js is a JavaScript runtime environment available on backend. It is event driven, non-blocking I/O, fast and lightweight. `npm` (Node Package Manager) is well known for its vast ecosystem of libraries and module, it install the package globally. While `npx` runs package without installing them globally.
 
-Node.js uses `.js` file extension. But to use Es modules, `.mjs` is used as file extension. `.js` use `require()` to require, `module.exports` to export. `.mjs` use `import` and `export`. Set `"type": "module"` in `package.json` to use module if you're using `.js`
+**JS**
+Node.js uses `.js` file extension, `require()`, `module.exports`.
+
+**ES Module**
+ES module use `.mjs`file extension, `import`, `export`. Set `"type": "module"` in `package.json` to use ES module if you're using `.js`
 
 Run `npm init -y` to generate `package.json` that record npm dependencies and metadata
 
@@ -817,13 +833,13 @@ A database used to store datas and can be hosted on different server.
 <div class="container-fluid" style="margin: 3rem">
     <div class="row">
         <div class=" col-12 col-sm-4 flex-fill">
+          {{< inline-svg src="svgs/logos/postgresql.svg" width="192px" height="79px" class="svg-inline-custom" >}}
+        </div>
+        <div class=" col-12 col-sm-4 flex-fill">
           {{< inline-svg src="svgs/logos/mysql.svg" width="192px" height="79px" class="svg-inline-custom" >}}
         </div>
         <div class=" col-12 col-sm-4 flex-fill">
           {{< inline-svg src="svgs/logos/sqlite.svg" width="192px" height="79px" class="svg-inline-custom" >}}
-        </div>
-        <div class=" col-12 col-sm-4 flex-fill">
-          {{< inline-svg src="svgs/logos/postgresql.svg" width="192px" height="79px" class="svg-inline-custom" >}}
         </div>
     </div>
 </div>
@@ -832,9 +848,9 @@ SQL (Structured Query Language) databases are structured database using tables w
 
 | SQL Databases | Feature |
 | - | - |
+| PostgreSQL | Open-sourced supporting relational and object-oriented feature and have strong performance |
 | MySQL | Classic SQL database |
 | SQLite | Suitable for smaller database |
-| PostgreSQL | Open-sourced supporting relational and object-oriented feature and have string performance |
 
 #### NoSQL
 
@@ -859,131 +875,23 @@ NoSQL Databases are suitable for unstructured data. Often used for real-time and
 
 | NoSQL Databases | Feature |
 |-|-|
-| MongoDB | For document store |
+| MongoDB | For document |
 | Firestore | Google cloud |
-| Redis | Key-value store |
+| Redis | Key-value |
 | Neo4j | Graph database |
 
 ### Tech Stack
 
 A tech stack refers to a set of tools, programming languages, and technologies that work together to build digital products or solutions such as websites, mobile, and web apps. Frontend tech stack is the client-side appplication such as visual appereance. Backend is the server-side software developement.
 
-Here are some top models for proven use
-
-#### LAMP
-
-<div class="container-fluid" style="margin: 3rem">
-    <div class="row">
-        <div class=" col-12 col-sm-3 flex-fill">
-          {{< inline-svg src="svgs/logos/linux.svg" width="100px" height="79px" class="svg-inline-custom" >}}
-        </div>
-        <div class=" col-12 col-sm-3 flex-fill">
-          {{< inline-svg src="svgs/logos/apache.svg" width="100px" height="79px" class="svg-inline-custom" >}}
-        </div>
-        <div class=" col-12 col-sm-3 flex-fill">
-          {{< inline-svg src="svgs/logos/mysql.svg" width="100px" height="79px" class="svg-inline-custom" >}}
-        </div>
-        <div class=" col-12 col-sm-3 flex-fill">
-          {{< inline-svg src="svgs/logos/php.svg" width="100px" height="79px" class="svg-inline-custom" >}}
-        </div>
-    </div>
-</div>
-
-> Linux, Apache, MySQL, PHP
-
-Cost efficiency, flexibility, performance
-
-#### ASP.NET
-
-> ASP.NET MVC, IIS, Angular, SQL, Azure
-
-For Windows
-
-#### MEAN
-
-<div class="container-fluid" style="margin: 3rem">
-    <div class="row">
-        <div class=" col-12 col-sm-3 flex-fill">
-          {{< inline-svg src="svgs/logos/mongodb-icon.svg" width="100px" height="79px" class="svg-inline-custom" >}}
-        </div>
-        <div class=" col-12 col-sm-3 flex-fill">
-          {{< inline-svg src="svgs/logos/express.svg" width="100px" height="79px" class="svg-inline-custom" >}}
-        </div>
-        <div class=" col-12 col-sm-3 flex-fill">
-          {{< inline-svg src="svgs/logos/angular.svg" width="100px" height="79px" class="svg-inline-custom" >}}
-        </div>
-        <div class=" col-12 col-sm-3 flex-fill">
-          {{< inline-svg src="svgs/logos/nodejs-icon.svg" width="100px" height="79px" class="svg-inline-custom" >}}
-        </div>
-    </div>
-</div>
-
-> MongoDB, Express.js, Angular.js, Node.js
-
-JS focused, open source, fast
-
-#### MERN
-
-<div class="container-fluid" style="margin: 3rem">
-    <div class="row">
-        <div class=" col-12 col-sm-3 flex-fill">
-          {{< inline-svg src="svgs/logos/mongodb-icon.svg" width="100px" height="79px" class="svg-inline-custom" >}}
-        </div>
-        <div class=" col-12 col-sm-3 flex-fill">
-          {{< inline-svg src="svgs/logos/express.svg" width="100px" height="79px" class="svg-inline-custom" >}}
-        </div>
-        <div class=" col-12 col-sm-3 flex-fill">
-          {{< inline-svg src="svgs/logos/react.svg" width="100px" height="79px" class="svg-inline-custom" >}}
-        </div>
-        <div class=" col-12 col-sm-3 flex-fill">
-          {{< inline-svg src="svgs/logos/nodejs-icon.svg" width="100px" height="79px" class="svg-inline-custom" >}}
-        </div>
-    </div>
-</div>
-
-> MongoDB, Express.js, React, Node.js
-
-MEAN with React as frontend
-
-#### MEVN
-
-<div class="container-fluid" style="margin: 3rem">
-    <div class="row">
-        <div class=" col-12 col-sm-3 flex-fill">
-          {{< inline-svg src="svgs/logos/mongodb-icon.svg" width="100px" height="79px" class="svg-inline-custom" >}}
-        </div>
-        <div class=" col-12 col-sm-3 flex-fill">
-          {{< inline-svg src="svgs/logos/express.svg" width="100px" height="79px" class="svg-inline-custom" >}}
-        </div>
-        <div class=" col-12 col-sm-3 flex-fill">
-          {{< inline-svg src="svgs/logos/vue.svg" width="100px" height="79px" class="svg-inline-custom" >}}
-        </div>
-        <div class=" col-12 col-sm-3 flex-fill">
-          {{< inline-svg src="svgs/logos/nodejs-icon.svg" width="100px" height="79px" class="svg-inline-custom" >}}
-        </div>
-    </div>
-</div>
-
-> MongoDB, Express.js, Vue, Node.js
-
-MEAN with Vue as frontend
-
-#### Python
-
-<div class="container-fluid" style="margin: 3rem">
-    <div class="row">
-        <div class=" col-12 col-sm-6 flex-fill">
-          {{< inline-svg src="svgs/logos/python.svg" width="100px" height="79px" class="svg-inline-custom" >}}
-        </div>
-        <div class=" col-12 col-sm-6 flex-fill">
-          {{< inline-svg src="svgs/logos/django.svg" width="100px" height="79px" class="svg-inline-custom" >}}
-        </div>
-    </div>
-</div>
-
-> Django
-
-Easy to use
+| Tech Stack | Tech |  Description |
+| - | - | - |
+| LAMP | Linux, Apache, MySQL, PHP | Cost efficiency, flexibility, performance |
+| MEAN | MongoDB, Express.js, Angular, Node.js | JS focused, open source, fast |
+| MERN | MongoDB, Express.js, React, Node.js | MEAN with React as frontend |
+| MEVN | MongoDB, Express.js, Vue, Node.js | MEAN with Vue as frontend |
+| ASP.NET | ASP.NET MVC, IIS, Angular, SQL, Azure | For Windows |
+| Python | Python, Django | Easy to use |
 
 ### Legacy Note
 
