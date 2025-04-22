@@ -178,6 +178,8 @@ Addon like mods, resource pack, maps, RTX mods are available on Minecraft bedroc
 
 #### Ray Tracing Packs
 
+These are combination of shaders and texture packs using path tracing only available for Minecraft Bedrock on deviced with NVIDIA RTX graphics card. Most packs have addon packs to enhance the gaming experience.
+
 **Kelly's RTX**
 
 ![Kelly's RTX](images/minecraft/util/rtxkelly.png)
@@ -189,6 +191,10 @@ Addon like mods, resource pack, maps, RTX mods are available on Minecraft bedroc
 **Defined RTX**
 
 ![Defined RTX](images/minecraft/util/rtxdefined.png)
+
+**RealSource RTX**
+
+![RealSource RTX](images/minecraft/util/rtxrealsource.png)
 
 Ashminggu is my favourite creator that creats Malaysia specific roadsign mods and vehicles mods at MCPEDL
 
