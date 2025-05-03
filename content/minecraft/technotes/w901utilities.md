@@ -31,25 +31,44 @@ An additive file to host Minecraft multiplayer server
 - Paper: fork of spigot with better performance
 - Fabric Server: lightweight and performance, but incompatible with bukkit plugins
 
-{{< link-card
-  title="Spigot"
-  description="How to install Spigot"
-  href="https://www.youtube.com/watch?v=uOEaHlYQBEw&ab_channel=foarest"
->}}
-
-Manual server setup is also available in this [tutorial](https://youtu.be/V6G_drxxdB4?si=dCneNTUZ-9P0pyBT) and [port forwarding](https://www.youtube.com/watch?v=MvNRNs6kHIc&ab_channel=GuideRealm) have to be done to serve.
-
 #### Plugin
 
-Plugin is a server mods. It cannot be used on client side. Some useful plugin are
+Plugin is a server mods. It cannot be used on client side. Some useful plugin are as below.
 
 | Plugin | Description |
 | --- | --- |
-| [Dynmap (Spigot)](https://www.spigotmc.org/resources/dynmap%C2%AE.274/) | Show real-time view of the worlds in the server. Type `http://localhost:8123/#` into broswer to view the map |
-| [Multiverse-Core (Spigot)](https://dev.bukkit.org/projects/multiverse-core) | A plugin to make multiple world exist in a same server |
+| [LuckPerm](https://luckperms.net/) | A permission mangement plugin |
+| [Dynmap](https://www.spigotmc.org/resources/dynmap%C2%AE.274/) | Show real-time view of the worlds in the server. Type `http://localhost:8123/#` into broswer to view the map |
+| [Multiverse-Core](https://dev.bukkit.org/projects/multiverse-core) | A plugin to make multiple world exist in a same server |
 | [Multiverse-Core Portals](https://dev.bukkit.org/projects/multiverse-portals) | Create portal between worlds |
+| MultiWorld | Alternative to Multiverse-Core on fabric server |
 | [WorldEdit](https://dev.bukkit.org/projects/worldedit/files) | Tool for faster building. `//wand` to get the tool |
+| FAWE (FastAsyncWorldEdit) | Optimized world edit, less stable |
+| VoxelSniper | Tool for distant building |
+| FastAsyncVoxelSniper | Optimized VoxelSniper |
 | [Dynamic Lightning](https://www.spigotmc.org/resources/basic-vanilla-server-side-dynamic-lighting.112024/) | Dynamic light when light source is hold |
+
+Most popular plugin have alternative and updates on modern servers like fabric and paper.
+
+**Minecraft World Browser Previewer**
+
+Dynmap is best for cost effective 2D and 3D preview. Blue map is best for preview quality. Pl3xmap is best for performance.
+
+{{< link-card
+  title="Compare World Preview"
+  description="Compare different world previews"
+  href="https://map.roanv.nl/"
+>}}
+
+**LuckPerm Commands**
+
+After the top level user permission is set, and admin group declared, run `lp user <username> parent add admin` to add user to admin group, and `lp group admin permission set pluginname.*` to enable plugin permission to admin group.
+
+{{< link-card
+  title="CPaper Chan's Hideout"
+  description="Paper Chan's guide for server optimization"
+  href="https://paper-chan.moe/"
+>}}
 
 #### Mods
 
@@ -65,6 +84,9 @@ Mods is an addon for client side.
 | Xaero's Map | both | World Map |
 | WorldEdit | both | Tool for faster building |
 | Distant Horizon | both | Render very far away chunks. Supported shaders: Photon, Complementary, Bliss, Rethinking Voxel, BSL |
+| [Litematica](https://litematica.org/) | both | Tool for load and export schematics |
+| [Axiom](https://axiom.moulberry.com/) | fabric | Tool for building utilities and editor |
+| Immersive Portals | See through portals and teleport seamlessly |
 
 #### Software and Website Utilities
 
