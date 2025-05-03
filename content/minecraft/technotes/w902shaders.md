@@ -18,7 +18,7 @@ seo:
 
 #### SEUS (Sonic Ether’s Unbelievable Shaders)
 
-Performance Requirement: ⭐⭐⭐ | Overall Rating: 3.86 | Style: `Classic Realistic View`
+Performance Requirement: `High` | Summary: `Highly realistic, PT` ⭐⭐⭐
 
 **Legacy SEUS**
 Classical PBR (Physically Based Rendering) Minecraft shader like SEUS V11, SEUS Ultra. Medium performance requirement.
@@ -41,7 +41,7 @@ Path Traced Global Illumination, a ray tracing shader without using RTX graphics
 
 #### BSL
 
-Performance Requirement: ⭐⭐ | Overall Rating: 3.87 | Style: `Clear Overall Gameplay`
+Performance Requirement: `medium` | Summary: `Clear overall, PBR` ⭐⭐⭐
 
 ![BSL](images/minecraft/shader/bsl.png)
 
@@ -55,7 +55,7 @@ BSL Shaders is a shaderpack made exclusively for Minecraft: Java Edition. It's b
 
 #### Complementary
 
-Performance Requirement: ⭐⭐ | Overall Rating: 3.79 | Style: `Fantasy Gameplay`
+Performance Requirement: `Medium` | Summary: `Fantasy colored lights, PBR` ⭐⭐⭐
 
 ![complementary](images/minecraft/shader/complementary.png)
 
@@ -77,7 +77,7 @@ Transforming the visuals of Minecraft with exceptional quality, detail, and perf
 
 #### Rethinking Voxel
 
-Performance Requirement: ⭐⭐ | Style: `Ray Tracing`
+Performance Requirement: `high` | Summary: `RT` ⭐⭐
 
 ![rethinkingvoxel](images/minecraft/shader/rethinkingvoxel.png)
 
@@ -85,7 +85,7 @@ Forked from Complementary Reimagined with voxelisation, ray traced occlusion che
 
 #### Sildur's Vibrant
 
-Performance Requirement: ⭐⭐ | Overall Rating: 3.89 | Style: `Fantasy Gameplay`
+Performance Requirement: `low` | Summary: `Vibrant colors` ⭐⭐
 
 ![sildursvibrant](images/minecraft/shader/sildursvibrant.png)
 
@@ -99,7 +99,7 @@ Highly saturated feel and optionable.
 
 #### Kappa
 
-Performance Requirement: ⭐⭐ | Overall Rating: 4.07 | Style: `Realistic Gameplay`
+Performance Requirement: `high` | Summary: `Realistic and clear, PT` ⭐⭐⭐
 
 Kappa Shaders is a good middle ground for players who want more realistic lighting and shadow effects, but don’t want to change the look of Minecraft too much overall. RRe36 is the creator of this shader, working on other shader projects like Kappa, KappaRT, Nostalgia, NostalgiaVX, Soft Voxel, Potato, Simplicissimus, UShader, Vanilla Plus
 
@@ -117,7 +117,7 @@ Kappa Shaders is a good middle ground for players who want more realistic lighti
 
 #### Nostalgia
 
-Performance Requirement: ⭐⭐ | Overall Rating: 4.07 | Style: `Legacy Realistic Classic Feel`
+Performance Requirement: `medium` | Summary: `Legacy realistic classical feel` ⭐⭐
 
 This shaderpack is intended to reproduce the look and feel of the "old" shaderpacks from back when the shadersmod was new. The advancement of this pack, `NostalgiaVX` features world-space path-traced lighting using voxels.
 
@@ -127,9 +127,17 @@ This shaderpack is intended to reproduce the look and feel of the "old" shaderpa
 **NostalgiaVX**
 ![nostalgiavx](images/minecraft/shader/nostalgiavx.png)
 
+#### Soft Voxels
+
+Performance Requirement: `medium` | Summary: `Smooth RT gameplay` ⭐⭐
+
+![softvoxel](images/minecraft/shader/softvoxel.png)
+
+Stable ray traced performance but quality is reduced.
+
 #### Project LUMA
 
-Performance Requirement: ⭐⭐ | Overall Rating: 3.85 | Style: `Realistic`
+Performance Requirement: `medium` | Summary: `Realistic` ⭐⭐
 
 ![projectluma](images/minecraft/shader/projectluma.png)
 
@@ -137,15 +145,23 @@ Continued after KUDA, ProjectLUMA's primary goal is to make the game world look 
 
 #### Chocapic13's
 
-Performance Requirement: ⭐⭐ | Overall Rating: 3.86 | Style: `Realistic`
+Performance Requirement: `low` | Summary: `Realistic` ⭐⭐
 
 ![chocapic13](images/minecraft/shader/chocapic13.png)
 
 Chocapic13’s Shaders mod is very easy for developers to work on. One of the best effects is actually the fog, which couples very well with dark and rainy nights.
 
+#### Bliss
+
+Performance Requirement: `low` | Summary: `Fantasy` ⭐⭐
+
+![bliss](images/minecraft/shader/bliss.png)
+
+This is an edit of Chocapic's shader. With rich color change on different environment.
+
 #### Continuum
 
-Performance Requirement: ⭐⭐ | Overall Rating: 3.94 | Style: `Cinematic View`
+Performance Requirement: `medium` | Summary: `Cinematic view, PT` ⭐⭐
 
 One of the highly liked shaders on market. Brings nearly AAA natural color and lighting effects.
 
@@ -175,7 +191,7 @@ A high resolution, realistically themed texture pack for Minecraft made by Conti
 
 #### Voyager
 
-Performance Requirement: ⭐⭐ | Overall Rating: 3.91 | Style: `Cinematic View`
+Performance Requirement: `medium` | Summary: `Cinematic view` ⭐⭐
 
 ![voyager](images/minecraft/shader/voyager.png)
 
@@ -183,15 +199,37 @@ Suitable for cinematic scene on a long distance sun rays view and in the presenc
 
 #### ApolloRT
 
-Performance Requirement: ⭐⭐⭐ | Style: `Ray Tracing`
+Performance Requirement:  `medium` | Summary: `RT` ⭐⭐
 
 ![apollort](images/minecraft/shader/apollort.png)
 
 A ray tracing shaders created by [snuft](https://www.snurf.graphics/projects), obtainable through patreon. For some reason, it was deprecated.
 
+#### Photon
+
+Performance Requirement:  `medium` | Summary: `Colored lights, RT` ⭐⭐
+
+Great sky and colored lighting.
+
+![photon](images/minecraft/shader/photon.png)
+
+#### MollyVX
+
+Performance Requirement:  `high` | Summary: `Colored lights, RT` ⭐⭐
+
+![mollyvx](images/minecraft/shader/mollyvx.png)
+
+MollyVX is a path tracing shader that adds a whole layer of visual fidelity to Minecraft. This shader sports stunning lighting that models the way light travels in real life.
+
+{{< link-card
+  title="MollyVX"
+  description="Official MollyVX website"
+  href="https://rutherin.netlify.app/mollyvx.html"
+>}}
+
 #### Makeup Ultra Fast
 
-Performance Requirement: ⭐ | Overall Rating: 3.81 | Style: `Vanilla Gameplay`
+Performance Requirement: `low` | Sumamry: `Vanilla Gameplay` ⭐⭐
 
 ![makeupultrafast](images/minecraft/shader/makeupultrafast.png)
 
@@ -199,15 +237,22 @@ A performance vanilla-based shader
 
 ### Comparison
 
-| Shader | Noon | Sunset | Night | Water | Underwater | Rain | Light |Conclusion |
-| - |- | - | - | - | - | - | - | - | - | - |
-| SEUS | Clear | Blue | Very dark | Reflective waves | Blue-Cyan | Wet | Very warm | Classic ultrarealistic and beautiful on day and water |
-| BSL | Cold | Gold | Blue | Plain | Plain | Gray | Neutral | Cold and clear feel, suitable for city |
-| Complementary | Cold | Warm | N/A | Clear dark | Blue | N/A | Neutral | Colorful |
-| Sildur's Vibrant | Colorful | Purple | Dark | Cyan | Light Blue | Gray | Warm | Fantasy vibrant feel |
-| Kappa | Warm | Gold | N/A | Plain | Cyan | N/A | N/A | Realistic view, suitable for enjoying natural landscape |
-| Project LUMA | Clear | Clear | Vanilla | Clear blue | Dark | Vanilla | Warm | Suitable for photorealistic day |
-| Continuum | Clear | N/A | N/A | N/A | N/A | N/A | N/A | Realistic view |
+| Shader | FPS | RT | PBR/POM | Coloured Light | Interior Brightness |
+| --- | --- | --- | --- | --- | --- |
+| Bliss | 100 | ✗ | glass only | ✗ | dark |
+| BSL | 100 | ✗ | ✗ | ✗ | bright |
+| Complementary (Ultra + LabPBR) | 60 | ✗ | metals only | ✓ | bright |
+| Continuum v2.0.5 | 120 | ✗ | fully | ✗ | dark |
+| Kappa v5.3 | 75 | ✓ | ✗ | ✓ | dark |
+| MollyVX | 40 | ✓ | fully | ✓ | bright |
+| Nostalgia | 85 | ✗ | ✗ | ✓ | dark |
+| ProjectLUMA | 100 | ✗ | fully | ✗ | dark |
+| Rethinking Voxel | 10 | ✓ | metals only | ✓ | bright |
+| SEUS PTGI E11, E12 | 60 | ✓ | fully | ✓ | bright |
+| SEUS PTGI HRR | 60 | ✓ | fully | ✓ | dark |
+| SEUS Renewed | 100 | ✗ | metals only | ✗ | dark |
+| Sildrus Vibrant | 150 | ✗ | glass only | ✗ | bright |
+| Soft Voxel Lite | 50 | ✓ | ✗ | ✓ | bright |
 
 {{< link-card
   title="Shadersmods"

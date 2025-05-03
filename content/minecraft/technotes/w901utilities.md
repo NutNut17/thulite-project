@@ -63,7 +63,8 @@ Mods is an addon for client side.
 | Lithium | fabric | physics mod |
 | Xaero's Minimap | both | Minimap that follows you, press Y for setting |
 | Xaero's Map | both | World Map |
-| Worldedit | both | Tool for faster building |
+| WorldEdit | both | Tool for faster building |
+| Distant Horizon | both | Render very far away chunks. Supported shaders: Photon, Complementary, Bliss, Rethinking Voxel, BSL |
 
 #### Software and Website Utilities
 

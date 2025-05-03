@@ -76,3 +76,5 @@ const stone2 = { 0: "Sandstone", 1: "chiseles", 2: "cut", 3: "smooth" }
 1. Brush a tool with sphere and paint sand by masking air
 2. Replace all sand with dirt
 3. Change dirt to stone then add a layer of sand for grass
+
+- Left click holding a compass to teleport and right click to pass through wall
