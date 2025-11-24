@@ -14,7 +14,7 @@ seo:
   noindex: false # false (default) or true
 ---
 
-This page cover advanced topic. Ordered by roadmap and the best solution in later part.
+This page cover advanced topic. Ordered by roadmap.
 
 ### Array and Strings
 
@@ -817,3 +817,7 @@ K-means、DBSCAN、Spectral Clustering
 Online Algorithms / Competitive Analysis：做即時決策
 
 Parallel / Distributed Algorithms：多執行緒、GPU 編程、MapReduce
+
+#### NP Problem
+
+![np](/images/np.png)

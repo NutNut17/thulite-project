@@ -26,6 +26,8 @@ Most popular and a lightweight code editor.
 | GitHub Copilot | AI code completion |
 | Windsurt(Codeium) | AI code completion |
 
+A codespace is a temporary VS Code IDE on browser. Start to edit a existing repository on the browser. Commit are required after editing the code, if not, the update will not be applied. The codespace have a Linux server running behind.
+
 #### JetBrains
 
 JetBrains IDEs have great features of intelligent code assistance with Built-in Git UI, class renaming feature, memory & CPU profiling, remote development. But it's heavy and not free. Suitable for full-stack, backend, and enterprise environments.

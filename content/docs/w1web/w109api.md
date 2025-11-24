@@ -153,8 +153,6 @@ content-type: application/json
 }
 ```
 
-### API Call Utilities
-
 #### Axios
 
 Axios is a flexible HTTP client for making requests with features like automatic JSON parsing, request/response interception, and easier error handling
@@ -259,7 +257,7 @@ http.createServer((req, res) => {
 
 ### GraphQL
 
-GraphQL is a data query language allows specifying what data is to be retrieved. Used in FB, GitHub API.
+GraphQL is a data query language allows specifying what data is to be retrieved. Will not take unncessary data. Used a lot in modern web apps like GitHub, Pinterest.
 
 ```graphql {title="Example Query"}
 {
@@ -277,3 +275,19 @@ GraphQL is a data query language allows specifying what data is to be retrieved.
 Graph API is an API for graph database like `Neo4j`, `networkx`. Not related to GraphQL.
 
 {{< /callout >}}
+
+### gRPC
+
+A faster protocol that communicates with binary. Used in modern high performance requirements applications like Google, Facebook, Netflix, etc.
+
+### WebHook / Reverse API
+
+Trigger a request when an event happends. The client will not constatly check for update.
+
+### WebSocker
+
+Real time API. Suitable for chat, video call, and games.
+
+### WebRTC
+
+Communication with peers without a server. Used in video call, chat, games.
